@@ -14,7 +14,7 @@
                         <h5>"<i>Really, meh?</i>" = Singlish for "<i>Is that a fact?</i>" </h5>
                         <hr>
                         <p>With social media today, we often end up living in echo chambers and filter bubbles that define our perception of the world. With just 10 questions about different topics, discover your own misperceptions and compare them against others and against the real facts (not #alternativefacts). Don't be fooled by fake news. Challenge yourself against the facts here.</p>
-                        <p> {{ @msg.title }} - {{ @msg.text }} </p>
+                        <p> <?php echo $msg['title']; ?> - <?php echo $msg['text']; ?> </p>
                     </div>
                 </div>
             </div>
