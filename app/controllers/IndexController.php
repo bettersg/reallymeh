@@ -5,16 +5,14 @@ class IndexController extends Controller {
 	function beforeroute() {
 		// session management if required
 		// render header
-		echo Template::instance()->render('header.html');
+		echo \Template::instance()->render('header.html');
 	}
 
 	function render($f3){
-		$messages = new Messages($this->db);
-		$msg = $messages->all()[0];
-		$f3->set('msg',$msg);
+		$quizzes = new Quizzes($this->db);
+		$quiz = $quizzes->all();
+		$f3->set('quiz',$quiz);
 
-		$f3->set('hello','hello world');
-
-		echo Template::instance()->render('index.html');
+		echo \Template::instance()->render('index.html');
 	}
 }

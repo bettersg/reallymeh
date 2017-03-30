@@ -4,7 +4,7 @@ class Controller {
 	function afterroute() {
 		// session management if required
 		// render header
-		echo Template::instance()->render('footer.html');
+		echo \Template::instance()->render('footer.html');
 	}
 
 	protected $f3;

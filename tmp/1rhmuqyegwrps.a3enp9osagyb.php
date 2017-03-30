@@ -7,44 +7,44 @@
             </div>             
         </nav>
         <div class="container quiz-title-class">
-            <h3>{{ @quiz.name }}</h3>
+            <h3><?php echo $quiz['name']; ?></h3>
             <div class="well">
                 <div class="row">
-                    <div class="col-xs-6">{{ date('d M',strtotime(@quiz.createdat)) }}                         
+                    <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?>                         
 </div>
                     <div class="col-xs-3 text-right">
-                        {{ @quiz.numparticipants }} 
+                        <?php echo $quiz['numparticipants']; ?> 
                         <i class="fa fa-users fa-lg"></i> 
                     </div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/quiz/{{@eachquiz.id}}"></span> 
+                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/quiz/<?php echo $eachquiz['id']; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p>{{ @quiz.description }}</p>
+                        <p><?php echo $quiz['description']; ?></p>
                     </div>
                 </div>
             </div>             
         </div>
         <div class="container">
         
-        <repeat group="{{ @questions }}" key="{{ @count }}" value="{{ @question }}">
+        <?php foreach (($questions?:[]) as $count=>$question): ?>
             
         
             <div class="row">
                 <div class="col-md-6">
-                    <h5>{{ @count + 1 }}. {{ @question.text }}</h5> 
+                    <h5><?php echo $count + 1; ?>. <?php echo $question['text']; ?></h5> 
                 </div>
                 <div class="col-md-6">
                     <select class="form-control bg-silver"> 
-                        <include href="options.html" with="id={{@question.id}}" />                                           
+                        <?php echo $this->render('options.html',$this->mime,['id'=>$question['id']]+get_defined_vars(),0); ?>                                           
                     </select>                     
                 </div>
             </div>
 
-        </repeat>
+        <?php endforeach; ?>
 
 
             
