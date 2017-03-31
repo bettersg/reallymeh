@@ -37,9 +37,9 @@
                 <div class="col-md-6">
                     <h5><?php echo $count + 1; ?>. <?php echo $question['text']; ?></h5> 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6"><?php echo $question['id']; ?>  
                     <select class="form-control bg-silver"> 
-                        <?php echo $this->render('options.html',$this->mime,['id'=>$question['id']]+get_defined_vars(),0); ?>                                           
+                                              
                     </select>                     
                 </div>
             </div>

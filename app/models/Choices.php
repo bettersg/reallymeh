@@ -16,6 +16,8 @@ class Choices extends DB\SQL\Mapper{
 	    $this->load(array('question_id_fk=?',$id));
 	    return $this->query;
 	}
+
+	
 	public function add() {
 	    $this->copyFrom('POST');
 	    $this->save();

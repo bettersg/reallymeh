@@ -13,9 +13,19 @@ class Questions extends DB\SQL\Mapper{
 	    return $this->query;
 	}	
 	public function getByQuizId($id) {
-	    $this->load(array('quiz_id_fk=?',$id));
-	    return $this->query;
-	}
+	    $questions = $question_mapper->find(['quiz_id_fk=?',$id]);
+	    foreach($questions as &$question) {
+	    	$question['options'] = $options_mapper->find(['question_id_fk=?',$question['id']]);
+	    }
+	    return $questions;
+//	    $this->load(array('quiz_id_fk=?',$id));
+//	    return $this->query;
+	}	
+
+//	public function getOptions($id) {
+//	    return (new Choices)->getByQuestionId($id);
+//	}	
+
 	public function add() {
 	    $this->copyFrom('POST');
 	    $this->save();

@@ -16,7 +16,7 @@ class QuizController extends Controller {
 		$thisquiz = new Questions($this->db);
 		$questions = $thisquiz->getByQuizId(1);
 		$f3->set('questions',$questions);
-		
+
 		echo \Template::instance()->render('quiz1.html');
 	}
 }
