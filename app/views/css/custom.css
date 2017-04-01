@@ -1,3 +1,14 @@
 
 
 /* Put your custom styles here */
+
+.btn .active
+{
+    background-color: #25cba0;
+}
+
+.radio input[type="radio"]
+{
+    display: none;
+}
+

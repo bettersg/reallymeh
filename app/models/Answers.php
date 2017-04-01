@@ -1,8 +1,7 @@
 <?php
-class Choices extends DB\SQL\Mapper{
+class Answers extends DB\SQL\Mapper{
 	public function __construct(DB\SQL $db) {
-	    parent::__construct($db,'choices');
-//	    $choices_mapper=new \DB\SQL\Mapper($db,'choices');
+	    parent::__construct($db,'answers');
 	}
 	
 	public function all() {
@@ -13,26 +12,17 @@ class Choices extends DB\SQL\Mapper{
 	    $this->load(array('id=?',$id));
 	    return $this->query;
 	}
-	public function getByQuestionId($id) {
-	    $this->load(array('question_id_fk=?',$id));
-	    return $this->query;
-	}
-
-	public function getChoices($id) {		
-	    $this->load(array('question_id_fk=?',$id));    
-  	}
+// need functions to collate and average the data by demographic group
 
 	public function add() {
 	    $this->copyFrom('POST');
 	    $this->save();
-	}
-	
+	}	
 	public function edit($id) {
 	    $this->load(array('id=?',$id));
 	    $this->copyFrom('POST');
 	    $this->update();
 	}
-	
 	public function delete($id) {
 	    $this->load(array('id=?',$id));
 	    $this->erase();

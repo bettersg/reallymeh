@@ -861,7 +861,7 @@ Version: 1.0
 
 .content-1-1
 {
-    background: url("../images/typewriter-bg.jpg") center bottom no-repeat;
+    background: url("../images/typewriter-bg.jpg") center top no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
