@@ -24,7 +24,7 @@
                 </div>
             </div>             
         </div>
-    <form method="POST" action="/submit">
+    <form method="POST" action="/answer/<?php echo $quiz['id']; ?>">
         <input type="hidden" name="quiz_id_fk" value="<?php echo $quiz['id']; ?>">
         <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
         
