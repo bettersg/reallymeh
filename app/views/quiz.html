@@ -24,7 +24,7 @@
                 </div>
             </div>             
         </div>
-    <form method="POST" action="/answer/{{@quiz.id}}">
+    <form method="POST" action="{{@BASE}}/answer/{{@quiz.id}}">
         <input type="hidden" name="quiz_id_fk" value="{{@quiz.id}}">
         <input type="hidden" name="ipaddress" value="{{$_SERVER['REMOTE_ADDR']}}">
         
@@ -40,12 +40,32 @@
                     </check> 
                 </div>            
                 <div class="col-md-6">
-                    <select class="form-control bg-silver" name="question{{@question.id}}"> 
+                    <select class="form-control bg-silver" name="question{{@count+1}}"> 
                       <switch expr="{{@question.options[0].optiontype}}">
                         <case value="100percent">
-                            <option value="1">1%</option>
-                            <option value="100">100%</option>
+                                <loop from="{{ @i=0 }}" to="{{ @i < 101 }}" step="{{ @i++ }}">
+                                        <option value="{{ @i }}">{{@i}} %</option>
+                                </loop>
                         </case>
+                        <case value="trueorfalse">
+                            <option value="True">True</option>
+                            <option value="False">False</option>
+                        </case>
+                        <case value="months">
+                            <option value="January">January</option>                           
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </case>
+                        
                         <case value="CUSTOM">
                             <repeat group="@question.options" value="@option">
                                 <option value="{{@option.text}}">{{@option.text}}</option>

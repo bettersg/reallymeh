@@ -25,13 +25,13 @@
                 </div>
             </div> 
         </div>
-        <div class="container">
+        <div class="container"> <!-- <?php echo $correctcount = 0; ?> -->
             
             <?php foreach (($questions?:[]) as $count=>$question): ?>
             
                 <div class="row">
                     <div class="col-md-6">
-                        <!-- <?php echo $correctcount = 0; ?> <?php echo $currentnumber = $count+1; ?> -->
+                        <!--  <?php echo $currentnumber = $count+1; ?> -->
                         <h5><?php echo $currentnumber; ?>. <?php echo $question['text']; ?></h5> 
                         <?php if ($question['byline']): ?>
                             <small><?php echo $question['byline']; ?></small>                            

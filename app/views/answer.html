@@ -25,13 +25,13 @@
                 </div>
             </div> 
         </div>
-        <div class="container">
+        <div class="container"> <!-- {{ @correctcount = 0 }} -->
             
             <repeat group="{{ @questions }}" key="{{ @count }}" value="{{ @question }}">
             
                 <div class="row">
                     <div class="col-md-6">
-                        <!-- {{ @correctcount = 0 }} {{ @currentnumber = @count+1 }} -->
+                        <!--  {{ @currentnumber = @count+1 }} -->
                         <h5>{{ @currentnumber }}. {{ @question.text }}</h5> 
                         <check if="{{ @question.byline }}">
                             <true><small>{{ @question.byline }}</small></true>                            

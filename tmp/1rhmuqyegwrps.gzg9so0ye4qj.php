@@ -24,7 +24,7 @@
                 </div>
             </div>             
         </div>
-    <form method="POST" action="/answer/<?php echo $quiz['id']; ?>">
+    <form method="POST" action="<?php echo $BASE; ?>/answer/<?php echo $quiz['id']; ?>">
         <input type="hidden" name="quiz_id_fk" value="<?php echo $quiz['id']; ?>">
         <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
         
@@ -40,10 +40,27 @@
                     <?php endif; ?> 
                 </div>            
                 <div class="col-md-6">
-                    <select class="form-control bg-silver" name="question<?php echo $question['id']; ?>"> 
+                    <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                       <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
-                            <option value="1">1%</option>
-                            <option value="100">100%</option>
+                                <?php for ($i=0;$i < 101;$i++): ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?> %</option>
+                                <?php endfor; ?>
+                        <?php break; ?><?php case 'trueorfalse': ?>
+                            <option value="True">True</option>
+                            <option value="False">False</option>
+                        <?php break; ?><?php case 'months': ?>
+                            <option value="January">January</option>                           
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
                         <?php break; ?><?php case 'CUSTOM': ?>
                             <?php foreach (($question['options']?:[]) as $option): ?>
                                 <option value="<?php echo $option['text']; ?>"><?php echo $option['text']; ?></option>
