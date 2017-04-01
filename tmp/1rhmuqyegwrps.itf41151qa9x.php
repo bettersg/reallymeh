@@ -50,19 +50,19 @@
                                 <?php else: ?><span class="answer_wrong">Wrong.</span>
                             <?php endif; ?>
                         </p>
-                        <p>The correct answer is: <?php echo $question['correctanswer']; ?></p>
-                        <p><?php echo $question['answerwriteup']; ?></p>
+                        <p>The correct answer is: <?php echo $question['correctanswer']; ?></p>                        
                         <p>Other people guessed: [feature coming soon]</p>
+                        <p><?php echo $question['answerwriteup']; ?></p>
                     </div>
                     <hr class="bg-silver" />
                 </div>
 
             <?php endforeach; ?>  
             <div class="well text-center col-sm-6 col-sm-offset-3">
-                <img src="<?php echo $BASE; ?>/app/views/images/blursotong.jpg" width="100%" class="img-rounded img-responsive" />
+                <img src="<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
-                Only <?php echo $correctcount; ?>/10 correct! You have received the 
-                    <b><?php switch ($correctcount): ?><?php case '10': ?>Champion Nerd<?php break; ?><?php case '9': ?>Champion Nerd<?php break; ?><?php case '8': ?>Super Nerd<?php break; ?><?php case '7': ?>Exam Smart<?php break; ?><?php case '6': ?>Good Attempt<?php break; ?><?php case '5': ?>Just Passed<?php break; ?><?php case '4': ?>Almost Can<?php break; ?><?php case '3': ?>Alamak<?php break; ?><?php case '2': ?>Alamak<?php break; ?><?php case '1': ?>Jialat<?php break; ?><?php case '0': ?>Blur Sotong King<?php break; ?><?php endswitch; ?></b>
+                <?php echo $correctcount; ?>/10 correct! You have received the 
+                    <b><?php switch ($correctcount): ?><?php case '10': ?>Champion Nerd<?php break; ?><?php case '9': ?>Ultra Nerd<?php break; ?><?php case '8': ?>Super Nerd<?php break; ?><?php case '7': ?>Exam Smart<?php break; ?><?php case '6': ?>Good Attempt<?php break; ?><?php case '5': ?>Just Passed<?php break; ?><?php case '4': ?>Almost Can<?php break; ?><?php case '3': ?>Alamak<?php break; ?><?php case '2': ?>Alamak<?php break; ?><?php case '1': ?>Jialat<?php break; ?><?php case '0': ?>Blur Sotong King<?php break; ?><?php endswitch; ?></b>
                 award!</h4>
             </div>              
 

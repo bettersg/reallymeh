@@ -16,7 +16,7 @@ class Quizzes extends DB\SQL\Mapper{
 	    $this->copyFrom('POST');
 	    $this->save();
 	}
-	
+
 	public function edit($id) {
 	    $this->load(array('id=?',$id));
 	    $this->copyFrom('POST');

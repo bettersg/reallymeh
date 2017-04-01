@@ -14,6 +14,7 @@ class AnswerController extends Controller {
 		$quizresults = new Answers($this->db);		
 		$quizresults->add();
 
+
 		$id = $this->f3->get('POST.quiz_id_fk');
 
 		// set the user's answers to variable quizresults
@@ -22,7 +23,11 @@ class AnswerController extends Controller {
 		// set the quiz name and description from database
 		$quizzes = new Quizzes($this->db);
 	    $quiz = $quizzes->getById($params['id'])[0];
+	    $quiz->numparticipants++;
+	    $quiz->save();
 	    $f3->set('quiz',$quiz->cast());
+
+		// add another participant to the count
 
 		// set the correct answers to variable thisquiz from the Questions database
 		// $questions = new Questions($this->db);

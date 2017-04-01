@@ -11,7 +11,7 @@
             <div class="well">
                 <div class="row">
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
-                    <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?><i class="fa fa-users fa-lg"></i></div>
+                    <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
                         <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/quiz/<?php echo $eachquiz['id']; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
@@ -34,7 +34,10 @@
             
             <div class="row">
                 <div class="col-md-6">
-                    <h5><?php echo $count + 1; ?>. <?php echo $question['text']; ?></h5> 
+                    <h5><?php echo $count + 1; ?>. <?php echo $question['text']; ?></h5>
+                    <?php if ($question['byline']): ?>
+                        <small><?php echo $question['byline']; ?></small>                            
+                    <?php endif; ?> 
                 </div>            
                 <div class="col-md-6">
                     <select class="form-control bg-silver" name="question<?php echo $question['id']; ?>"> 
@@ -49,7 +52,6 @@
                     </select>        
                 </div>
             </div>
-
         <?php endforeach; ?>    
         <hr class="bg-silver" />
         </div>
