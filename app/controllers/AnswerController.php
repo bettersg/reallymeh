@@ -25,9 +25,14 @@ class AnswerController extends Controller {
 	    $f3->set('quiz',$quiz->cast());
 
 		// set the correct answers to variable thisquiz from the Questions database
-		$questions = new Questions($this->db);
-	    $thisquiz = $questions->getById($params['id']);
-	    $f3->set('questions',$thisquiz);
+		// $questions = new Questions($this->db);
+	    // $thisquiz = $questions->getById($params['id']);
+	    $thisquiz = new Questions($this->db);	    
+	    $questions = [];
+	    	foreach ($thisquiz->getByQuizId($params['id']) as $question) {	      
+	      		$questions[] = $question->cast();
+	    	}
+	    $f3->set('questions',$questions);
 
 		echo \Template::instance()->render('answer.html');
 		

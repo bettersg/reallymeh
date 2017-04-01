@@ -2052,3 +2052,20 @@ a:target
     background: #DDD;
 }
 
+.answer_correct
+{
+    color: #1ccf10;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    float: right;
+}
+
+.answer_wrong
+{
+    color: red;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    float: right;
+}

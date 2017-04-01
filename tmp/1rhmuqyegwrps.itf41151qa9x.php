@@ -24,37 +24,51 @@
                     </div>
                 </div>
             </div> 
+        </div>
+        <div class="container">
+            
+            <?php foreach (($questions?:[]) as $count=>$question): ?>
+            
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <?php echo $correctcount = 0; ?> <?php echo $currentnumber = $count+1; ?> -->
+                        <h5><?php echo $currentnumber; ?>. <?php echo $question['text']; ?></h5> 
+                        <?php if ($question['byline']): ?>
+                            <small><?php echo $question['byline']; ?></small>                            
+                        <?php endif; ?>
+                    </div>            
+                    <div class="col-md-6">
+                        <!-- <?php echo $currentquestion = 'question'.$currentnumber; ?> -->
+
+                        <p>You guessed: <?php echo $quizresults[$currentquestion]; ?>
+
+                            <?php if ($quizresults[$currentquestion] == $question['correctanswer']): ?>
+                                
+                                    <span class="answer_correct">CORRECT!</span>
+                                    <!-- <?php echo $correctcount = $correctcount +1; ?> -->
+                                                            
+                                <?php else: ?><span class="answer_wrong">Wrong.</span>
+                            <?php endif; ?>
+                        </p>
+                        <p>The correct answer is: <?php echo $question['correctanswer']; ?></p>
+                        <p><?php echo $question['answerwriteup']; ?></p>
+                        <p>Other people guessed: [feature coming soon]</p>
+                    </div>
+                    <hr class="bg-silver" />
+                </div>
+
+            <?php endforeach; ?>  
             <div class="well text-center col-sm-6 col-sm-offset-3">
                 <img src="<?php echo $BASE; ?>/app/views/images/blursotong.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
-                Only 4/10 correct! You have received the Blur Sotong King award!</h4>
+                Only <?php echo $correctcount; ?>/10 correct! You have received the 
+                    <b><?php switch ($correctcount): ?><?php case '10': ?>Champion Nerd<?php break; ?><?php case '9': ?>Champion Nerd<?php break; ?><?php case '8': ?>Super Nerd<?php break; ?><?php case '7': ?>Exam Smart<?php break; ?><?php case '6': ?>Good Attempt<?php break; ?><?php case '5': ?>Just Passed<?php break; ?><?php case '4': ?>Almost Can<?php break; ?><?php case '3': ?>Alamak<?php break; ?><?php case '2': ?>Alamak<?php break; ?><?php case '1': ?>Jialat<?php break; ?><?php case '0': ?>Blur Sotong King<?php break; ?><?php endswitch; ?></b>
+                award!</h4>
             </div>              
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>1. What percentage of adults over 21 are married?</h5> 
-                </div>
-                <div class="col-md-6">
-                    <p>You guessed: 13%</p>
-                    <p>Average group guess was: 19.2%</p>
-                    <select class="form-control"> 
-                        <option>OTHER GUESSES:</option>                         
-                        <option>Males guessed: 12.5%</option>                         
-                        <option>Females guessed: 13%</option>                         
-                        <option>Teenagers guessed: 23%</option>                         
-                        <option>20s-age guessed: 5%</option>                         
-                        <option>..etc</option>                         
-                    </select>
-                    <h6 class="aqua">The correct answer is: <b>18.1%</b></h6>
-                    <small>[Data from Department of Statistics <a href="#">2016 Singapore Census</a>]</small>
-                    <hr class="bg-aqua" />
-                </div>
-            </div>
 
         </div>
         <div class="container">
-            <hr />
+            <hr class="bg-silver" />
             <h4>Reflections &amp; Discussion</h4>
             <div class="fb-comments" data-href="https://gauravkeerthi.com/reallymeh" data-numposts="5" width="100%"></div>
         </div>
@@ -76,27 +90,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/bskit-scripts.js"></script>
-        <section class="content-block-nopad footer-wrap-1-2 bg-deepocean">
-            <div class="container footer-1-2">
-                <h5 class="white text-center">"Really, meh?" is a non-profit, volunteer-run project. For more information, please contact us.</h5>
-                <div class="big-social row">
-                    <div class="col-sm-2 col-sm-offset-3 social-item facebook col-xs-3 col-xs-offset-2">
-                        <a href="http://facebook.com/"><i class="social-icon fa fa-facebook fa-lg"></i><h6 class="action">Like</h6></a>
-                    </div>
-                    <div class="col-sm-2 social-item twitter col-xs-3">
-                        <a href="http://twitter.com/"><i class="social-icon fa fa-twitter fa-lg"></i><h6 class="action">Follow</h6></a>
-                    </div>
-                    <div class="col-sm-2 social-item google col-xs-3">
-                        <a href="http://plus.google.com/"><i class="social-icon fa fa-envelope-o fa-lg"></i><h6 class="action">Email</h6></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container -->
-        </section>         
+        
     </body>     
 </html>

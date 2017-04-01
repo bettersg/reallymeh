@@ -24,37 +24,62 @@
                     </div>
                 </div>
             </div> 
-            <div class="well text-center col-sm-6 col-sm-offset-3">
-                <img src="{{ @BASE }}/app/views/images/blursotong.jpg" width="100%" class="img-rounded img-responsive" />
-                <h4>
-                Only 4/10 correct! You have received the Blur Sotong King award!</h4>
-            </div>              
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>1. What percentage of adults over 21 are married?</h5> 
+            
+            <repeat group="{{ @questions }}" key="{{ @count }}" value="{{ @question }}">
+            
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- {{ @correctcount = 0 }} {{ @currentnumber = @count+1 }} -->
+                        <h5>{{ @currentnumber }}. {{ @question.text }}</h5> 
+                        <check if="{{ @question.byline }}">
+                            <true><small>{{ @question.byline }}</small></true>                            
+                        </check>
+                    </div>            
+                    <div class="col-md-6">
+                        <!-- {{  @currentquestion = 'question'.@currentnumber }} -->
+
+                        <p>You guessed: {{@quizresults[@currentquestion]}}
+                            <check if="{{ @quizresults[@currentquestion] == @question.correctanswer}}">
+                                <true>
+                                    <span class="answer_correct">CORRECT!</span>
+                                    <!-- {{ @correctcount = @correctcount +1 }} -->
+                                </true>                            
+                                <false><span class="answer_wrong">Wrong.</span></false>
+                            </check>
+                        </p>
+                        <p>The correct answer is: {{ @question.correctanswer }}</p>                        
+                        <p>Other people guessed: [feature coming soon]</p>
+                        <p>{{ @question.answerwriteup }}</p>
+                    </div>
+                    <hr class="bg-silver" />
                 </div>
-                <div class="col-md-6">
-                    <p>You guessed: 13%</p>
-                    <p>Average group guess was: 19.2%</p>
-                    <select class="form-control"> 
-                        <option>OTHER GUESSES:</option>                         
-                        <option>Males guessed: 12.5%</option>                         
-                        <option>Females guessed: 13%</option>                         
-                        <option>Teenagers guessed: 23%</option>                         
-                        <option>20s-age guessed: 5%</option>                         
-                        <option>..etc</option>                         
-                    </select>
-                    <h6 class="aqua">The correct answer is: <b>18.1%</b></h6>
-                    <small>[Data from Department of Statistics <a href="#">2016 Singapore Census</a>]</small>
-                    <hr class="bg-aqua" />
-                </div>
-            </div>
+
+            </repeat>  
+            <div class="well text-center col-sm-6 col-sm-offset-3">
+                <img src="{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg" width="100%" class="img-rounded img-responsive" />
+                <h4>
+                {{ @correctcount }}/10 correct! You have received the 
+                    <b><switch expr="@correctcount">
+                        <case value="10">Champion Nerd</case>
+                        <case value="9">Ultra Nerd</case>
+                        <case value="8">Super Nerd</case>
+                        <case value="7">Exam Smart</case>
+                        <case value="6">Good Attempt</case>
+                        <case value="5">Just Passed</case>
+                        <case value="4">Almost Can</case>
+                        <case value="3">Alamak</case>
+                        <case value="2">Alamak</case>
+                        <case value="1">Jialat</case>
+                        <case value="0">Blur Sotong King</case> 
+                    </switch></b>
+                award!</h4>
+            </div>              
 
         </div>
         <div class="container">
-            <hr />
+            <hr class="bg-silver" />
             <h4>Reflections &amp; Discussion</h4>
             <div class="fb-comments" data-href="https://gauravkeerthi.com/reallymeh" data-numposts="5" width="100%"></div>
         </div>
@@ -76,27 +101,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/bskit-scripts.js"></script>
-        <section class="content-block-nopad footer-wrap-1-2 bg-deepocean">
-            <div class="container footer-1-2">
-                <h5 class="white text-center">"Really, meh?" is a non-profit, volunteer-run project. For more information, please contact us.</h5>
-                <div class="big-social row">
-                    <div class="col-sm-2 col-sm-offset-3 social-item facebook col-xs-3 col-xs-offset-2">
-                        <a href="http://facebook.com/"><i class="social-icon fa fa-facebook fa-lg"></i><h6 class="action">Like</h6></a>
-                    </div>
-                    <div class="col-sm-2 social-item twitter col-xs-3">
-                        <a href="http://twitter.com/"><i class="social-icon fa fa-twitter fa-lg"></i><h6 class="action">Follow</h6></a>
-                    </div>
-                    <div class="col-sm-2 social-item google col-xs-3">
-                        <a href="http://plus.google.com/"><i class="social-icon fa fa-envelope-o fa-lg"></i><h6 class="action">Email</h6></a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container -->
-        </section>         
+        
     </body>     
 </html>
