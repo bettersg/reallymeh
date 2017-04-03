@@ -16,9 +16,9 @@ class Controller {
 		$this->f3=$f3;
 
 	    $db=new DB\SQL(
-	        $f3->get('devdb'),
-	        $f3->get('devdbusername'),
-	        $f3->get('devdbpassword'),
+	        $f3->get('herokudb'),
+	        $f3->get('herokudbusername'),
+	        $f3->get('herokudbpassword'),
 	        array( \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION )
 	    );
 
