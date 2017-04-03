@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="Really, meh?" />
-        <link rel="shortcut icon" href="<?php echo $BASE; ?>/ico/favicon.png"> 
+        <link rel="shortcut icon" href="<?php echo $BASE; ?>/ico/favicon.ico"> 
         <!-- Core CSS -->         
         <link href="<?php echo $BASE; ?>/app/views/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="<?php echo $BASE; ?>/app/views/css/font-awesome.min.css" rel="stylesheet">

@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default" role="navigation"> 
             <div class="container-fluid"> 
                 <div class="navbar-header"> 
-                    <a class="navbar-brand aqua" href="/">REALLY, MEH?</a> 
+                    <a class="navbar-brand aqua" href="{{@BASE}}/">REALLY, MEH?</a> 
                 </div>                 
             </div>             
         </nav>
@@ -40,8 +40,8 @@
                     <div class="col-md-6">
                         <!-- {{  @currentquestion = 'question'.@currentnumber }} -->
 
-                        <p>You guessed: {{@quizresults[@currentquestion]}}
-                            <check if="{{ @quizresults[@currentquestion] == @question.correctanswer}}">
+                        <p>You guessed it was approximately: {{@quizresults[@currentquestion]}}                            
+                            <check if="{{ @quizresults[@currentquestion] == @question.correctanswer || ( @quizresults[@currentquestion] > @question.correctanswer && @quizresults[@currentquestion] > (@question.correctanswer-10) )}}">
                                 <true>
                                     <span class="answer_correct">CORRECT!</span>
                                     <!-- {{ @correctcount = @correctcount +1 }} -->

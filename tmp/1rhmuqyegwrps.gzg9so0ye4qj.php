@@ -42,9 +42,16 @@
                 <div class="col-md-6">
                     <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                       <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
-                                <?php for ($i=0;$i < 101;$i++): ?>
-                                        <option value="<?php echo $i; ?>"><?php echo $i; ?> %</option>
-                                <?php endfor; ?>
+                            <option value="10">0-10%</option>
+                            <option value="20">11-20%</option>
+                            <option value="30">21-30%</option>
+                            <option value="40">31-40%</option>
+                            <option value="50">41-50%</option>
+                            <option value="60">51-60%</option>
+                            <option value="70">61-70%</option>
+                            <option value="80">71-80%</option>
+                            <option value="90">81-90%</option>
+                            <option value="100">91-100%</option>
                         <?php break; ?><?php case 'trueorfalse': ?>
                             <option value="True">True</option>
                             <option value="False">False</option>

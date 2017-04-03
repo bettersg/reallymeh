@@ -42,7 +42,7 @@
 
                         <p>You guessed: <?php echo $quizresults[$currentquestion]; ?>
 
-                            <?php if ($quizresults[$currentquestion] == $question['correctanswer']): ?>
+                            <?php if ($quizresults[$currentquestion] == $question['correctanswer'] || ( $quizresults[$currentquestion] > $question['correctanswer'] && $quizresults[$currentquestion] > ($question['correctanswer']-10) )): ?>
                                 
                                     <span class="answer_correct">CORRECT!</span>
                                     <!-- <?php echo $correctcount = $correctcount +1; ?> -->
