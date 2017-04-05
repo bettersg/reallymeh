@@ -40,8 +40,8 @@
                     <div class="col-md-6">
                         <!-- {{  @currentquestion = 'question'.@currentnumber }} -->
 
-                        <p>You guessed it was approximately: {{@quizresults[@currentquestion]}}                            
-                            <check if="{{ @quizresults[@currentquestion] == @question.correctanswer || ( @quizresults[@currentquestion] > @question.correctanswer && @quizresults[@currentquestion] > (@question.correctanswer-10) )}}">
+                        <p>You guessed it was: {{@quizresults[@currentquestion]}}                            
+                            <check if="{{ @quizresults[@currentquestion] == @question.correctanswer }}">
                                 <true>
                                     <span class="answer_correct">CORRECT!</span>
                                     <!-- {{ @correctcount = @correctcount +1 }} -->
@@ -49,8 +49,8 @@
                                 <false><span class="answer_wrong">Wrong.</span></false>
                             </check>
                         </p>
-                        <p>The correct answer is: {{ @question.correctanswer }}</p>                        
                         <p>Other people guessed: [feature coming soon]</p>
+                        <p>The correct answer is: {{ @question.correctanswer }}</p>                        
                         <p>{{ @question.answerwriteup }}</p>
                     </div>
                     <hr class="bg-silver" />

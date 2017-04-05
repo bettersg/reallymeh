@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default" role="navigation"> 
             <div class="container-fluid"> 
                 <div class="navbar-header"> 
-                    <a class="navbar-brand aqua" href="/">REALLY, MEH?</a> 
+                    <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">REALLY, MEH?</a> 
                 </div>                 
             </div>             
         </nav>
@@ -40,9 +40,8 @@
                     <div class="col-md-6">
                         <!-- <?php echo $currentquestion = 'question'.$currentnumber; ?> -->
 
-                        <p>You guessed: <?php echo $quizresults[$currentquestion]; ?>
-
-                            <?php if ($quizresults[$currentquestion] == $question['correctanswer'] || ( $quizresults[$currentquestion] > $question['correctanswer'] && $quizresults[$currentquestion] > ($question['correctanswer']-10) )): ?>
+                        <p>You guessed it was: <?php echo $quizresults[$currentquestion]; ?>                            
+                            <?php if ($quizresults[$currentquestion] == $question['correctanswer']): ?>
                                 
                                     <span class="answer_correct">CORRECT!</span>
                                     <!-- <?php echo $correctcount = $correctcount +1; ?> -->
@@ -50,8 +49,8 @@
                                 <?php else: ?><span class="answer_wrong">Wrong.</span>
                             <?php endif; ?>
                         </p>
-                        <p>The correct answer is: <?php echo $question['correctanswer']; ?></p>                        
                         <p>Other people guessed: [feature coming soon]</p>
+                        <p>The correct answer is: <?php echo $question['correctanswer']; ?></p>                        
                         <p><?php echo $question['answerwriteup']; ?></p>
                     </div>
                     <hr class="bg-silver" />

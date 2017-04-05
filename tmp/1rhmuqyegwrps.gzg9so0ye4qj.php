@@ -2,7 +2,7 @@
         <nav class="navbar navbar-default" role="navigation"> 
             <div class="container-fluid"> 
                 <div class="navbar-header"> 
-                    <a class="navbar-brand aqua" href="/">REALLY, MEH?</a> 
+                    <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">REALLY, MEH?</a> 
                 </div>                 
             </div>             
         </nav>
@@ -40,8 +40,8 @@
                     <?php endif; ?> 
                 </div>            
                 <div class="col-md-6">
-                    <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
-                      <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
+                  <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
+                        <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                             <option value="10">0-10%</option>
                             <option value="20">11-20%</option>
                             <option value="30">21-30%</option>
@@ -52,10 +52,9 @@
                             <option value="80">71-80%</option>
                             <option value="90">81-90%</option>
                             <option value="100">91-100%</option>
-                        <?php break; ?><?php case 'trueorfalse': ?>
-                            <option value="True">True</option>
-                            <option value="False">False</option>
-                        <?php break; ?><?php case 'months': ?>
+                        </select> 
+                    <?php break; ?><?php case 'months': ?>
+                        <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                             <option value="January">January</option>                           
                             <option value="February">February</option>
                             <option value="March">March</option>
@@ -68,12 +67,43 @@
                             <option value="October">October</option>
                             <option value="November">November</option>
                             <option value="December">December</option>
-                        <?php break; ?><?php case 'CUSTOM': ?>
-                            <?php foreach (($question['options']?:[]) as $option): ?>
-                                <option value="<?php echo $option['text']; ?>"><?php echo $option['text']; ?></option>
-                            <?php endforeach; ?>
-                        <?php break; ?><?php endswitch; ?>    
-                    </select>        
+                        </select>
+                    <?php break; ?><?php case 'trueorfalse': ?>
+                        <div class="radio"> 
+                            <ul class="radio-button" name="question<?php echo $count+1; ?>">
+                                <li>
+                                    <input type="radio" name="question<?php echo $count+1; ?>" value="True" checked id="question<?php echo $count+1; ?>_true">
+                                    <label for="question<?php echo $count+1; ?>_true">True</label>                                 
+                                </li>
+                                <li>
+                                    <input type="radio" name="question<?php echo $count+1; ?>" value="False" id="question<?php echo $count+1; ?>_false">
+                                    <label for="question<?php echo $count+1; ?>_false">False</label>                                 
+                                </li>
+                            </ul>
+                        </div>
+                    <?php break; ?><?php case 'CUSTOM': ?>
+                        <div class="radio"> 
+                            <ul class="radio-button">
+                                <?php $i=0; foreach (($question['options']?:[]) as $option): $i++; ?>
+                                <?php if ($i==1): ?>
+                                    
+                                        <li>
+                                            <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" checked id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
+                                            <label for="question<?php echo $count+1; ?>_<?php echo $i; ?>"><?php echo $option['text']; ?></label>
+                                        </li>
+                                    
+                                    <?php else: ?>
+                                        <li>
+                                            <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
+                                            <label for="question<?php echo $count+1; ?>_<?php echo $i; ?>"><?php echo $option['text']; ?></label>
+                                        </li>
+                                    
+                                <?php endif; ?>
+                                <?php endforeach; ?>
+                            </ul>                             
+                        </div>                                     
+                    <?php break; ?><?php endswitch; ?>    
+                           
                 </div>
             </div>
         <?php endforeach; ?>    
@@ -95,7 +125,7 @@
                                     <label for="gender_m">MALE</label>                                     
                                 </li>
                                 <li>
-                                    <input type="radio" name="gender" value="male" id="gender_f">
+                                    <input type="radio" name="gender" value="female" id="gender_f">
                                     <label for="gender_f">FEMALE</label>                                     
                                 </li>
                             </ul>                             
@@ -108,8 +138,8 @@
                         <div class="radio"> 
                             <ul class="radio-button">
                                 <li>
-                                    <input type="radio" name="age" value="teen" checked id="age_teen">
-                                    <label for="age_teen">&lt; 19</label>                                     
+                                    <input type="radio" name="age" value="10" checked id="age_10">
+                                    <label for="age_10">&lt; 19</label>                                     
                                 </li>
                                 <li>
                                     <input type="radio" name="age" value="20" id="age_20">

@@ -40,9 +40,10 @@
                     </check> 
                 </div>            
                 <div class="col-md-6">
-                    <select class="form-control bg-silver" name="question{{@count+1}}"> 
-                      <switch expr="{{@question.options[0].optiontype}}">
-                        <case value="100percent">
+                  <switch expr="{{@question.options[0].optiontype}}">
+
+                    <case value="100percent">
+                        <select class="form-control bg-silver" name="question{{@count+1}}"> 
                             <option value="10">0-10%</option>
                             <option value="20">11-20%</option>
                             <option value="30">21-30%</option>
@@ -53,12 +54,11 @@
                             <option value="80">71-80%</option>
                             <option value="90">81-90%</option>
                             <option value="100">91-100%</option>
-                        </case>
-                        <case value="trueorfalse">
-                            <option value="True">True</option>
-                            <option value="False">False</option>
-                        </case>
-                        <case value="months">
+                        </select> 
+                    </case>
+
+                    <case value="months">
+                        <select class="form-control bg-silver" name="question{{@count+1}}"> 
                             <option value="January">January</option>                           
                             <option value="February">February</option>
                             <option value="March">March</option>
@@ -71,15 +71,49 @@
                             <option value="October">October</option>
                             <option value="November">November</option>
                             <option value="December">December</option>
-                        </case>
-                        
-                        <case value="CUSTOM">
-                            <repeat group="@question.options" value="@option">
-                                <option value="{{@option.text}}">{{@option.text}}</option>
-                            </repeat>
-                        </case>
-                      </switch>    
-                    </select>        
+                        </select>
+                    </case>
+
+                    <case value="trueorfalse">
+                        <div class="radio"> 
+                            <ul class="radio-button" name="question{{@count+1}}">
+                                <li>
+                                    <input type="radio" name="question{{@count+1}}" value="True" checked id="question{{@count+1}}_true">
+                                    <label for="question{{@count+1}}_true">True</label>                                 
+                                </li>
+                                <li>
+                                    <input type="radio" name="question{{@count+1}}" value="False" id="question{{@count+1}}_false">
+                                    <label for="question{{@count+1}}_false">False</label>                                 
+                                </li>
+                            </ul>
+                        </div>
+                    </case>
+
+                    <case value="CUSTOM">
+                        <div class="radio"> 
+                            <ul class="radio-button">
+                                <repeat group="@question.options" value="@option" counter="@i">
+                                <check if="@i==1">
+                                    <true>
+                                        <li>
+                                            <input type="radio" name="question{{@count+1}}" value="{{@option.text}}" checked id="question{{@count+1}}_{{@i}}">
+                                            <label for="question{{@count+1}}_{{@i}}">{{@option.text}}</label>
+                                        </li>
+                                    </true>
+                                    <false>
+                                        <li>
+                                            <input type="radio" name="question{{@count+1}}" value="{{@option.text}}" id="question{{@count+1}}_{{@i}}">
+                                            <label for="question{{@count+1}}_{{@i}}">{{@option.text}}</label>
+                                        </li>
+                                    </false>
+                                </check>
+                                </repeat>
+                            </ul>                             
+                        </div>                                     
+                    </case>
+
+                  </switch>    
+                           
                 </div>
             </div>
         </repeat>    
@@ -101,7 +135,7 @@
                                     <label for="gender_m">MALE</label>                                     
                                 </li>
                                 <li>
-                                    <input type="radio" name="gender" value="male" id="gender_f">
+                                    <input type="radio" name="gender" value="female" id="gender_f">
                                     <label for="gender_f">FEMALE</label>                                     
                                 </li>
                             </ul>                             
@@ -114,8 +148,8 @@
                         <div class="radio"> 
                             <ul class="radio-button">
                                 <li>
-                                    <input type="radio" name="age" value="teen" checked id="age_teen">
-                                    <label for="age_teen">&lt; 19</label>                                     
+                                    <input type="radio" name="age" value="10" checked id="age_10">
+                                    <label for="age_10">&lt; 19</label>                                     
                                 </li>
                                 <li>
                                     <input type="radio" name="age" value="20" id="age_20">
