@@ -5,7 +5,7 @@ class AnswerController extends Controller {
 	function beforeroute() {
 		// session management if required
 		// render header
-		echo \Template::instance()->render('header.html');
+		echo \Template::instance()->render('navheader.html');
 	}
 	
 	function answer($f3,$params){

@@ -1,12 +1,4 @@
 
-
-        <nav class="navbar navbar-default" role="navigation"> 
-            <div class="container-fluid"> 
-                <div class="navbar-header"> 
-                    <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">REALLY, MEH?</a> 
-                </div>                 
-            </div>             
-        </nav>
         <div class="container quiz-title-class">
             <h3><?php echo $quiz['name']; ?> (<b>Quiz Results</b>)</h3>
             <div class="well">
@@ -68,8 +60,8 @@
         </div>
         <div class="container">
             <hr class="bg-silver" />
-            <h4>Reflections &amp; Discussion</h4>
-            <div class="fb-comments" data-href="https://gauravkeerthi.com/reallymeh" data-numposts="5" width="100%"></div>
+            <h4>Reflections &amp; Discussion - <?php echo $PATH; ?> - <?php echo $BASE; ?> - <?php echo $URI; ?></h4>
+            <div class="fb-comments" data-href="http://reallymeh.herokuapp.com/<?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">
             <div class="row">

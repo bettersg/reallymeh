@@ -25,7 +25,7 @@
                     <tr> 
                         <td>24 Mar</td> 
                         <td>
-                            <a href="edit.html">Marriage &amp; Divorce</a>
+                            <a href="<?php echo $BASE; ?>/admin/edit/1">Marriage &amp; Divorce</a>
                         </td>                         
                         <td>13</td> 
                         <td><i class="fa fa-remove fa-lg text-danger"></i></td> 
@@ -40,6 +40,6 @@
                     </tr>                     
                 </tbody>
             </table>
-            <a class="btn btn-primary btn-block" href="<?php echo $BASE; ?>/app/views/insert.html">Insert New Quiz</a>
+            <a class="btn btn-primary btn-block" href="<?php echo $BASE; ?>/admin/insert">Insert New Quiz</a>
             <hr class="bg-silver" />
         </div>

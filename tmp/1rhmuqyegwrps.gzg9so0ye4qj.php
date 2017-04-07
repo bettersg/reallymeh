@@ -1,11 +1,4 @@
 
-        <nav class="navbar navbar-default" role="navigation"> 
-            <div class="container-fluid"> 
-                <div class="navbar-header"> 
-                    <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">REALLY, MEH?</a> 
-                </div>                 
-            </div>             
-        </nav>
         <div class="container quiz-title-class">
             <h3><?php echo $quiz['name']; ?></h3>
             <div class="well">
@@ -51,7 +44,7 @@
                             <option value="70">61-70%</option>
                             <option value="80">71-80%</option>
                             <option value="90">81-90%</option>
-                            <option value="100">91-100%</option>
+                            <option value="100">91-100%</option> <!-- Need to fix percentage matching-->
                         </select> 
                     <?php break; ?><?php case 'months': ?>
                         <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
