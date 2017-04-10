@@ -17,6 +17,11 @@ class Quizzes extends DB\SQL\Mapper{
 	    $this->save();
 	}
 
+	public function topicCount() {
+
+	    return $this->count();
+	}
+
 	public function edit($id) {
 	    $this->load(array('id=?',$id));
 	    $this->copyFrom('POST');

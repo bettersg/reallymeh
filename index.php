@@ -8,6 +8,7 @@ $f3->config('app/config.ini');
 $f3->config('app/routes.ini');
 $f3->set('TEMP', 'tmp/');
 
+new Session();
 
 
 

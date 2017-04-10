@@ -61,7 +61,7 @@
         <div class="container">
             <hr class="bg-silver" />
             <h4>Reflections &amp; Discussion - <?php echo $PATH; ?> - <?php echo $BASE; ?> - <?php echo $URI; ?></h4>
-            <div class="fb-comments" data-href="http://reallymeh.herokuapp.com/<?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
+            <div class="fb-comments" data-href="https://reallymeh.herokuapp.com" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">
             <div class="row">

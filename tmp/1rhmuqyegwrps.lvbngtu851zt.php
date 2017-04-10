@@ -17,6 +17,17 @@
         <link href="<?php echo $BASE; ?>/app/views/css/plugins.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/blocks.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/custom.css" rel="stylesheet">
+        <!-- scripts from the footer -->
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/plugins.js"></script>
+        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/bskit-scripts.js"></script>   
+
+<!-- Include the Quill library -->
+<link href="https://cdn.quilljs.com/1.2.3/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.2.3/quill.js"></script>
+
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
       <script src="app/views/js/html5shiv.js"></script>
@@ -32,6 +43,7 @@
       js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=214948752321276";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
         
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="container-fluid"> 

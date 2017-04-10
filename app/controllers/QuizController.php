@@ -8,6 +8,12 @@ class QuizController extends Controller {
 		echo \Template::instance()->render('navheader.html');
 	}
 
+	function afterroute() {
+		// session management if required
+		// render header
+		echo \Template::instance()->render('footer.html');
+	}
+
 	function render($f3,$params){
 	    $quizzes = new Quizzes($this->db);
 	    $quiz = $quizzes->getById($params['id'])[0];

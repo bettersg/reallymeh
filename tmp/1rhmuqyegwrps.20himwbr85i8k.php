@@ -18,10 +18,10 @@
             <!-- /.container -->
         </section>
     <!-- /.container -->
-        <script type="text/javascript" src="app/views/js/jquery-1.11.1.min.js"></script>         
-        <script type="text/javascript" src="app/views/js/bootstrap.min.js"></script>         
-        <script type="text/javascript" src="app/views/js/plugins.js"></script>
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/plugins.js"></script>
         <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="app/views/js/bskit-scripts.js"></script>         
+        <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/bskit-scripts.js"></script>         
     </body>     
 </html>

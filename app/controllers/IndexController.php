@@ -8,6 +8,12 @@ class IndexController extends Controller {
 		echo \Template::instance()->render('header.html');
 	}
 
+	function afterroute() {
+		// session management if required
+		// render header
+		echo \Template::instance()->render('footer.html');
+	}
+
 	function render($f3){
 		$quizzes = new Quizzes($this->db);
 		$quiz = $quizzes->all();

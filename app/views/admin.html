@@ -1,39 +1,38 @@
 
         <div class="container quiz-title-class">
             <h1>ADMIN INTERFACE</h1>
-            <div class="well">## Topics (last topic @DATETIME)
-                <br>## Participants (last user @DATETIME)
+            <div class="well">{{@topicCount}} Topics Total                
             </div>             
         </div>
         <div class="container">
             <table class="table"> 
                 <thead> 
                     <tr> 
-                        <th><i class="fa fa-caret-down"></i> Date</th>
+                        <th><i class="fa fa-caret-down"></i> Date</th> 
                         <th>Topic</th> 
                         <th><i class="fa fa-users fa-lg"></i></th> 
                         <th> </th> 
                     </tr>                     
                 </thead>                 
                 <tbody> 
-                    <tr> 
-                        <td>24 Mar</td> 
-                        <td>
-                            <a href="{{@BASE}}/admin/edit/1">Marriage &amp; Divorce</a>
-                        </td>                         
-                        <td>13</td> 
-                        <td><i class="fa fa-remove fa-lg text-danger"></i></td> 
-                    </tr>                     
-                    <tr> 
-                        <td>24 Mar</td> 
-                        <td> 
-                            <a href="edit.html">Topic 2</a>
-                        </td>                         
-                        <td>13</td> 
-                        <td><i class="fa fa-remove fa-lg text-danger"></i></td> 
-                    </tr>                     
+                    <repeat group="{{ @quiz }}" value="{{ @eachquiz }}">
+
+                        <tr> 
+                            <td>  {{  date('d M',strtotime(@eachquiz.createdat))  }}</td> 
+                            <td>
+                                <a href="{{ @BASE }}/edit/{{@eachquiz.id}}">{{  @eachquiz.name  }}</a>
+                            </td>                         
+                            <td> {{ @eachquiz.numparticipants }}</td> 
+                            <td> <i class="fa fa-remove fa-lg text-danger"></i> </td> 
+                        </tr>
+
+                    </repeat>
+                                                    
                 </tbody>
             </table>
-            <a class="btn btn-primary btn-block" href="{{@BASE}}/admin/insert">Insert New Quiz</a>
+            <a class="btn btn-primary btn-block margin-bottom30" href="{{@BASE}}/admin/insert">Insert New Quiz</a>
+    
             <hr class="bg-silver" />
+        
         </div>
+

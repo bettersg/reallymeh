@@ -12,7 +12,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p><?php echo $quiz['description']; ?></p>
+                        <p><?php echo $this->raw($quiz['description']); ?></p>
                     </div>
                 </div>
             </div>             
