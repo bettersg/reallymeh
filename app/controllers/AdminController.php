@@ -19,13 +19,13 @@ class AdminController extends Controller {
 
 	function render($f3){	    
 		
-		$user=new DB\SQL\Mapper($this->db,'users');
+/*		$user=new DB\SQL\Mapper($this->db,'users');
 		$auth== null;
 		$auth = new \Auth($user, array('id'=>'username', 'pw'=>'password'));
 		$auth->basic();
 		$f3->set('SESSION.username','SERVER.PHP_AUTH_USER');	
-		// if (!$f3->get('SESSION.username')) $f3->error(401);
-
+		if (!$f3->get('SESSION.username')) $f3->error(401);
+*/
 		if (1==0) {}
 
 		else {
