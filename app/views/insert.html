@@ -102,15 +102,12 @@
           var description = document.querySelector('input[name=description]');
           description.value =  quill_description.container.firstChild.innerHTML;       
 
-          var question = new Array(10);          
-          for (var i = 0; i < 10; i++) {
-              question[i] = new Array(2);
-            };
+          var question = {};
 
           <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">                  
-            // question[{{@i}}] = null;
-            question[{{@i}}].[text] = document.getElementById('question{{@i}}_text');
-            question[{{@i}}][text].value =  quill_question{{@i}}.container.firstChild.innerHTML; 
+//             question[{{@i}}] = null;
+//            question[{{@i}}].[text] = document.getElementById('question{{@i}}_text');
+//            question[{{@i}}][text].value =  quill_question{{@i}}.container.firstChild.innerHTML; 
             // console.log(question[{{@i}}][text].value)
           </loop>
       }

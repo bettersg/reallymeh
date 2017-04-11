@@ -102,14 +102,11 @@
           var description = document.querySelector('input[name=description]');
           description.value =  quill_description.container.firstChild.innerHTML;       
 
-          var question = new Array(10);          
-          for (var i = 0; i < 10; i++) {
-              question[i] = new Array(2);
-            };
-
+          var question = {};
+          
           <?php for ($i=1;$i < 11;$i++): ?>                  
             // question[<?php echo $i; ?>] = null;
-            question[<?php echo $i; ?>][text] = document.getElementById('question<?php echo $i; ?>_text');
+            question[<?php echo $i; ?>].[text] = document.getElementById('question<?php echo $i; ?>_text');
             question[<?php echo $i; ?>][text].value =  quill_question<?php echo $i; ?>.container.firstChild.innerHTML; 
             // console.log(question[<?php echo $i; ?>][text].value)
           <?php endfor; ?>
