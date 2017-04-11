@@ -19,17 +19,27 @@
                 <img src="{{@BASE}}/app/views/images/black.jpg" width="100%" height="1px">
                 <label class="text-right col-sm-3" for="question{{@i}}">Question {{@i}}</label>
                 <div class="controls col-sm-9">
-                    <input name="question{{@i}}_text" type="hidden">
+                    <input name="question[{{@i}}][text]" id="question{{@i}}_text" type="hidden">
                     <div id="editor_{{@i}}" style="height:100px; margin-bottom: 20px "></div>
                 </div> 
                 
-                <label class="text-right col-sm-3" for="question1_byline">Q{{@i}} Byline</label>
+                <label class="text-right col-sm-3"  >Q{{@i}} Byline</label>
                 <div class="controls col-sm-9">
-                    <input id="question1_byline__prev" type="text" class="form-control k-textbox" name="question{{@i}}_byline">
+                    <input id="question1_byline " type="text" class="form-control " name="question[{{@i}}][byline]">
                 </div> 
         
+                <label class="text-right col-sm-3"  >Q{{@i}} Correct Answer</label>
+                <div class="controls col-sm-9">
+                    <input   type="text" class="form-control  " name="question[{{@i}}][correctanswer]">
+                </div>
 
-                <label class="text-right col-sm-3" for="question{{@i}}_optiontype">Q{{@i}} Option Type</label>
+                <label class="text-right col-sm-3"  >Q{{@i}} Answer Writeup</label>
+                <div class="controls col-sm-9">
+                    <input name="question[{{@i}}][answerwriteup]" type="hidden">
+                    <div id="editor_answer{{@i}}" style="height:100px; margin-bottom: 20px "></div>                    
+                </div> 
+
+<!--                <label class="text-right col-sm-3" for="question{{@i}}_optiontype">Q{{@i}} Option Type</label>
                 <div class="controls col-sm-9">
                     <select id="optiontype__prev" class="form-control" data-role="select" selected="selected" name="question{{@i}}_optiontype">
                         <option value="100percent">100percent</option>
@@ -38,7 +48,9 @@
                         <option value="CUSTOM">CUSTOM</option>
                     </select>
                 </div> 
-                
+-->
+
+
             </loop>
      
         <button class="btn btn-primary btn-block" type="submit">Add this Quiz</button>       
@@ -50,7 +62,7 @@
 
 
 
-    <!-- Initialize Quill editor <textarea name="description" class="form-control  " rows="5"></textarea> -->
+    <!-- Initialize Quill editor  -->
     <script>
         var toolbarOptions = [
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -75,16 +87,31 @@
           });
       </loop>
 
+        <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">    
+            var quill_answer{{@i}} = new Quill('#editor_answer{{@i}}', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+          });
+      </loop>
+
       var form = document.querySelector('form');
         form.onsubmit = function() {
           // Populate hidden form on submit
           var description = document.querySelector('input[name=description]');
           description.value =  quill_description.container.firstChild.innerHTML;       
 
-          <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">    
-            var question{{@i}}_text = document.querySelector('input[name=question{{@i}}_text]');
-            question{{@i}}_text.value =  quill_question{{@i}}.container.firstChild.innerHTML; 
-            console.log(question{{@i}}_text.value)
+          var question = new Array(10);          
+          for (var i = 0; i < 10; i++) {
+              question[i] = new Array(2);
+            };
+
+          <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">                  
+            // question[{{@i}}] = null;
+            question[{{@i}}].[text] = document.getElementById('question{{@i}}_text');
+            question[{{@i}}][text].value =  quill_question{{@i}}.container.firstChild.innerHTML; 
+            // console.log(question[{{@i}}][text].value)
           </loop>
       }
           

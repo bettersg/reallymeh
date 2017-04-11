@@ -60,16 +60,32 @@ class AdminController extends Controller {
 		$newquiz->save();
 
 		$question = new Questions ($this->db);
-		for ($i=1; $i<11; $i++) {
+		foreach($f3->get('POST.question') as $q) {		  	
+		  	$question->reset();
+		  	$text = $q['text'];
+		  	$byline = $q['byline'];
+		  	$correctanswer = $q['correctanswer'];		  	
+		  	$answerwriteup = $q['answerwriteup'];
+
+		  	$question->quiz_id_fk = $newquiz->_id;
+		  	$question->text = $text;
+		  	$question->byline = $byline;
+		  	$question->correctanswer = $correctanswer;
+		  	$question->answerwriteup = $answerwriteup;
+		  	$question->save();
+		}
+/*		for ($i=1; $i<11; $i++) {
 			$question->reset();
 			$question->quiz_id_fk = $newquiz->_id;
+
+
 			$question->copyfrom('POST', function($val) {
 		    	return array_intersect_key($val, array('text'=>'question'.$i.'_text','byline'=>'question'.$i.'_byline','optiontype'=>'question'.$i.'_optiontype'));
 			});
 		    $question->save();
 		}
-
-		// $newquiz->add();
+*/
+		
 		$f3->reroute('/admin');
 
 
