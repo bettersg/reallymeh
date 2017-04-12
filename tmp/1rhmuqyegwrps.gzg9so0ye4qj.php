@@ -27,7 +27,7 @@
             
             <div class="row">
                 <div class="col-md-6">
-                    <h5><?php echo $count + 1; ?>. <?php echo $question['text']; ?></h5>
+                    <h5><?php echo $count + 1; ?>. <?php echo $this->raw($question['text']); ?></h5>
                     <?php if ($question['byline']): ?>
                         <small><?php echo $question['byline']; ?></small>                            
                     <?php endif; ?> 

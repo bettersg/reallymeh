@@ -35,7 +35,7 @@
 
                 <label class="text-right col-sm-3"  >Q<?php echo $i; ?> Answer Writeup</label>
                 <div class="controls col-sm-9">
-                    <input name="question[<?php echo $i; ?>][answerwriteup]" type="hidden">
+                    <input name="question[<?php echo $i; ?>][answerwriteup]" id="question<?php echo $i; ?>_answerwriteup" type="hidden">
                     <div id="editor_answer<?php echo $i; ?>" style="height:100px; margin-bottom: 20px "></div>                    
                 </div> 
 
@@ -70,6 +70,12 @@
             ['link', 'image'],
             ['clean']                                         // remove formatting button
             ];
+        
+        var Parchment = Quill.import('parchment');
+        var Block = Parchment.query('block');
+        Block.tagName = 'SPAN';
+        // or class NewBlock extends Block {}; NewBlock.tagName = 'DIV';
+        Quill.register(Block /* or NewBlock */, true);
 
       var quill_description = new Quill('#editor_description', {
         modules: {
@@ -98,17 +104,17 @@
 
       var form = document.querySelector('form');
         form.onsubmit = function() {
-          // Populate hidden form on submit
+          // Populate hidden input for quiz description on submit
           var description = document.querySelector('input[name=description]');
           description.value =  quill_description.container.firstChild.innerHTML;       
 
-          var question = {};
-          
           <?php for ($i=1;$i < 11;$i++): ?>                  
-            // question[<?php echo $i; ?>] = null;
-            question[<?php echo $i; ?>].[text] = document.getElementById('question<?php echo $i; ?>_text');
-            question[<?php echo $i; ?>][text].value =  quill_question<?php echo $i; ?>.container.firstChild.innerHTML; 
-            // console.log(question[<?php echo $i; ?>][text].value)
+            // Populate hidden input for question text
+            var question = document.getElementById('question<?php echo $i; ?>_text');
+            question.value =  quill_question<?php echo $i; ?>.container.firstChild.innerHTML; 
+          // Populate hidden input for question answerwriteup
+            var answerwriteup = document.getElementById('question<?php echo $i; ?>_answerwriteup');
+            answerwriteup.value =  quill_question<?php echo $i; ?>.container.firstChild.innerHTML; 
           <?php endfor; ?>
       }
           
