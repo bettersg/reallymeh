@@ -23,11 +23,9 @@ class AnswerController extends Controller {
 		// set the quiz name and description from database
 		$quizzes = new Quizzes($this->db);
 	    $quiz = $quizzes->getById($params['id'])[0];
-	    $quiz->numparticipants++;
+	    $quiz->numparticipants++;   // add another participant to the count
 	    $quiz->save();
-	    $f3->set('quiz',$quiz->cast());
-
-		// add another participant to the count
+	    $f3->set('quiz',$quiz->cast());		
 
 		// set the correct answers to variable thisquiz from the Questions database
 		// $questions = new Questions($this->db);
@@ -38,6 +36,16 @@ class AnswerController extends Controller {
 	      		$questions[] = $question->cast();
 	    	}
 	    $f3->set('questions',$questions);
+
+	    // get the other users' most popular answers
+		$answers = new Answers($this->db);
+		 $question_results= [];
+			for ($i=1 ;$i<11;$i++) {
+				$question_results[] = $answers->averageAnswer($id,$i);
+				// $question_results[] = $thisresult->cast();
+			}
+		$f3->set('question_results',$question_results);
+		
 
 		echo \Template::instance()->render('answer.html');
 		

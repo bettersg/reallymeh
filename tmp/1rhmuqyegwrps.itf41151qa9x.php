@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <!-- <?php echo $currentquestion = 'question'.$currentnumber; ?> -->
 
-                        <p>You guessed it was: <?php echo $quizresults[$currentquestion]; ?>                            
+                        <p>You guessed it was: <b><?php echo $quizresults[$currentquestion]; ?></b>                            
                             <?php if ($quizresults[$currentquestion] == $question['correctanswer']): ?>
                                 
                                     <span class="answer_correct">CORRECT!</span>
@@ -41,8 +41,15 @@
                                 <?php else: ?><span class="answer_wrong">Wrong.</span>
                             <?php endif; ?>
                         </p>
-                        <p>Other people guessed: [feature coming soon]</p>
-                        <p>The correct answer is: <?php echo $question['correctanswer']; ?></p>                        
+                        <p>Other people guessed:  <br/>                            
+                            <div class="well">
+                            <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
+                                The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
+                            <?php endforeach; ?> 
+                            </div>   
+                            
+                        </p>
+                        <p >The correct answer is: <span class="answer_correct" style="float:none"><?php echo $question['correctanswer']; ?></span></p>                        
                         <p><?php echo $this->raw($question['answerwriteup']); ?></p>
                     </div>
                     <hr class="bg-silver" />
@@ -60,7 +67,7 @@
         </div>
         <div class="container">
             <hr class="bg-silver" />
-            <h4>Reflections &amp; Discussion - <?php echo $PATH; ?> - <?php echo $BASE; ?> - <?php echo $URI; ?></h4>
+            <h4>Reflections &amp; Discussion</h4>
             <div class="fb-comments" data-href="https://reallymeh.herokuapp.com<?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">

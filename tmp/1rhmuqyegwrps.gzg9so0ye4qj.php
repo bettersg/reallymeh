@@ -99,6 +99,7 @@
                            
                 </div>
             </div>
+             <hr class="bg-silver" style="height:1px"/>
         <?php endforeach; ?>    
         <hr class="bg-silver" />
         </div>

@@ -32,7 +32,7 @@
                     <div class="col-md-6">
                         <!-- {{  @currentquestion = 'question'.@currentnumber }} -->
 
-                        <p>You guessed it was: {{@quizresults[@currentquestion]}}                            
+                        <p>You guessed it was: <b>{{@quizresults[@currentquestion]}}</b>                            
                             <check if="{{ @quizresults[@currentquestion] == @question.correctanswer }}">
                                 <true>
                                     <span class="answer_correct">CORRECT!</span>
@@ -41,11 +41,19 @@
                                 <false><span class="answer_wrong">Wrong.</span></false>
                             </check>
                         </p>
-                        <p>Other people guessed: [feature coming soon]</p>
-                        <p>The correct answer is: {{ @question.correctanswer }}</p>                        
+                        
+                            <div class="well">
+                            Other people guessed:  <br/>                            
+                            <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
+                                The option <b>{{@thisresult[@currentquestion]}}</b> received <b>{{@thisresult['votes']}}</b> votes <br/>
+                            </repeat> 
+                            </div>   
+                            
+                        
+                        <p >The correct answer is: <span class="answer_correct" style="float:none">{{ @question.correctanswer }}</span></p>                        
                         <p>{{ @question.answerwriteup  | raw }}</p>
                     </div>
-                    <hr class="bg-silver" />
+                    <hr class="bg-silver" style="height:1px" />
                 </div>
 
             </repeat>  
