@@ -41,18 +41,19 @@
                                 <?php else: ?><span class="answer_wrong">Wrong.</span>
                             <?php endif; ?>
                         </p>
-                        <p>Other people guessed:  <br/>                            
+                        
                             <div class="well">
+                            Other people guessed:  <br/>                            
                             <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
                                 The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
                             <?php endforeach; ?> 
                             </div>   
                             
-                        </p>
+                        
                         <p >The correct answer is: <span class="answer_correct" style="float:none"><?php echo $question['correctanswer']; ?></span></p>                        
                         <p><?php echo $this->raw($question['answerwriteup']); ?></p>
                     </div>
-                    <hr class="bg-silver" />
+                    <hr class="bg-silver" style="height:1px" />
                 </div>
 
             <?php endforeach; ?>  

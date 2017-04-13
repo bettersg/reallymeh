@@ -35,16 +35,16 @@
                 <div class="col-md-6">
                   <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
                         <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
-                            <option value="10">0-10%</option>
-                            <option value="20">11-20%</option>
-                            <option value="30">21-30%</option>
-                            <option value="40">31-40%</option>
-                            <option value="50">41-50%</option>
-                            <option value="60">51-60%</option>
-                            <option value="70">61-70%</option>
-                            <option value="80">71-80%</option>
-                            <option value="90">81-90%</option>
-                            <option value="100">91-100%</option> <!-- Need to fix percentage matching-->
+                            <option value="0-10%">0-10%</option>
+                            <option value="11-20%">11-20%</option>
+                            <option value="21-30%">21-30%</option>
+                            <option value="31-40%">31-40%</option>
+                            <option value="41-50%">41-50%</option>
+                            <option value="51-60%">51-60%</option>
+                            <option value="61-70%">61-70%</option>
+                            <option value="71-80%">71-80%</option>
+                            <option value="81-90%">81-90%</option>
+                            <option value="91-100%">91-100%</option> <!-- Need to fix percentage matching-->
                         </select> 
                     <?php break; ?><?php case 'months': ?>
                         <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
