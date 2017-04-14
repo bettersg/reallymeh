@@ -8,6 +8,12 @@ class AnswerController extends Controller {
 		echo \Template::instance()->render('navheader.html');
 	}
 	
+	function afterroute() {
+		// session management if required
+		// render header
+		echo \Template::instance()->render('footer.html');
+	}	
+	
 	function answer($f3,$params){
 	
 		// save the user's results to the database	

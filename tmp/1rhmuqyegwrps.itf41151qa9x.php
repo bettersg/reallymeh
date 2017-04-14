@@ -43,10 +43,18 @@
                         </p>
                         
                             <div class="well">
-                            Other people guessed:  <br/>                            
-                            <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
-                                The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
-                            <?php endforeach; ?> 
+                                Other people guessed:  <br/>                            
+                                <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
+                                    The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
+                                <?php endforeach; ?> 
+
+                                <div class="progress">                                     
+                                  <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
+                                    <div class="progress-bar <?php if ($j%2==0): ?>progress-bar-warning<?php endif; ?>" style="width: <?php echo ($thisresult['votes'] / $quiz['numparticipants'])*100; ?>%">
+                                        <span><?php echo $thisresult[$currentquestion]; ?></span>
+                                    </div>  
+                                  <?php endforeach; ?>                                  
+                                </div>
                             </div>   
                             
                         
@@ -89,6 +97,5 @@
                 </div>
             </div>
         </div>
-        
-    </body>     
-</html>
+
+    

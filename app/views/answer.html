@@ -43,10 +43,18 @@
                         </p>
                         
                             <div class="well">
-                            Other people guessed:  <br/>                            
-                            <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
-                                The option <b>{{@thisresult[@currentquestion]}}</b> received <b>{{@thisresult['votes']}}</b> votes <br/>
-                            </repeat> 
+                                Other people guessed:  <br/>                            
+                                <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
+                                    The option <b>{{@thisresult[@currentquestion]}}</b> received <b>{{@thisresult['votes']}}</b> votes <br/>
+                                </repeat> 
+
+                                <div class="progress">                                     
+                                  <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
+                                    <div class="progress-bar <check if="{{@j}}%2==0">progress-bar-warning</check>" style="width: {{(@thisresult['votes'] / @quiz.numparticipants)*100 }}%">
+                                        <span>{{@thisresult[@currentquestion]}}</span>
+                                    </div>  
+                                  </repeat>                                  
+                                </div>
                             </div>   
                             
                         
@@ -101,6 +109,5 @@
                 </div>
             </div>
         </div>
-        
-    </body>     
-</html>
+
+    
