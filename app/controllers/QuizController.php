@@ -2,9 +2,12 @@
 
 class QuizController extends Controller {
 	
-	function beforeroute() {
+	function beforeroute($f3,$params) {
 		// session management if required
 		// render header
+	    $quizzes = new Quizzes($this->db);
+	    $quiz = $quizzes->getById($params['id'])[0];
+	    $f3->set('quiz',$quiz->cast());
 		echo \Template::instance()->render('navheader.html');
 	}
 

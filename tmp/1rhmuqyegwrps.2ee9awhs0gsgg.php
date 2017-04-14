@@ -2,7 +2,14 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <title>Really, meh?</title>
+        <meta property="og:url"  content="https://reallymeh.herokuapp.com<?php echo $PATH; ?>" />       
+        <meta property="og:title"              content="Confirm? <?php echo $quiz['name']; ?> " />
+        <meta property="og:description"        content="Discover the truth about <?php echo $quiz['name']; ?> for Singapore, 10 hard questions at a time. Are you ready to Confirm?" />
+        <meta property="og:image"              content="https://reallymeh.herokuapp.com/app/views/images/typewriter-bg.jpg" />
+        <meta property="og:type"              content="website" />
+        <meta property="fb:app_id"              content="214948752321276" />
+
+        <title>Confirm?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="Really, meh?" />
@@ -36,7 +43,7 @@
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="container-fluid"> 
             <div class="navbar-header"> 
-                <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">REALLY, MEH?</a> 
+                <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">CONFIRM?</a> 
             </div>                 
         </div>             
     </nav>

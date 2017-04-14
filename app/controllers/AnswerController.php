@@ -5,7 +5,11 @@ class AnswerController extends Controller {
 	function beforeroute() {
 		// session management if required
 		// render header
+	    $quizzes = new Quizzes($this->db);
+	    $quiz = $quizzes->getById($params['id'])[0];
+	    $f3->set('quiz',$quiz->cast());
 		echo \Template::instance()->render('navheader.html');
+		
 	}
 	
 	function afterroute() {
