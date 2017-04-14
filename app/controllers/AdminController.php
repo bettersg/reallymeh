@@ -53,10 +53,26 @@ class AdminController extends Controller {
 
 	function save($f3){	    
 	    // save the user's results to the database	
-		$newquiz = new Quizzes ($this->db);		
+		$newquiz = new Quizzes ($this->db);
+    	
+    	// set the web file receive method
+    	$web = new \Web();
+    	$overwrite=true;
+    	$slug = true;
+
 		$newquiz->copyfrom('POST', function($val) {
 		    return array_intersect_key($val, array_flip(array('name','description')));
 		});
+    	$files = $web->receive(function($file,$formFieldName){
+        	var_dump($file);
+        	return true;
+    		},
+    		$overwrite,
+    		$slug
+		);
+		$name = array_keys($files);
+		$name = $name['0'];		
+		$newquiz->image = $name;		
 		$newquiz->save();
 
 		$question = new Questions ($this->db);

@@ -1,8 +1,9 @@
 
-    
+    <div <?php if ($quiz['image']): ?>style="background: url('<?php echo $BASE; ?>/<?php echo $quiz['image']; ?>') center bottom no-repeat; background-size: cover" <?php endif; ?>>
         <div class="container quiz-title-class">
-            <h3><?php echo $quiz['name']; ?></h3>
+           
             <div class="well">
+                <h3><?php echo $quiz['name']; ?></h3>
                 <div class="row">
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
@@ -18,6 +19,7 @@
                 </div>
             </div>             
         </div>
+    </div>
     <form method="POST" action="<?php echo $BASE; ?>/answer/<?php echo $quiz['id']; ?>">
         <input type="hidden" name="quiz_id_fk" value="<?php echo $quiz['id']; ?>">
         <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
@@ -27,13 +29,13 @@
         <?php foreach (($questions?:[]) as $count=>$question): ?>
             
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <h5><?php echo $count + 1; ?>. <?php echo $this->raw($question['text']); ?></h5>
                     <?php if ($question['byline']): ?>
                         <small><?php echo $question['byline']; ?></small>                            
                     <?php endif; ?> 
                 </div>            
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
                         <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                             <option value="0-10%">0-10%</option>

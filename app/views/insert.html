@@ -2,7 +2,7 @@
 <div class="container">
     <h3>ADMIN: INSERT</h3>
     <div class="col-md-12 form-group" >
-        <form  method="POST" action="{{@BASE}}/admin/insert">
+        <form  method="POST" action="{{@BASE}}/admin/insert" enctype="multipart/form-data">
             <label class=" col-sm-3 text-right" for="quiz_name">Quiz Name</label>
             <div class="  col-sm-9">
                 <input id="quiz_name" type="text" class="form-control" name="name" >
@@ -12,6 +12,11 @@
             <div class="col-sm-9">
                 <input name="description" type="hidden">
                 <div id="editor_description" style="height:200px; margin-bottom: 20px "></div>
+            </div>
+
+            <label  class=" col-sm-3 text-right" for="editor">Quiz Description</label>
+            <div class="col-sm-9">
+                <input type="file" id="quiz_image" name="image" />
             </div>
     
 
