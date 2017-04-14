@@ -1,5 +1,5 @@
 
-    <div <?php if ($quiz['image']): ?>style="background: url('<?php echo $BASE; ?>/<?php echo $quiz['image']; ?>') center bottom no-repeat; background-size: cover" <?php endif; ?>>
+    <div <?php if ($quiz['image']): ?>style="background: url('<?php echo $BASE; ?>/<?php echo $quiz['image']; ?>') center bottom no-repeat; background-size: cover; margin-bottom:20px; margin-top:-20px" <?php endif; ?>>
         <div class="container quiz-title-class">
            
             <div class="well">
