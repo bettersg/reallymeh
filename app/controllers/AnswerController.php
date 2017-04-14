@@ -2,7 +2,7 @@
 
 class AnswerController extends Controller {
 
-	function beforeroute() {
+	function beforeroute($f3,$params) {
 		// session management if required
 		// render header
 	    $quizzes = new Quizzes($this->db);
