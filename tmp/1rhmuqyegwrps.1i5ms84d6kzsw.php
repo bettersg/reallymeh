@@ -2,11 +2,10 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <meta property="og:url"  content="https://reallymeh.herokuapp.com" />
-        <meta property="og:type"               content="article" />
+        <meta property="og:url"  content="https://reallymeh.herokuapp.com" />        
         <meta property="og:title"              content="Confirm?" />
         <meta property="og:description"        content="Discover the truth about Singapore, 10 hard questions at a time." />
-        <meta property="og:image"              content="<?php echo $BASE; ?>/images/typewriter-bg.jpg" />
+        <meta property="og:image"              content="https://reallymeh.herokuapp.com/app/views/images/typewriter-bg.jpg" />
 
         <title>Confirm?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
