@@ -7,7 +7,7 @@
                     <div class="col-xs-6">{{ date('d M',strtotime(@quiz.createdat)) }}</div>
                     <div class="col-xs-3 text-right">{{ @quiz.numparticipants }} <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/quiz/{{@eachquiz.id}}"></span> 
+                        <span class="fb-comments-count" data-href="http://reallymeh.herokuapp.com{{@PATH}}"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
@@ -42,24 +42,23 @@
                                 <false><span class="answer_wrong">Wrong.</span></false>
                             </check>
                         </p>
-                        
-                            <div class="well">
-                                Other people guessed:  <br/>                            
-                                <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
-                                    The option <b>{{@thisresult[@currentquestion]}}</b> received <b>{{@thisresult['votes']}}</b> votes <br/>
-                                </repeat> 
+                        <p >The correct answer is: <span class="answer_correct" style="float:none">{{ @question.correctanswer }}</span></p>  
 
-                                <div class="progress">                                     
-                                  <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
-                                    <div class="progress-bar <check if="{{@j}}%2==0">progress-bar-warning</check>" style="width: {{(@thisresult['votes'] / @quiz.numparticipants)*100 }}%">
-                                        <span>{{@thisresult[@currentquestion]}}</span>
-                                    </div>  
-                                  </repeat>                                  
-                                </div>
-                            </div>   
-                            
-                        
-                        <p >The correct answer is: <span class="answer_correct" style="float:none">{{ @question.correctanswer }}</span></p>                        
+                        <div class="well">
+                            Other people guessed:  <br/>                            
+                            <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
+                                The option <b>{{@thisresult[@currentquestion]}}</b> received <b>{{@thisresult['votes']}}</b> votes <br/>
+                            </repeat> 
+
+                            <div class="progress">                                     
+                              <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
+                                <div class="progress-bar <check if="{{@j}}%2==0">progress-bar-warning</check>" style="width: {{(@thisresult['votes'] / @quiz.numparticipants)*100 }}%">
+                                    <span>{{@thisresult[@currentquestion]}}</span>
+                                </div>  
+                              </repeat>                                  
+                            </div>
+                        </div>   
+                                              
                         <p>{{ @question.answerwriteup  | raw }}</p>
                     </div>
                     <hr class="bg-silver" style="height:1px" />

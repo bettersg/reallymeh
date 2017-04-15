@@ -7,7 +7,7 @@
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/quiz/<?php echo $eachquiz['id']; ?>"></span> 
+                        <span class="fb-comments-count" data-href="http://reallymeh.herokuapp.com<?php echo $PATH; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
@@ -42,24 +42,23 @@
                                 <?php else: ?><span class="answer_wrong">Wrong.</span>
                             <?php endif; ?>
                         </p>
-                        
-                            <div class="well">
-                                Other people guessed:  <br/>                            
-                                <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
-                                    The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
-                                <?php endforeach; ?> 
+                        <p >The correct answer is: <span class="answer_correct" style="float:none"><?php echo $question['correctanswer']; ?></span></p>  
 
-                                <div class="progress">                                     
-                                  <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
-                                    <div class="progress-bar <?php if ($j%2==0): ?>progress-bar-warning<?php endif; ?>" style="width: <?php echo ($thisresult['votes'] / $quiz['numparticipants'])*100; ?>%">
-                                        <span><?php echo $thisresult[$currentquestion]; ?></span>
-                                    </div>  
-                                  <?php endforeach; ?>                                  
-                                </div>
-                            </div>   
-                            
-                        
-                        <p >The correct answer is: <span class="answer_correct" style="float:none"><?php echo $question['correctanswer']; ?></span></p>                        
+                        <div class="well">
+                            Other people guessed:  <br/>                            
+                            <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
+                                The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
+                            <?php endforeach; ?> 
+
+                            <div class="progress">                                     
+                              <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
+                                <div class="progress-bar <?php if ($j%2==0): ?>progress-bar-warning<?php endif; ?>" style="width: <?php echo ($thisresult['votes'] / $quiz['numparticipants'])*100; ?>%">
+                                    <span><?php echo $thisresult[$currentquestion]; ?></span>
+                                </div>  
+                              <?php endforeach; ?>                                  
+                            </div>
+                        </div>   
+                                              
                         <p><?php echo $this->raw($question['answerwriteup']); ?></p>
                     </div>
                     <hr class="bg-silver" style="height:1px" />
