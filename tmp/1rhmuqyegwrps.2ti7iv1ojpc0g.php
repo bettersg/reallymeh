@@ -38,7 +38,7 @@
                                 <a href="<?php echo $BASE; ?>/quiz/<?php echo $eachquiz['id']; ?>"><?php echo $eachquiz['name']; ?></a>
                             </td>                         
                             <td> <?php echo $eachquiz['numparticipants']; ?></td> 
-                            <td><span class="fb-comments-count" data-href="http://reallymeh.herokuapp.com/answer/<?php echo $eachquiz['id']; ?>"></span></td> 
+                            <td><span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/answer/<?php echo $eachquiz['id']; ?>"></span></td> 
                         </tr>
 
                     <?php endforeach; ?>
