@@ -116,7 +116,7 @@
         var obj = {
           method: 'feed',
           link: 'https://reallymeh.herokuapp.com{{@PATH}}',
-          description: "I took the {{ @quiz.name }} quiz and received the {{@award}} award! Can you do better?",
+          description: "I took the {{ @quiz.name }} quiz and scored {{ @correctcount }}/10 for the {{@award}} award! Can you do better?",
           picture: 'https://reallymeh.herokuapp.com{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
