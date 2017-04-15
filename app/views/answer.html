@@ -115,7 +115,7 @@
     // calling the API ...
         var obj = {
           method: 'feed',
-          link: 'https://reallymeh.herokuapp.com{{@PATH}}',
+          link: 'https://reallymeh.herokuapp.com/quiz/{{@quiz.id}}',
           description: "I took the {{ @quiz.name }} quiz and scored {{ @correctcount }}/10 for the {{@award}} award! Can you do better?",
           picture: 'https://reallymeh.herokuapp.com{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       

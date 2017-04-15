@@ -103,7 +103,7 @@
     // calling the API ...
         var obj = {
           method: 'feed',
-          link: 'https://reallymeh.herokuapp.com<?php echo $PATH; ?>',
+          link: 'https://reallymeh.herokuapp.com/quiz/<?php echo $quiz['id']; ?>',
           description: "I took the <?php echo $quiz['name']; ?> quiz and scored <?php echo $correctcount; ?>/10 for the <?php echo $award; ?> award! Can you do better?",
           picture: 'https://reallymeh.herokuapp.com<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
