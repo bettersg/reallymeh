@@ -66,23 +66,23 @@
 
             </repeat>  
             <div class="well text-center col-sm-6 col-sm-offset-3">
+               <!--  <switch expr="@correctcount">
+                    <case value="10">{{@award = 'Champion Nerd'}} </case>
+                    <case value="9">{{@award = 'Ultra Nerd'}}</case>
+                    <case value="8">{{@award = 'Super Nerd'}}</case>
+                    <case value="7">{{@award = 'Exam Smart'}}</case>
+                    <case value="6">{{@award = 'Good Attempt'}}</case>
+                    <case value="5">{{@award = 'Just Passed'}}</case>
+                    <case value="4">{{@award = 'Almost Can'}}</case>
+                    <case value="3">{{@award = 'Alamak'}}</case>
+                    <case value="2">{{@award = 'Aiyoh'}}</case>
+                    <case value="1">{{@award = 'Jialat'}}</case>
+                    <case value="0">{{@award = 'Sotong King'}}</case> 
+                </switch> -->
                 <img src="{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
-                {{ @correctcount }}/10 correct! You have received the 
-                    <b><switch expr="@correctcount">
-                        <case value="10">Champion Nerd</case>
-                        <case value="9">Ultra Nerd</case>
-                        <case value="8">Super Nerd</case>
-                        <case value="7">Exam Smart</case>
-                        <case value="6">Good Attempt</case>
-                        <case value="5">Just Passed</case>
-                        <case value="4">Almost Can</case>
-                        <case value="3">Alamak</case>
-                        <case value="2">Alamak</case>
-                        <case value="1">Jialat</case>
-                        <case value="0">Blur Sotong King</case> 
-                    </switch></b>
-                award!</h4>
+                {{ @correctcount }}/10 correct! You have received the <b>{{@award}}</b> award!</h4>
+                <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge your friends on Facebook!</button>
             </div>              
 
         </div>
@@ -110,4 +110,16 @@
             </div>
         </div>
 
-    
+    <script>
+    function postToFeed() {
+    // calling the API ...
+        var obj = {
+          method: 'feed',
+          link: 'https://reallymeh.herokuapp.com{{@PATH}}',
+          description: "I took the {{ @quiz.name }} quiz and received the {{@award}} award! Can you do better?",
+          picture: 'https://reallymeh.herokuapp.com{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg',
+          name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
+          };
+          FB.ui(obj);
+    }
+    </script>

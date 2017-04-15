@@ -7,7 +7,7 @@
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://reallymeh.herokuapp.com<?php echo $PATH; ?>"></span> 
+                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh<?php echo $PATH; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
@@ -66,18 +66,18 @@
 
             <?php endforeach; ?>  
             <div class="well text-center col-sm-6 col-sm-offset-3">
+               <!--  <?php switch ($correctcount): ?><?php case '10': ?><?php echo $award = 'Champion Nerd'; ?> <?php break; ?><?php case '9': ?><?php echo $award = 'Ultra Nerd'; ?><?php break; ?><?php case '8': ?><?php echo $award = 'Super Nerd'; ?><?php break; ?><?php case '7': ?><?php echo $award = 'Exam Smart'; ?><?php break; ?><?php case '6': ?><?php echo $award = 'Good Attempt'; ?><?php break; ?><?php case '5': ?><?php echo $award = 'Just Passed'; ?><?php break; ?><?php case '4': ?><?php echo $award = 'Almost Can'; ?><?php break; ?><?php case '3': ?><?php echo $award = 'Alamak'; ?><?php break; ?><?php case '2': ?><?php echo $award = 'Aiyoh'; ?><?php break; ?><?php case '1': ?><?php echo $award = 'Jialat'; ?><?php break; ?><?php case '0': ?><?php echo $award = 'Sotong King'; ?><?php break; ?><?php endswitch; ?> -->
                 <img src="<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
-                <?php echo $correctcount; ?>/10 correct! You have received the 
-                    <b><?php switch ($correctcount): ?><?php case '10': ?>Champion Nerd<?php break; ?><?php case '9': ?>Ultra Nerd<?php break; ?><?php case '8': ?>Super Nerd<?php break; ?><?php case '7': ?>Exam Smart<?php break; ?><?php case '6': ?>Good Attempt<?php break; ?><?php case '5': ?>Just Passed<?php break; ?><?php case '4': ?>Almost Can<?php break; ?><?php case '3': ?>Alamak<?php break; ?><?php case '2': ?>Alamak<?php break; ?><?php case '1': ?>Jialat<?php break; ?><?php case '0': ?>Blur Sotong King<?php break; ?><?php endswitch; ?></b>
-                award!</h4>
+                <?php echo $correctcount; ?>/10 correct! You have received the <b><?php echo $award; ?></b> award!</h4>
+                <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge your friends on Facebook!</button>
             </div>              
 
         </div>
         <div class="container">
             <hr class="bg-silver" />
             <h4>Reflections &amp; Discussion</h4>
-            <div class="fb-comments" data-href="https://reallymeh.herokuapp.com<?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
+            <div class="fb-comments" data-href="http://www.gauravkeerthi.com/reallymeh<?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">
             <div class="row">
@@ -98,4 +98,16 @@
             </div>
         </div>
 
-    
+    <script>
+    function postToFeed() {
+    // calling the API ...
+        var obj = {
+          method: 'feed',
+          link: 'https://reallymeh.herokuapp.com<?php echo $PATH; ?>',
+          description: "I took the <?php echo $quiz['name']; ?> quiz and received the <?php echo $award; ?> award! Can you do better?",
+          picture: 'https://reallymeh.herokuapp.com<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg',
+          name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
+          };
+          FB.ui(obj);
+    }
+    </script>
