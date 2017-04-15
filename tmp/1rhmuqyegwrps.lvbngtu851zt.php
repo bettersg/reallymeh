@@ -5,7 +5,7 @@
         <title>Really, meh?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="Really, meh?" />
+        <meta name="description" content="Confirm?" />
         <link rel="shortcut icon" href="<?php echo $BASE; ?>/ico/favicon.ico"> 
         <!-- Core CSS -->         
         <link href="<?php echo $BASE; ?>/app/views/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
@@ -48,7 +48,7 @@
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="container-fluid"> 
             <div class="navbar-header"> 
-                <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">REALLY, MEH?</a> 
+                <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">CONFIRM?</a> 
             </div>                 
         </div>             
     </nav>

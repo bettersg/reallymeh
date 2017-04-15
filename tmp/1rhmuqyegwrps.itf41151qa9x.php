@@ -104,7 +104,7 @@
         var obj = {
           method: 'feed',
           link: 'https://reallymeh.herokuapp.com<?php echo $PATH; ?>',
-          description: "I took the <?php echo $quiz['name']; ?> quiz and received the <?php echo $award; ?> award! Can you do better?",
+          description: "I took the <?php echo $quiz['name']; ?> quiz and scored <?php echo $correctcount; ?>/10 for the <?php echo $award; ?> award! Can you do better?",
           picture: 'https://reallymeh.herokuapp.com<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
