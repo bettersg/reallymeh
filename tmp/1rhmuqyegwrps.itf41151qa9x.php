@@ -7,7 +7,7 @@
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh<?php echo $PATH; ?>"></span> 
+                        <span class="fb-comments-count" data-href="<?php echo $weburl; ?><?php echo $PATH; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
@@ -77,7 +77,7 @@
         <div class="container">
             <hr class="bg-silver" />
             <h4>Reflections &amp; Discussion</h4>
-            <div class="fb-comments" data-href="http://www.gauravkeerthi.com/reallymeh<?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
+            <div class="fb-comments" data-href="<?php echo $weburl; ?><?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">
             <div class="row">
@@ -103,9 +103,9 @@
     // calling the API ...
         var obj = {
           method: 'feed',
-          link: 'https://reallymeh.herokuapp.com/quiz/<?php echo $quiz['id']; ?>',
+          link: '<?php echo $weburl; ?>quiz/<?php echo $quiz['id']; ?>',
           description: "I took the <?php echo $quiz['name']; ?> quiz and scored <?php echo $correctcount; ?>/10 for the <?php echo $award; ?> award! Can you do better?",
-          picture: 'https://reallymeh.herokuapp.com<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg',
+          picture: '<?php echo $weburl; ?>app/views/images/answer<?php echo $correctcount; ?>.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
           FB.ui(obj);

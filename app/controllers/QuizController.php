@@ -4,6 +4,7 @@ class QuizController extends Controller {
 	
 	function beforeroute($f3,$params) {
 		// session management if required
+		
 		// render header
 	    $quizzes = new Quizzes($this->db);
 	    $quiz = $quizzes->getById($params['id'])[0];
@@ -34,6 +35,11 @@ class QuizController extends Controller {
 	    }
 	    $f3->set('questions',$questions);
 
+	    		
+			if ($f3->exists('COOKIE.confirm_visited_quiz')) {
+				 $f3->set('visited','visited already');
+			}
+	    
 	    echo \Template::instance()->render('quiz.html');
 	}
 

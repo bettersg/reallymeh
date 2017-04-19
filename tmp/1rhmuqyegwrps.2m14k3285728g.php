@@ -44,17 +44,26 @@
                     <div id="editor_answer<?php echo $i; ?>" style="height:100px; margin-bottom: 20px "></div>                    
                 </div> 
 
-<!--                <label class="text-right col-sm-3" for="question<?php echo $i; ?>_optiontype">Q<?php echo $i; ?> Option Type</label>
+                <label class="text-right col-sm-3" for="question<?php echo $i; ?>_optiontype">Q<?php echo $i; ?> Option Type</label>
                 <div class="controls col-sm-9">
-                    <select id="optiontype__prev" class="form-control" data-role="select" selected="selected" name="question<?php echo $i; ?>_optiontype">
+                    <select id="question<?php echo $i; ?>_optiontype" class="form-control" data-role="select" selected="selected" name="question<?php echo $i; ?>_optiontype">
                         <option value="100percent">100percent</option>
                         <option value="trueorfalse" selected>trueorfalse</option>
+                        <option value="realorfake" selected>realorfake</option>
                         <option value="months">months</option>
                         <option value="CUSTOM">CUSTOM</option>
-                    </select>
+                    </select>                    
                 </div> 
--->
 
+                <label class="text-right col-sm-3"  >Q<?php echo $i; ?> CUSTOM OPTIONS (only if CUSTOM was selected)</label>
+                <div class="controls col-sm-9" id="customoption<?php echo $i; ?>" style="display:none">
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                </div>
 
             <?php endfor; ?>
      
@@ -66,9 +75,25 @@
 
 
 
-
-    <!-- Initialize Quill editor  -->
     <script>
+        <?php for ($i=1;$i < 11;$i++): ?> 
+         $(function () {
+          $("#question<?php echo $i; ?>_optiontype").change(function() {
+            var val = $(this).val();
+            if(val === "CUSTOM") {
+                $("#customoption<?php echo $i; ?>").show();            
+            }
+            else {        
+                $("#customoption<?php echo $i; ?>").hide();
+            }
+          });
+        });
+         <?php endfor; ?>
+    </script>
+
+    <script>
+    // init the quill
+
         var toolbarOptions = [
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
             [{ list: 'ordered' }],
@@ -123,6 +148,8 @@
           <?php endfor; ?>
       }
           
+
+
     </script> 
     </div>
 

@@ -8,13 +8,14 @@
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh/quiz/<?php echo $eachquiz['id']; ?>"></span> 
+                        <span class="fb-comments-count" data-href="<?php echo $weburl; ?>quiz/<?php echo $eachquiz['id']; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <p><?php echo $this->raw($quiz['description']); ?></p>
+                        <?php if ($visited): ?>You have visited this quiz already.<?php endif; ?> 
                     </div>
                 </div>
             </div>             
@@ -68,12 +69,25 @@
                         <div class="radio"> 
                             <ul class="radio-button" name="question<?php echo $count+1; ?>">
                                 <li>
-                                    <input type="radio" name="question<?php echo $count+1; ?>" value="True" checked id="question<?php echo $count+1; ?>_true">
+                                    <input type="radio" name="question<?php echo $count+1; ?>" value="true" id="question<?php echo $count+1; ?>_true">
                                     <label for="question<?php echo $count+1; ?>_true">True</label>                                 
                                 </li>
                                 <li>
-                                    <input type="radio" name="question<?php echo $count+1; ?>" value="False" id="question<?php echo $count+1; ?>_false">
+                                    <input type="radio" name="question<?php echo $count+1; ?>" value="false" id="question<?php echo $count+1; ?>_false">
                                     <label for="question<?php echo $count+1; ?>_false">False</label>                                 
+                                </li>
+                            </ul>
+                        </div>
+                    <?php break; ?><?php case 'realorfake': ?>
+                        <div class="radio"> 
+                            <ul class="radio-button" name="question<?php echo $count+1; ?>">
+                                <li>
+                                    <input type="radio" name="question<?php echo $count+1; ?>" value="real" id="question<?php echo $count+1; ?>_real">
+                                    <label for="question<?php echo $count+1; ?>_real">Real</label>                                 
+                                </li>
+                                <li>
+                                    <input type="radio" name="question<?php echo $count+1; ?>" value="fake" id="question<?php echo $count+1; ?>_fake">
+                                    <label for="question<?php echo $count+1; ?>_fake">Fake</label>                                 
                                 </li>
                             </ul>
                         </div>
@@ -81,20 +95,10 @@
                         <div class="radio"> 
                             <ul class="radio-button">
                                 <?php $i=0; foreach (($question['options']?:[]) as $option): $i++; ?>
-                                <?php if ($i==1): ?>
-                                    
-                                        <li>
-                                            <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" checked id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
-                                            <label for="question<?php echo $count+1; ?>_<?php echo $i; ?>"><?php echo $option['text']; ?></label>
-                                        </li>
-                                    
-                                    <?php else: ?>
-                                        <li>
-                                            <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
-                                            <label for="question<?php echo $count+1; ?>_<?php echo $i; ?>"><?php echo $option['text']; ?></label>
-                                        </li>
-                                    
-                                <?php endif; ?>
+                                    <li>
+                                        <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
+                                        <label for="question<?php echo $count+1; ?>_<?php echo $i; ?>"><?php echo $option['text']; ?></label>
+                                    </li>
                                 <?php endforeach; ?>
                             </ul>                             
                         </div>                                     
@@ -118,7 +122,7 @@
                         <div class="radio"> 
                             <ul class="radio-button">
                                 <li>
-                                    <input type="radio" name="gender" value="male" checked id="gender_m">
+                                    <input type="radio" name="gender" value="male" id="gender_m">
                                     <label for="gender_m">MALE</label>                                     
                                 </li>
                                 <li>
@@ -135,7 +139,7 @@
                         <div class="radio"> 
                             <ul class="radio-button">
                                 <li>
-                                    <input type="radio" name="age" value="10" checked id="age_10">
+                                    <input type="radio" name="age" value="10" id="age_10">
                                     <label for="age_10">&lt; 19</label>                                     
                                 </li>
                                 <li>
@@ -163,11 +167,34 @@
                     </td>                     
                 </tr>
                 <tr> 
+                    <td class="pad20">Your Housing Type:</td> 
+                    <td>
+                        <ul class="radio-button">
+                            <li>
+                                <input type="radio" name="housing" value="landed" id="housing_l">
+                                <label for="housing_l">LANDED</label>                                 
+                            </li>
+                            <li>
+                                <input type="radio" name="housing" value="private" id="housing_p">
+                                <label for="housing_p">CONDO</label>                                 
+                            </li>
+                            <li>
+                                <input type="radio" name="housing" value="hdb" id="housing_h">
+                                <label for="housing_h">HDB</label>                                 
+                            </li>
+                            <li>
+                                <input type="radio" name="housing" value="other" id="housing_o">
+                                <label for="housing_o">OTHER</label>                                 
+                            </li>
+                        </ul>                         
+                    </td>                     
+                </tr>
+                <tr> 
                     <td class="pad20">Your Race:</td> 
                     <td>
                         <ul class="radio-button">
                             <li>
-                                <input type="radio" name="race" value="chinese" checked id="race_c">
+                                <input type="radio" name="race" value="chinese" id="race_c">
                                 <label for="race_c">CHINESE</label>                                 
                             </li>
                             <li>
@@ -190,7 +217,7 @@
                     <td>
                         <ul class="radio-button">
                             <li>
-                                <input type="radio" name="religion" value="buddhism" checked id="religion_b">
+                                <input type="radio" name="religion" value="buddhism" id="religion_b">
                                 <label for="religion_b">BUDDHISM</label>                                 
                             </li>
                             <li>

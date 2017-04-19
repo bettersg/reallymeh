@@ -8,3 +8,17 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     
+
+
+
+                                <check if="@i==1">
+                                    <true>
+                                        <li>
+                                            <input type="radio" name="question{{@count+1}}" value="{{@option.text}}" id="question{{@count+1}}_{{@i}}">
+                                            <label for="question{{@count+1}}_{{@i}}">{{@option.text}}</label>
+                                        </li>
+                                    </true>
+                                    <false>
+
+                                    </false>
+                                </check>

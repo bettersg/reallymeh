@@ -2,17 +2,17 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <meta property="og:url"  content="https://reallymeh.herokuapp.com<?php echo $PATH; ?>" />       
+        <meta property="og:url"  content="<?php echo $weburl; ?><?php echo $PATH; ?>" />       
         <meta property="og:title"              content="Confirm? <?php echo $quiz['name']; ?> " />
         <meta property="og:description"        content="Discover the truth about <?php echo $quiz['name']; ?> for Singapore, 10 hard questions at a time. Are you ready to Confirm?" />
-        <meta property="og:image"              content="https://reallymeh.herokuapp.com/<?php echo $quiz['image']; ?>" />
+        <meta property="og:image"              content="<?php echo $weburl; ?><?php echo $quiz['image']; ?>" />
         <meta property="og:type"              content="website" />
         <meta property="fb:app_id"              content="214948752321276" />
 
         <title>Confirm?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="Really, meh?" />
+        <meta name="description" content="Confirm?" />
         <link rel="shortcut icon" href="<?php echo $BASE; ?>/ico/favicon.ico"> 
         <!-- Core CSS -->         
         <link href="<?php echo $BASE; ?>/app/views/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 

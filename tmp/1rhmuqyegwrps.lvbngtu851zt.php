@@ -2,7 +2,7 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <title>Really, meh?</title>
+        <title>Confirm? [ADMIN]</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
         <meta name="description" content="Confirm?" />
@@ -48,7 +48,7 @@
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="container-fluid"> 
             <div class="navbar-header"> 
-                <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/">CONFIRM?</a> 
+                <a class="navbar-brand aqua" href="<?php echo $BASE; ?>/"> CONFIRM? </a><a class="navbar-brand aqua" href="<?php echo $BASE; ?>/admin"> [ ADMIN ]</a>  
             </div>                 
         </div>             
     </nav>

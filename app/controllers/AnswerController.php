@@ -3,7 +3,8 @@
 class AnswerController extends Controller {
 
 	function beforeroute($f3,$params) {
-		// session management if required
+		// set the cookie once the user has completed the quiz
+		$f3->set('COOKIE.confirm_visited_quiz', $params['id'][0] , 60 * 60 * 24 * 30);
 		// render header
 	    $quizzes = new Quizzes($this->db);
 	    $quiz = $quizzes->getById($params['id'])[0];
@@ -20,6 +21,11 @@ class AnswerController extends Controller {
 	
 	function answer($f3,$params){
 	
+	//	if ($f3->exists('COOKIE.confirm_visited_quiz')) {
+	// 		$f3->set('visited','visited already');
+	// 		consider whether to only save the data if the cookie has not been set yet. Otherwise skip?
+	//		}
+
 		// save the user's results to the database	
 		$quizresults = new Answers($this->db);		
 		$quizresults->add();

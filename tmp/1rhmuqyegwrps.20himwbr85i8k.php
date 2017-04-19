@@ -1,7 +1,8 @@
         <section class="content-block-nopad footer-wrap-1-2 bg-deepocean">
             <div class="container footer-1-2 text-center">
-                <h5 class="white text-center">"Confirm?" is a non-profit, volunteer-run project brought to you by the same team as <a href="http://dialectic.sg" target="_blank">dialectic.sg</a>. For more information, please <a href="mailto:gaurav@dialectic.sg">contact us</a>.</h5>                
-                        <div class="fb-share-button" data-href="https://reallymeh.herokuapp.com<?php echo $PATH; ?>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freallymeh.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>        
+                <h5 class="white text-center">"Confirm?" is a non-profit, volunteer-run project brought to you by the same team as <a href="http://dialectic.sg" target="_blank">dialectic.sg</a>. For more information, please <a href="mailto:gaurav@dialectic.sg">contact us</a>. </h5>                
+                        <div class="fb-share-button" data-href="<?php echo $weburl; ?>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $weburlunicode; ?>&amp;src=sdkpreparse">Share</a></div>    <br/> 
+                        <p class="white small text-center"> &copy; 2017 Gaurav Keerthi    </p>
             </div>
             <!-- /.container -->
         </section>

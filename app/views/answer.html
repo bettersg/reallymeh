@@ -7,7 +7,7 @@
                     <div class="col-xs-6">{{ date('d M',strtotime(@quiz.createdat)) }}</div>
                     <div class="col-xs-3 text-right">{{ @quiz.numparticipants }} <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="http://www.gauravkeerthi.com/reallymeh{{@PATH}}"></span> 
+                        <span class="fb-comments-count" data-href="{{@weburl}}{{@PATH}}"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
@@ -89,7 +89,7 @@
         <div class="container">
             <hr class="bg-silver" />
             <h4>Reflections &amp; Discussion</h4>
-            <div class="fb-comments" data-href="http://www.gauravkeerthi.com/reallymeh{{@PATH}}" data-numposts="5" width="100%"></div>
+            <div class="fb-comments" data-href="{{@weburl}}{{@PATH}}" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">
             <div class="row">
@@ -115,9 +115,9 @@
     // calling the API ...
         var obj = {
           method: 'feed',
-          link: 'https://reallymeh.herokuapp.com/quiz/{{@quiz.id}}',
+          link: '{{@weburl}}quiz/{{@quiz.id}}',
           description: "I took the {{ @quiz.name }} quiz and scored {{ @correctcount }}/10 for the {{@award}} award! Can you do better?",
-          picture: 'https://reallymeh.herokuapp.com{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg',
+          picture: '{{@weburl}}app/views/images/answer{{@correctcount}}.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
           FB.ui(obj);
