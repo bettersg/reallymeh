@@ -34,7 +34,7 @@
                         <!-- <?php echo $currentquestion = 'question'.$currentnumber; ?> -->
 
                         <p>You guessed it was: <b><?php echo $quizresults[$currentquestion]; ?></b>                            
-                            <?php if ($quizresults[$currentquestion] == $question['correctanswer']): ?>
+                            <?php if (strtoupper($quizresults[$currentquestion]) == strtoupper($question['correctanswer'])): ?>
                                 
                                     <span class="answer_correct">CORRECT!</span>
                                     <!-- <?php echo $correctcount = $correctcount +1; ?> -->

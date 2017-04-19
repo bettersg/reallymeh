@@ -33,8 +33,8 @@
                     <div class="col-md-6">
                         <!-- {{  @currentquestion = 'question'.@currentnumber }} -->
 
-                        <p>You guessed it was: <b>{{@quizresults[@currentquestion]}}</b>                            
-                            <check if="{{ @quizresults[@currentquestion] == @question.correctanswer }}">
+                        <p>You guessed it was: <b>{{strtoupper(@quizresults[@currentquestion])}}</b>                            
+                            <check if="{{ strtoupper(@quizresults[@currentquestion]) == strtoupper(@question.correctanswer) }}">
                                 <true>
                                     <span class="answer_correct">CORRECT!</span>
                                     <!-- {{ @correctcount = @correctcount +1 }} -->
@@ -67,16 +67,16 @@
             </repeat>  
             <div class="well text-center col-sm-6 col-sm-offset-3">
                <!--  <switch expr="@correctcount">
-                    <case value="10">{{@award = 'Champion Nerd'}} </case>
+                    <case value="10">{{@award = 'Mugger Toad'}} </case>
                     <case value="9">{{@award = 'Ultra Nerd'}}</case>
                     <case value="8">{{@award = 'Super Nerd'}}</case>
                     <case value="7">{{@award = 'Exam Smart'}}</case>
                     <case value="6">{{@award = 'Good Attempt'}}</case>
                     <case value="5">{{@award = 'Just Passed'}}</case>
                     <case value="4">{{@award = 'Almost Can'}}</case>
-                    <case value="3">{{@award = 'Alamak'}}</case>
-                    <case value="2">{{@award = 'Aiyoh'}}</case>
-                    <case value="1">{{@award = 'Jialat'}}</case>
+                    <case value="3">{{@award = 'Cannot Make It'}}</case>
+                    <case value="2">{{@award = 'Alamak'}}</case>
+                    <case value="1">{{@award = 'Sibei Jialat'}}</case>
                     <case value="0">{{@award = 'Sotong King'}}</case> 
                 </switch> -->
                 <img src="{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg" width="100%" class="img-rounded img-responsive" />
