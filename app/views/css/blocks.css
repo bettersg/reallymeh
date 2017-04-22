@@ -866,6 +866,7 @@ Version: 1.0
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin-bottom:20px;
 }
 
 .content-1-1 .container

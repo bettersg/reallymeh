@@ -1,0 +1,1 @@
+<h2 class="text-center">You must <b>complete</b> the <a href="/quiz/<?php echo $id; ?>">quiz</a> to see the answers page. No peeking!</h2>

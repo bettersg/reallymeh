@@ -76,20 +76,42 @@ class AdminController extends Controller {
 		$newquiz->save();
 
 		$question = new Questions ($this->db);
+		$choice = new Choices ($this->db);
 		foreach($f3->get('POST.question') as $q) {		  	
 		  	$question->reset();
 		  	$text = $q['text'];
 		  	$byline = $q['byline'];
 		  	$correctanswer = $q['correctanswer'];		  	
 		  	$answerwriteup = $q['answerwriteup'];
+		  	$optiontype = $q['optiontype'];		  	
 
 		  	$question->quiz_id_fk = $newquiz->_id;
 		  	$question->text = $text;
 		  	$question->byline = $byline;
 		  	$question->correctanswer = $correctanswer;
 		  	$question->answerwriteup = $answerwriteup;
+		  	
 		  	$question->save();
+
+		  	$questionid = $question->id;
+
+		  	if ($optiontype != 'CUSTOM') {
+		  		$choice->reset();
+		  		$choice->question_id_fk = $questionid;
+		  		$choice->optiontype = $optiontype;
+		  		$choice->save();
+		  	}
+		  	if ($optiontype == 'CUSTOM') {
+		  		$choice->reset();
+		  		$choice->question_id_fk = $questionid;
+		  		$choice->optiontype = $optiontype;
+		  		// how to get each option
+		  		$choice->save();
+		  	}
+
 		}
+
+		
 /*		for ($i=1; $i<11; $i++) {
 			$question->reset();
 			$question->quiz_id_fk = $newquiz->_id;

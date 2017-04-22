@@ -13,12 +13,13 @@
                     <div class="underlined-title">
                         <h5>"<i>Confirm?</i>" = Singlish for "<i>Is that a fact?</i>" </h5>
                         <hr>
-                        <p>With social media today, we often end up living in echo chambers and filter bubbles that define our perception of the world. With just 10 questions about different topics, discover your own misperceptions and compare them against others and against the real facts (not #alternativefacts). Don't be fooled by fake news. Challenge yourself against the facts here.</p>     
-
+                        <p class="text-left">Not everything you read on the internet is true, and not everything you <i>think</i> you know for sure is correct. Discover your misperceptions, compare your understanding of issues against others, and find out what is real and what are just #fakenews or #alternativefacts. 
+                        
                     </div>
                 </div>
             </div>
         </section>
+
         <div class="container">
             <table class="table"> 
                 <thead> 
@@ -45,6 +46,23 @@
                                                     
                 </tbody>
             </table>
+             <hr style="height:1px; background: silver;">
            <!-- <button type="button" disabled class="btn btn-block btn-primary margin-bottom30">LOAD MORE...</button> -->
         </div>
 
+        <section id="content-3-7" class="content-block content-3-7">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="underlined-title">
+                        <p>When in doubt, just follow these simple rules::</p> 
+                          <ul class="userguide">
+                            <li><b>Blur Sotong's Guide to the Internet</b></li>
+                            <li>1. Don't be <b>bodoh</b>: not sure, better find out. </li>
+                            <li>2. Don't <b>kena bluff</b>: don't anyhow believe everything you read online. </li>
+                            <li>3. Don't <b>talkcock</b>: not confirm true, don't spread rumor la.</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>

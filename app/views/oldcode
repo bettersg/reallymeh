@@ -10,6 +10,25 @@
     
 
 
+        <section class="content-block">
+            <div class="container  user-guide-block">
+                <div class="col-sm-12">
+                    <div class="underlined-title">
+                        <hr><h5>The Blur Sotong's User Guide to the Internet</h5>
+                        
+                        <ul>
+                            <li>1. Don't be <b>bodoh</b>: not sure, better find out. </li>
+                            <li>2. Don't <b>kena bluff</b>: don't anyhow believe everything you read online. </li>
+                            <li>3. Don't <b>talkcock</b>: not confirm true, don't spread rumor la.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+
 
                                 <check if="@i==1">
                                     <true>
@@ -22,3 +41,9 @@
 
                                     </false>
                                 </check>
+
+
+        <div class="container ">
+            <hr>
+            <div class="fb-page" data-href="https://www.facebook.com/confirmsg/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/confirmsg/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/confirmsg/">Confirm.sg</a></blockquote></div>
+        </div>

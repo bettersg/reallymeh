@@ -67,8 +67,9 @@ class AnswerController extends Controller {
 		
 	}
 
-	function notallowed() {
-		echo 'You must complete the quiz to see the answers page';
+	function notallowed($f3, $params) {
+		$f3->set('id',$params['id']);		
+		echo \Template::instance()->render('notallowed.html');	
 	}
 
 }

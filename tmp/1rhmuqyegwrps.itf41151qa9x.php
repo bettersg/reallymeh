@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <!-- <?php echo $currentquestion = 'question'.$currentnumber; ?> -->
 
-                        <p>You guessed it was: <b><?php echo $quizresults[$currentquestion]; ?></b>                            
+                        <p>You guessed it was: <b><?php echo strtoupper($quizresults[$currentquestion]); ?></b>                            
                             <?php if (strtoupper($quizresults[$currentquestion]) == strtoupper($question['correctanswer'])): ?>
                                 
                                     <span class="answer_correct">CORRECT!</span>
@@ -66,7 +66,7 @@
 
             <?php endforeach; ?>  
             <div class="well text-center col-sm-6 col-sm-offset-3">
-               <!--  <?php switch ($correctcount): ?><?php case '10': ?><?php echo $award = 'Champion Nerd'; ?> <?php break; ?><?php case '9': ?><?php echo $award = 'Ultra Nerd'; ?><?php break; ?><?php case '8': ?><?php echo $award = 'Super Nerd'; ?><?php break; ?><?php case '7': ?><?php echo $award = 'Exam Smart'; ?><?php break; ?><?php case '6': ?><?php echo $award = 'Good Attempt'; ?><?php break; ?><?php case '5': ?><?php echo $award = 'Just Passed'; ?><?php break; ?><?php case '4': ?><?php echo $award = 'Almost Can'; ?><?php break; ?><?php case '3': ?><?php echo $award = 'Alamak'; ?><?php break; ?><?php case '2': ?><?php echo $award = 'Aiyoh'; ?><?php break; ?><?php case '1': ?><?php echo $award = 'Jialat'; ?><?php break; ?><?php case '0': ?><?php echo $award = 'Sotong King'; ?><?php break; ?><?php endswitch; ?> -->
+               <!--  <?php switch ($correctcount): ?><?php case '10': ?><?php echo $award = 'Mugger Toad'; ?> <?php break; ?><?php case '9': ?><?php echo $award = 'Ultra Nerd'; ?><?php break; ?><?php case '8': ?><?php echo $award = 'Super Nerd'; ?><?php break; ?><?php case '7': ?><?php echo $award = 'Exam Smart'; ?><?php break; ?><?php case '6': ?><?php echo $award = 'Good Attempt'; ?><?php break; ?><?php case '5': ?><?php echo $award = 'Just Passed'; ?><?php break; ?><?php case '4': ?><?php echo $award = 'Almost Can'; ?><?php break; ?><?php case '3': ?><?php echo $award = 'Cannot Make It'; ?><?php break; ?><?php case '2': ?><?php echo $award = 'Alamak'; ?><?php break; ?><?php case '1': ?><?php echo $award = 'Sibei Jialat'; ?><?php break; ?><?php case '0': ?><?php echo $award = 'Sotong King'; ?><?php break; ?><?php endswitch; ?> -->
                 <img src="<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
                 <?php echo $correctcount; ?>/10 correct! You have received the <b><?php echo $award; ?></b> award!</h4>
@@ -97,6 +97,8 @@
                 </div>
             </div>
         </div>
+
+    <div class="fb-quote"></div>
 
     <script>
     function postToFeed() {

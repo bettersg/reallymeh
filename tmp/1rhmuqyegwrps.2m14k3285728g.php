@@ -46,7 +46,7 @@
 
                 <label class="text-right col-sm-3" for="question<?php echo $i; ?>_optiontype">Q<?php echo $i; ?> Option Type</label>
                 <div class="controls col-sm-9">
-                    <select id="question<?php echo $i; ?>_optiontype" class="form-control" data-role="select" selected="selected" name="question<?php echo $i; ?>_optiontype">
+                    <select id="question<?php echo $i; ?>_optiontype" class="form-control" data-role="select"  name="question[<?php echo $i; ?>][optiontype]">
                         <option value="100percent">100percent</option>
                         <option value="trueorfalse" selected>trueorfalse</option>
                         <option value="realorfake" selected>realorfake</option>

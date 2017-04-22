@@ -27,3 +27,10 @@
 	margin-top: 20px !important;
 	
 }
+ 
+
+.userguide {
+ 	background: rgba(26,188,156,0.2);
+ 	padding:10px;
+ 	text-align: left;
+ }
