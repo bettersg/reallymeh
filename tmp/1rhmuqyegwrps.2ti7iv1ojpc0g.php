@@ -57,7 +57,7 @@
                         <p>When in doubt, just follow these simple rules::</p> 
                           <ul class="userguide">
                             <li><b>Blur Sotong's Guide to the Internet</b></li>
-                            <li>1. Don't be <b>bodoh</b>: not sure, better find out. </li>
+                            <li>1. Don't be <b data-toggle="tooltip" title="Singlish: a person who does an idiotic thing">bodoh</b>: not sure, better find out. </li>
                             <li>2. Don't <b>kena bluff</b>: don't anyhow believe everything you read online. </li>
                             <li>3. Don't <b>talkcock</b>: not confirm true, don't spread rumor la.</li>
                         </ul>
@@ -66,3 +66,9 @@
                 </div>
             </div>
         </section>
+
+        <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>

@@ -57,12 +57,12 @@
 
                 <label class="text-right col-sm-3"  >Q<?php echo $i; ?> CUSTOM OPTIONS (only if CUSTOM was selected)</label>
                 <div class="controls col-sm-9" id="customoption<?php echo $i; ?>" style="display:none">
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][1]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][2]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][3]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][4]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][5]"></div>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][6]"></div>
                 </div>
 
             <?php endfor; ?>

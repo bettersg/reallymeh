@@ -13,7 +13,8 @@ class Answers extends DB\SQL\Mapper{
 	    return $this->query;
 	}
 // need functions to collate and average the data by demographic group
-	public function averageAnswer($quiz_id,$question_id) {		
+	public function answerVotes($quiz_id,$question_id) {		
+//	    return $this->db->exec('select question'.$question_id.', COUNT(*) as votes  from  answers where quiz_id_fk='.$quiz_id.' group by question'.$question_id.' order by votes desc');
 	    return $this->db->exec('select question'.$question_id.', COUNT(*) as votes  from  f8m7o85ldalpqf2m.answers where quiz_id_fk='.$quiz_id.' group by question'.$question_id.' order by votes desc');
 //	    return $this->db->exec('select question'.$question_id.', COUNT(*) as votes  from  answers where quiz_id_fk='.$quiz_id.' group by question'.$question_id.' order by votes desc');
 	    

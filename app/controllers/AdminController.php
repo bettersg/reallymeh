@@ -102,11 +102,13 @@ class AdminController extends Controller {
 		  		$choice->save();
 		  	}
 		  	if ($optiontype == 'CUSTOM') {
-		  		$choice->reset();
-		  		$choice->question_id_fk = $questionid;
-		  		$choice->optiontype = $optiontype;
-		  		// how to get each option
-		  		$choice->save();
+		  		foreach($q['custom'] as $c) {
+		  			$choice->reset();
+		  			$choice->question_id_fk = $questionid;
+		  			$choice->optiontype = 'CUSTOM';
+		  			$choice->text = $c; 
+		  			$choice->save();
+		  		}
 		  	}
 
 		}
@@ -123,7 +125,8 @@ class AdminController extends Controller {
 		    $question->save();
 		}
 */
-		
+		// var_dump($f3->get('POST'));
+
 		$f3->reroute('/admin');
 
 

@@ -73,10 +73,13 @@
                 <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge your friends on Facebook!</button>
             </div>              
 
-        </div>
-        <div class="container">
-            <hr class="bg-silver" />
+        </div>        
+
+        <div class="container">            
+            <hr class="bg-silver"  style="height:1px"/>
             <h4>Reflections &amp; Discussion</h4>
+            <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
+             <hr class="bg-silver" style="height:1px"/>
             <div class="fb-comments" data-href="<?php echo $weburl; ?><?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
         </div>
         <div class="container">

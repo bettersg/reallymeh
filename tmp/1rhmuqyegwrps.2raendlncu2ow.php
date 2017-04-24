@@ -36,3 +36,4 @@
         
         </div>
 
+<pre><?php echo $post; ?></pre>

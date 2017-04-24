@@ -57,7 +57,7 @@ class AnswerController extends Controller {
 		$answers = new Answers($this->db);
 		 $question_results= [];
 			for ($i=1 ;$i<11;$i++) {
-				$question_results[] = $answers->averageAnswer($id,$i);
+				$question_results[] = $answers->answerVotes($id,$i);
 				// $question_results[] = $thisresult->cast();
 			}
 		$f3->set('question_results',$question_results);
