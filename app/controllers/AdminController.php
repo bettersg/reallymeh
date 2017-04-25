@@ -114,17 +114,7 @@ class AdminController extends Controller {
 		}
 
 		
-/*		for ($i=1; $i<11; $i++) {
-			$question->reset();
-			$question->quiz_id_fk = $newquiz->_id;
-
-
-			$question->copyfrom('POST', function($val) {
-		    	return array_intersect_key($val, array('text'=>'question'.$i.'_text','byline'=>'question'.$i.'_byline','optiontype'=>'question'.$i.'_optiontype'));
-			});
-		    $question->save();
-		}
-*/
+ 
 		// var_dump($f3->get('POST'));
 
 		$f3->reroute('/admin');

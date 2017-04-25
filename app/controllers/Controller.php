@@ -13,6 +13,12 @@ class Controller {
 	        $f3->get('herokudb'),
 	        $f3->get('herokudbusername'),
 	        $f3->get('herokudbpassword'),
+
+/*
+	        $f3->get('devdb'),
+	        $f3->get('devdbusername'),
+	        $f3->get('devdbpassword'),
+*/
 	        array( \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION )
 	    );
 

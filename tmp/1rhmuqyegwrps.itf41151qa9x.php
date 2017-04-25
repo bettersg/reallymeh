@@ -76,7 +76,7 @@
         </div>        
 
         <div class="container">            
-            <hr class="bg-silver"  style="height:1px"/>
+
             <h4>Reflections &amp; Discussion</h4>
             <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
              <hr class="bg-silver" style="height:1px"/>
