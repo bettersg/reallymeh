@@ -45,20 +45,33 @@
                         <p >The correct answer is: <span class="answer_correct" style="float:none"><?php echo $question['correctanswer']; ?></span></p>  
 
                         <div class="well">
-                            Other people guessed:  <br/>                            
-                            <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
-                                The option <b><?php echo $thisresult[$currentquestion]; ?></b> received <b><?php echo $thisresult['votes']; ?></b> votes <br/>
-                            <?php endforeach; ?> 
+                            <div id="chart_<?php echo $count; ?>"> </div>                                    
+                              <script type="text/javascript">
+                                google.charts.load('current', {'packages':['corechart']});
+                                google.charts.setOnLoadCallback(drawChart);                         
+                                function drawChart() {
+                                    // Create the data table.
+                                    var data<?php echo $count; ?> = new google.visualization.DataTable();
+                                    data<?php echo $count; ?>.addColumn('string', 'Answer');
+                                    data<?php echo $count; ?>.addColumn('number', 'Votes');
+                                    data<?php echo $count; ?>.addRows([
+                                <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
+                                      ['<?php echo $thisresult[$currentquestion]; ?>', <?php echo $thisresult['votes']; ?>],
+                                <?php endforeach; ?>   
+                                        ]);
+                                        var options = {'title':'Other People Guessed',
+                                                        titleTextStyle : { fontSize: 16, bold: false },
+                                                       'width':350,
+                                                       'height':200,
+                                                        pieSliceText: 'label'
+                                                   };
 
-                            <div class="progress">                                     
-                              <?php foreach (($question_results[$count]?:[]) as $j=>$thisresult): ?>
-                                <div class="progress-bar <?php if ($j%2==0): ?>progress-bar-warning<?php endif; ?>" style="width: <?php echo ($thisresult['votes'] / $quiz['numparticipants'])*100; ?>%">
-                                    <span><?php echo $thisresult[$currentquestion]; ?></span>
-                                </div>  
-                              <?php endforeach; ?>                                  
-                            </div>
-                        </div>   
-                                              
+                                        // Instantiate and draw our chart, passing in some options.
+                                        var chart<?php echo $count; ?> = new google.visualization.PieChart(document.getElementById('chart_<?php echo $count; ?>'));
+                                        chart<?php echo $count; ?>.draw(data<?php echo $count; ?>, options);
+                                      }
+                                    </script>                                                                             
+                        </div>                                                 
                         <p><?php echo $this->raw($question['answerwriteup']); ?></p>
                     </div>
                     <hr class="bg-silver" style="height:1px" />
@@ -70,7 +83,7 @@
                 <img src="<?php echo $BASE; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
                 <?php echo $correctcount; ?>/10 correct! You have received the <b><?php echo $award; ?></b> award!</h4>
-                <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge your friends on Facebook!</button>
+                <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge friends on Facebook!</button>
             </div>              
 
         </div>        
@@ -88,12 +101,12 @@
                     <i class="fa fa-arrow-left fa-pull-left fa-2x pad20"></i> 
                 </div>
                 <div class="col-md-4 col-xs-4">
-                    <p>Previous topic: Income Inequality</p> 
+                    <p>Previous topic: How rich are we really?</p> 
                 </div>
-                <div class="col-xs-1"> 
-</div>
+                <div class="col-xs-2"> 
+                </div>
                 <div class="col-md-4 col-xs-4">
-                    <p class="text-right">Next topic: Malnutrition</p> 
+                    <p class="text-right">Next topic: Internet Mob Justice League</p> 
                 </div>
                 <div class="col-xs-1 col-md-1">
                     <i class="fa fa-2x pad20 fa-arrow-right"></i> 
@@ -116,3 +129,4 @@
           FB.ui(obj);
     }
     </script>
+

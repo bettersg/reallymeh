@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-md-4">
                     <hr>
-                    <div class="fb-page" data-href="https://www.facebook.com/confirmsg/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-height="300" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/confirmsg/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/confirmsg/">Confirm.sg</a></blockquote></div>
+                    <div class="fb-page" data-href="https://www.facebook.com/confirmsg/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-height="300" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/confirmsg/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/confirmsg/">Confirm.sg</a></blockquote></div>
                 </div>
             </div>
         </section>

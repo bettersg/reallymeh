@@ -20,31 +20,31 @@
             </div>
     
 
-            <?php for ($i=1;$i < 11;$i++): ?>            
+            <?php for ($i=0;$i < 10;$i++): ?>            
                 <img src="<?php echo $BASE; ?>/app/views/images/black.jpg" width="100%" height="1px">
-                <label class="text-right col-sm-3" for="question<?php echo $i; ?>">Question <?php echo $i; ?></label>
+                <label class="text-right col-sm-3" for="question<?php echo $i; ?>">Question <?php echo $i+1; ?></label>
                 <div class="controls col-sm-9">
                     <input name="question[<?php echo $i; ?>][text]" id="question<?php echo $i; ?>_text" type="hidden">
                     <div id="editor_<?php echo $i; ?>" style="height:100px; margin-bottom: 20px "></div>
                 </div> 
                 
-                <label class="text-right col-sm-3"  >Q<?php echo $i; ?> Byline</label>
+                <label class="text-right col-sm-3"  >Q<?php echo $i+1; ?> Byline</label>
                 <div class="controls col-sm-9">
                     <input id="question1_byline " type="text" class="form-control " name="question[<?php echo $i; ?>][byline]">
                 </div> 
         
-                <label class="text-right col-sm-3"  >Q<?php echo $i; ?> Correct Answer</label>
+                <label class="text-right col-sm-3"  >Q<?php echo $i+1; ?> Correct Answer</label>
                 <div class="controls col-sm-9">
                     <input   type="text" class="form-control  " name="question[<?php echo $i; ?>][correctanswer]">
                 </div>
 
-                <label class="text-right col-sm-3"  >Q<?php echo $i; ?> Answer Writeup</label>
+                <label class="text-right col-sm-3"  >Q<?php echo $i+1; ?> Answer Writeup</label>
                 <div class="controls col-sm-9">
                     <input name="question[<?php echo $i; ?>][answerwriteup]" id="question<?php echo $i; ?>_answerwriteup" type="hidden">
                     <div id="editor_answer<?php echo $i; ?>" style="height:100px; margin-bottom: 20px "></div>                    
                 </div> 
 
-                <label class="text-right col-sm-3" for="question<?php echo $i; ?>_optiontype">Q<?php echo $i; ?> Option Type</label>
+                <label class="text-right col-sm-3" for="question<?php echo $i; ?>_optiontype">Q<?php echo $i+1; ?> Option Type</label>
                 <div class="controls col-sm-9">
                     <select id="question<?php echo $i; ?>_optiontype" class="form-control" data-role="select"  name="question[<?php echo $i; ?>][optiontype]">
                         <option value="100percent">100percent</option>
@@ -55,14 +55,14 @@
                     </select>                    
                 </div> 
 
-                <label class="text-right col-sm-3"  >Q<?php echo $i; ?> CUSTOM OPTIONS (only if CUSTOM was selected)</label>
+                <label class="text-right col-sm-3"  >Q<?php echo $i+1; ?> CUSTOM OPTIONS (only if CUSTOM was selected)</label>
                 <div class="controls col-sm-9" id="customoption<?php echo $i; ?>" style="display:none">
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][0]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][1]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][2]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][3]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][4]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][5]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[<?php echo $i; ?>][custom][6]"></div>
                 </div>
 
             <?php endfor; ?>
@@ -76,7 +76,7 @@
 
 
     <script>
-        <?php for ($i=1;$i < 11;$i++): ?> 
+        <?php for ($i=0;$i < 10;$i++): ?> 
          $(function () {
           $("#question<?php echo $i; ?>_optiontype").change(function() {
             var val = $(this).val();
@@ -114,7 +114,7 @@
         theme: 'snow'
       });
 
-      <?php for ($i=1;$i < 11;$i++): ?>    
+      <?php for ($i=0;$i < 10;$i++): ?>    
             var quill_question<?php echo $i; ?> = new Quill('#editor_<?php echo $i; ?>', {
             modules: {
                 toolbar: toolbarOptions
@@ -123,7 +123,7 @@
           });
       <?php endfor; ?>
 
-        <?php for ($i=1;$i < 11;$i++): ?>    
+        <?php for ($i=0;$i < 10;$i++): ?>    
             var quill_answer<?php echo $i; ?> = new Quill('#editor_answer<?php echo $i; ?>', {
             modules: {
                 toolbar: toolbarOptions
@@ -138,13 +138,13 @@
           var description = document.querySelector('input[name=description]');
           description.value =  quill_description.container.firstChild.innerHTML;       
 
-          <?php for ($i=1;$i < 11;$i++): ?>                  
+          <?php for ($i=0;$i < 10;$i++): ?>                  
             // Populate hidden input for question text
             var question = document.getElementById('question<?php echo $i; ?>_text');
             question.value =  quill_question<?php echo $i; ?>.container.firstChild.innerHTML; 
           // Populate hidden input for question answerwriteup
             var answerwriteup = document.getElementById('question<?php echo $i; ?>_answerwriteup');
-            answerwriteup.value =  quill_question<?php echo $i; ?>.container.firstChild.innerHTML; 
+            answerwriteup.value =  quill_answer<?php echo $i; ?>.container.firstChild.innerHTML; 
           <?php endfor; ?>
       }
           

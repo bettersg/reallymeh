@@ -1,0 +1,157 @@
+<pre>{{var_dump($questions)}}</pre>
+<div class="container">
+    <h3>ADMIN: EDIT</h3>
+    <div class="col-md-12 form-group" >
+        <form  method="POST" action="{{@BASE}}/admin/edit/{{@quiz.id}}" enctype="multipart/form-data">
+            <label class=" col-sm-3 text-right" for="quiz_name">Quiz Name</label>
+            <div class="  col-sm-9">
+                <input id="quiz_name" type="text" class="form-control" name="name" value="{{ @quiz.name }}">
+            </div>        
+
+            <label  class=" col-sm-3 text-right" for="editor">Quiz Description</label>
+            <div class="col-sm-9">
+                <textarea name="description"  rows=5 class="form-control">{{ @quiz.description | raw }}</textarea>
+                <div id="editor_description" style="height:20px; margin-bottom: 20px "></div>
+            </div>
+
+            <label  class=" col-sm-3 text-right" for="editor">Quiz Description</label>
+            <div class="col-sm-9">
+                <img src="{{@BASE}}/{{ @quiz.image }}" class="img-responsive">
+                <input type="file" id="quiz_image" name="image" />
+            </div>
+    
+
+             <repeat group="{{ @questions }}" key="{{ @i }}" value="{{ @question }}">       <input  type="hidden" name="question[{{@i}}][questionid]"  value="{{ @question[id] }}">        
+                <img src="{{@BASE}}/app/views/images/black.jpg" width="100%" height="1px">
+                <label class="text-right col-sm-3" for="question{{@i}}">Question {{@i+1}}</label>
+                <div class="controls col-sm-9">
+                    <textarea name="question[{{@i}}][text]" id="question{{@i}}_text" rows=5 class="form-control"> {{ @question[text] | raw}} </textarea>
+                    <div id="editor_{{@i}}" style="height:10px; margin-bottom: 20px "></div>
+                </div> 
+                
+                <label class="text-right col-sm-3"  >Q{{@i+1}} Byline</label>
+                <div class="controls col-sm-9">
+                    <input id="question{{@i}}_byline " type="text" class="form-control " name="question[{{@i}}][byline]"  value="{{ @question[byline] }}">
+                </div> 
+        
+                <label class="text-right col-sm-3"  >Q{{@i+1}} Correct Answer</label>
+                <div class="controls col-sm-9">
+                    <input   type="text" class="form-control  " name="question[{{@i}}][correctanswer]"  value="{{ @question[correctanswer] }}" type="hidden">
+                </div>
+
+                <label class="text-right col-sm-3"  >Q{{@i+1}} Answer Writeup</label>
+                <div class="controls col-sm-9">
+                    <textarea name="question[{{@i}}][answerwriteup]" id="question{{@i}}_answerwriteup" rows=5 class="form-control">{{ @question[answerwriteup] | raw }}</textarea>
+                    <div id="editor_answer{{@i}}" style="height:10px; margin-bottom: 20px "></div>                    
+                </div> 
+
+                <label class="text-right col-sm-3" for="question{{@i}}_optiontype">Q{{@i+1}} Option Type: </label>
+                <div class="controls col-sm-9">
+                    <input  type="hidden" name="question[{{@i}}][optionid]"  value="{{ @question.options[0].id }}"> 
+                    <select id="question{{@i}}_optiontype" class="form-control" data-role="select"  name="question[{{@i}}][optiontype]">                        
+                        <option value="100percent" <check if="{{@question.options[0].optiontype}}=='100percent'"> selected </check>>100percent</option>
+                        <option value="trueorfalse" <check if="{{@question.options[0].optiontype}}=='trueorfalse'"> selected </check>>trueorfalse</option>
+                        <option value="realorfake" <check if="{{@question.options[0].optiontype}}=='realorfake'"> selected </check>>realorfake</option>
+                        <option value="months" <check if="{{@question.options[0].optiontype}}=='months'"> selected </check>>months</option>
+                        <option value="CUSTOM" <check if="{{@question.options[0].optiontype}}=='CUSTOM'"> selected </check>>CUSTOM</option>
+                    </select>                    
+                </div> 
+
+                <label class="text-right col-sm-3"  >Q{{@i+1}} CUSTOM OPTIONS (only if CUSTOM was selected)</label>
+                <div class="controls col-sm-9" id="customoption{{@i}}" <check if="{{@question.options[0].optiontype}}!='CUSTOM'"> style="display:none" </check>>
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][0]" value="{{@question.options[0].text}}"></div>
+                        <input  type="hidden" name="question[{{@i}}][custom][0][id]"  value="{{ @question.options[0].id }}"> 
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][1]" value="{{@question.options[1].text}}"></div>
+                        <input  type="hidden" name="question[{{@i}}][custom][0][id]"  value="{{ @question.options[1].id }}"> 
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][2]" value="{{@question.options[2].text}}"></div>
+                        <input  type="hidden" name="question[{{@i}}][custom][0][id]"  value="{{ @question.options[2].id }}"> 
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][3]" value="{{@question.options[3].text}}"></div>
+                        <input  type="hidden" name="question[{{@i}}][custom][0][id]"  value="{{ @question.options[3].id }}"> 
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][4]" value="{{@question.options[4].text}}"></div>
+                        <input  type="hidden" name="question[{{@i}}][custom][0][id]"  value="{{ @question.options[4].id }}"> 
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][5]" value="{{@question.options[5].text}}"></div>
+                        <input  type="hidden" name="question[{{@i}}][custom][0][id]"  value="{{ @question.options[5].id }}"> 
+                </div>
+
+            </repeat>
+     
+        <button class="btn btn-primary btn-block" type="submit">Submit Changes</button>       
+        
+        </form>
+    </div>
+</div>
+
+
+
+    <script>
+        <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}"> 
+         $(function () {
+          $("#question{{@i}}_optiontype").change(function() {
+            var val = $(this).val();
+            if(val === "CUSTOM") {
+                $("#customoption{{@i}}").show();            
+            }
+            else {        
+                $("#customoption{{@i}}").hide();
+            }
+          });
+        });
+         </loop>
+    </script>
+
+    <script>
+    // init the quill
+
+        var toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            [{ list: 'ordered' }],
+            ['link', 'image'],
+            ['clean']                                         // remove formatting button
+            ];
+        
+        var Parchment = Quill.import('parchment');
+        var Block = Parchment.query('block');
+        Block.tagName = 'SPAN';
+        // or class NewBlock extends Block {}; NewBlock.tagName = 'DIV';
+        Quill.register(Block /* or NewBlock */, true);
+
+      var quill_description = new Quill('#editor_description', {
+        modules: {
+            toolbar: toolbarOptions
+        },
+        theme: 'snow'
+      });
+
+      <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">    
+            var quill_question{{@i}} = new Quill('#editor_{{@i}}', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+          });
+      </loop>
+
+        <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">    
+            var quill_answer{{@i}} = new Quill('#editor_answer{{@i}}', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+          });
+      </loop>
+
+      var form = document.querySelector('form');
+       
+           quill_description.clipboard.dangerouslyPasteHTML(0, "{{ @quiz.description | raw}}"); 
+          
+          <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">                  
+             quill_question{{@i}}.clipboard.dangerouslyPasteHTML(0, "{{ @questions[$i][text] | raw }}"); 
+             quill_answer{{@i}}.clipboard.dangerouslyPasteHTML(0, "{{ @questions[$i][answerwriteup] | raw }}"); 
+          </loop>
+     
+          
+
+
+    </script> 
+    </div>
+

@@ -45,20 +45,33 @@
                         <p >The correct answer is: <span class="answer_correct" style="float:none">{{ @question.correctanswer }}</span></p>  
 
                         <div class="well">
-                            Other people guessed:  <br/>                            
-                            <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
-                                The option <b>{{@thisresult[@currentquestion]}}</b> received <b>{{@thisresult['votes']}}</b> votes <br/>
-                            </repeat> 
+                            <div id="chart_{{@count}}"> </div>                                    
+                              <script type="text/javascript">
+                                google.charts.load('current', {'packages':['corechart']});
+                                google.charts.setOnLoadCallback(drawChart);                         
+                                function drawChart() {
+                                    // Create the data table.
+                                    var data{{@count}} = new google.visualization.DataTable();
+                                    data{{@count}}.addColumn('string', 'Answer');
+                                    data{{@count}}.addColumn('number', 'Votes');
+                                    data{{@count}}.addRows([
+                                <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
+                                      ['{{@thisresult[@currentquestion]}}', {{@thisresult['votes']}}],
+                                </repeat>   
+                                        ]);
+                                        var options = {'title':'Other People Guessed',
+                                                        titleTextStyle : { fontSize: 16, bold: false },
+                                                       'width':350,
+                                                       'height':200,
+                                                        pieSliceText: 'label'
+                                                   };
 
-                            <div class="progress">                                     
-                              <repeat group="{{@question_results[@count]}}" key="{{@j}}" value="@thisresult">
-                                <div class="progress-bar <check if="{{@j}}%2==0">progress-bar-warning</check>" style="width: {{(@thisresult['votes'] / @quiz.numparticipants)*100 }}%">
-                                    <span>{{@thisresult[@currentquestion]}}</span>
-                                </div>  
-                              </repeat>                                  
-                            </div>
-                        </div>   
-                                              
+                                        // Instantiate and draw our chart, passing in some options.
+                                        var chart{{@count}} = new google.visualization.PieChart(document.getElementById('chart_{{@count}}'));
+                                        chart{{@count}}.draw(data{{@count}}, options);
+                                      }
+                                    </script>                                                                             
+                        </div>                                                 
                         <p>{{ @question.answerwriteup  | raw }}</p>
                     </div>
                     <hr class="bg-silver" style="height:1px" />
@@ -82,7 +95,7 @@
                 <img src="{{ @BASE }}/app/views/images/answer{{@correctcount}}.jpg" width="100%" class="img-rounded img-responsive" />
                 <h4>
                 {{ @correctcount }}/10 correct! You have received the <b>{{@award}}</b> award!</h4>
-                <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge your friends on Facebook!</button>
+                <button  class="btn btn-primary btn-sm" onclick="postToFeed()">Challenge friends on Facebook!</button>
             </div>              
 
         </div>        
@@ -100,12 +113,12 @@
                     <i class="fa fa-arrow-left fa-pull-left fa-2x pad20"></i> 
                 </div>
                 <div class="col-md-4 col-xs-4">
-                    <p>Previous topic: Income Inequality</p> 
+                    <p>Previous topic: How rich are we really?</p> 
                 </div>
-                <div class="col-xs-1"> 
-</div>
+                <div class="col-xs-2"> 
+                </div>
                 <div class="col-md-4 col-xs-4">
-                    <p class="text-right">Next topic: Malnutrition</p> 
+                    <p class="text-right">Next topic: Internet Mob Justice League</p> 
                 </div>
                 <div class="col-xs-1 col-md-1">
                     <i class="fa fa-2x pad20 fa-arrow-right"></i> 
@@ -128,3 +141,4 @@
           FB.ui(obj);
     }
     </script>
+

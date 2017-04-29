@@ -34,3 +34,8 @@
  	padding:10px;
  	text-align: left;
  }
+
+.a2a_default_style {
+	display: flex; 
+	justify-content: center;
+}

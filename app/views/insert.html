@@ -20,31 +20,31 @@
             </div>
     
 
-            <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">            
+            <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">            
                 <img src="{{@BASE}}/app/views/images/black.jpg" width="100%" height="1px">
-                <label class="text-right col-sm-3" for="question{{@i}}">Question {{@i}}</label>
+                <label class="text-right col-sm-3" for="question{{@i}}">Question {{@i+1}}</label>
                 <div class="controls col-sm-9">
                     <input name="question[{{@i}}][text]" id="question{{@i}}_text" type="hidden">
                     <div id="editor_{{@i}}" style="height:100px; margin-bottom: 20px "></div>
                 </div> 
                 
-                <label class="text-right col-sm-3"  >Q{{@i}} Byline</label>
+                <label class="text-right col-sm-3"  >Q{{@i+1}} Byline</label>
                 <div class="controls col-sm-9">
                     <input id="question1_byline " type="text" class="form-control " name="question[{{@i}}][byline]">
                 </div> 
         
-                <label class="text-right col-sm-3"  >Q{{@i}} Correct Answer</label>
+                <label class="text-right col-sm-3"  >Q{{@i+1}} Correct Answer</label>
                 <div class="controls col-sm-9">
                     <input   type="text" class="form-control  " name="question[{{@i}}][correctanswer]">
                 </div>
 
-                <label class="text-right col-sm-3"  >Q{{@i}} Answer Writeup</label>
+                <label class="text-right col-sm-3"  >Q{{@i+1}} Answer Writeup</label>
                 <div class="controls col-sm-9">
                     <input name="question[{{@i}}][answerwriteup]" id="question{{@i}}_answerwriteup" type="hidden">
                     <div id="editor_answer{{@i}}" style="height:100px; margin-bottom: 20px "></div>                    
                 </div> 
 
-                <label class="text-right col-sm-3" for="question{{@i}}_optiontype">Q{{@i}} Option Type</label>
+                <label class="text-right col-sm-3" for="question{{@i}}_optiontype">Q{{@i+1}} Option Type</label>
                 <div class="controls col-sm-9">
                     <select id="question{{@i}}_optiontype" class="form-control" data-role="select"  name="question[{{@i}}][optiontype]">
                         <option value="100percent">100percent</option>
@@ -55,14 +55,14 @@
                     </select>                    
                 </div> 
 
-                <label class="text-right col-sm-3"  >Q{{@i}} CUSTOM OPTIONS (only if CUSTOM was selected)</label>
+                <label class="text-right col-sm-3"  >Q{{@i+1}} CUSTOM OPTIONS (only if CUSTOM was selected)</label>
                 <div class="controls col-sm-9" id="customoption{{@i}}" style="display:none">
+                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][0]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][1]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][2]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][3]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][4]"></div>
                     <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][5]"></div>
-                    <div class="col-xs-2"><input   type="text" class="form-control  " name="question[{{@i}}][custom][6]"></div>
                 </div>
 
             </loop>
@@ -76,7 +76,7 @@
 
 
     <script>
-        <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}"> 
+        <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}"> 
          $(function () {
           $("#question{{@i}}_optiontype").change(function() {
             var val = $(this).val();
@@ -114,7 +114,7 @@
         theme: 'snow'
       });
 
-      <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">    
+      <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">    
             var quill_question{{@i}} = new Quill('#editor_{{@i}}', {
             modules: {
                 toolbar: toolbarOptions
@@ -123,7 +123,7 @@
           });
       </loop>
 
-        <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">    
+        <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">    
             var quill_answer{{@i}} = new Quill('#editor_answer{{@i}}', {
             modules: {
                 toolbar: toolbarOptions
@@ -138,13 +138,13 @@
           var description = document.querySelector('input[name=description]');
           description.value =  quill_description.container.firstChild.innerHTML;       
 
-          <loop from="{{ @i=1 }}" to="{{ @i < 11 }}" step="{{ @i++ }}">                  
+          <loop from="{{ @i=0 }}" to="{{ @i < 10 }}" step="{{ @i++ }}">                  
             // Populate hidden input for question text
             var question = document.getElementById('question{{@i}}_text');
             question.value =  quill_question{{@i}}.container.firstChild.innerHTML; 
           // Populate hidden input for question answerwriteup
             var answerwriteup = document.getElementById('question{{@i}}_answerwriteup');
-            answerwriteup.value =  quill_question{{@i}}.container.firstChild.innerHTML; 
+            answerwriteup.value =  quill_answer{{@i}}.container.firstChild.innerHTML; 
           </loop>
       }
           
