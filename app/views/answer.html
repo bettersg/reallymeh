@@ -62,7 +62,7 @@
                                         var options = {'title':'Other People Guessed',
                                                         titleTextStyle : { fontSize: 16, bold: false },
                                                        'width':350,
-                                                       'height':200,
+                                                       'height':170,
                                                         pieSliceText: 'label'
                                                    };
 
@@ -133,9 +133,9 @@
     // calling the API ...
         var obj = {
           method: 'feed',
-          link: '{{@weburl}}quiz/{{@quiz.id}}',
+          link: '{{@weburl}}/quiz/{{@quiz.id}}',
           description: "I took the {{ @quiz.name }} quiz and scored {{ @correctcount }}/10 for the {{@award}} award! Can you do better?",
-          picture: '{{@weburl}}app/views/images/answer{{@correctcount}}.jpg',
+          picture: '{{@weburl}}/app/views/images/answer{{@correctcount}}.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
           FB.ui(obj);

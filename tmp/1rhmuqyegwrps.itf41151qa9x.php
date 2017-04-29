@@ -62,7 +62,7 @@
                                         var options = {'title':'Other People Guessed',
                                                         titleTextStyle : { fontSize: 16, bold: false },
                                                        'width':350,
-                                                       'height':200,
+                                                       'height':170,
                                                         pieSliceText: 'label'
                                                    };
 
