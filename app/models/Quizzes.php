@@ -5,7 +5,7 @@ class Quizzes extends DB\SQL\Mapper{
 	}
 	
 	public function all() {
-	    $this->load();
+	    $this->load(null,array('order'=>'createdat desc'));
 	    return $this->query;
 	}
 	public function getById($id) {
