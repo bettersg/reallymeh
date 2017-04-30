@@ -5,7 +5,7 @@
         <meta property="og:url"  content="<?php echo $weburl; ?>" />        
         <meta property="og:title"              content="Confirm?" />
         <meta property="og:description"        content="Discover the truth about Singapore, 10 hard questions at a time." />
-        <meta property="og:image"              content="<?php echo $weburl; ?>app/views/images/typewriter-bg.jpg" />
+        <meta property="og:image"              content="<?php echo $weburl; ?>/app/views/images/typewriter-bg.jpg" />
         <meta property="og:type"              content="website" />
         <meta property="fb:app_id"              content="214948752321276" />
         <title>Confirm?</title>
@@ -23,7 +23,7 @@
         <link href="<?php echo $BASE; ?>/app/views/css/plugins.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/blocks.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/custom.css" rel="stylesheet">
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
       <script src="app/views/js/html5shiv.js"></script>

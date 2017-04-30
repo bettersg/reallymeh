@@ -39,7 +39,7 @@
                                 <a href="<?php echo $BASE; ?>/quiz/<?php echo $eachquiz['id']; ?>"><?php echo $eachquiz['name']; ?></a>
                             </td>                         
                             <td> <?php echo $eachquiz['numparticipants']; ?></td> 
-                            <td><span class="fb-comments-count" data-href="<?php echo $weburl; ?>answer/<?php echo $eachquiz['id']; ?>"></span></td> 
+                            <td><span class="fb-comments-count" data-href="<?php echo $weburl; ?>/answer/<?php echo $eachquiz['id']; ?>"></span></td> 
                         </tr>
 
                     <?php endforeach; ?>

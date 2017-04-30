@@ -39,3 +39,95 @@
 	display: flex; 
 	justify-content: center;
 }
+
+.correct_class {
+	background-color: rgba(26,187,155,0.2);
+}
+
+.wrong_class {
+	background-color: rgba(255,0,0,0.2);
+}
+
+
+
+button:active
+{
+    background-color: #34ef92;
+}
+
+a:target
+{
+    background-color: #1cc196;
+}
+
+.radio-button
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.radio-button li
+{
+	float: left;
+    margin: 0 5px 5px 0;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    text-align:center;
+}
+
+.radio-button label, .radio-button input
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-weight:400;
+}
+
+.radio-button input[type="radio"]
+{
+    opacity: 0.011;
+    z-index: 100;
+}
+
+.radio-button input[type="radio"]:checked + label
+{
+    background: #1abc9c;
+    color:white;
+}
+
+.radio-button label
+{
+    padding: 8px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 90;
+}
+
+.radio-button label:hover
+{
+    background: #DDD;
+}
+
+.answer_correct
+{
+    color: #1abc9c;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+}
+
+.answer_wrong
+{
+    color: red;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+}

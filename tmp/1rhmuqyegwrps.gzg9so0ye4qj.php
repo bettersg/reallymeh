@@ -8,7 +8,7 @@
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="<?php echo $weburl; ?>quiz/<?php echo $eachquiz['id']; ?>"></span> 
+                        <span class="fb-comments-count" data-href="<?php echo $weburl; ?>/quiz/<?php echo $eachquiz['id']; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
