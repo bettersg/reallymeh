@@ -242,7 +242,7 @@
                             </li>
                             <li>
                                 <input type="radio" name="religion" value="other" id="religion_o">
-                                <label for="religion_c">OTHER</label>                                 
+                                <label for="religion_o">OTHER</label>                                 
                             </li>
                             <li>
                                 <input type="radio" name="religion" value="none" id="religion_n">

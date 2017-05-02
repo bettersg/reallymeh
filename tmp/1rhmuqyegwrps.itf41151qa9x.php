@@ -97,6 +97,9 @@
         <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
          <hr class="bg-silver" style="height:1px"/>
         <div class="fb-comments" data-href="<?php echo $weburl; ?><?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
+       
+                                
+
     </div>
     <div class="container">
         <div class="row">
@@ -117,7 +120,7 @@
         </div>
     </div>
 
-    <div class="fb-quote"></div>
+ 
 
     <script>
     function postToFeed() {
