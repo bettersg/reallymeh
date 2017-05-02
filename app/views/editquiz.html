@@ -20,7 +20,10 @@
                 <input type="file" id="quiz_image" name="image" />
             </div>
     
-
+            <label  class=" col-sm-3 text-right">Quiz Conclusion</label>
+            <div class="col-sm-9">
+                <textarea name="conclusion"  id="quiz_conclusion" rows=5 class="form-control">{{ @quiz.conclusion }}</textarea>                
+            </div>   
              
      
         <button class="btn btn-primary btn-block" type="submit">Submit Changes</button>       

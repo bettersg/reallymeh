@@ -109,7 +109,7 @@
         <div class="conclusion">{{@quiz.conclusion | raw}}</div>
          <hr class="bg-silver" style="height:1px"/>
         <div class="fb-comments" data-href="{{@weburl}}{{@PATH}}" data-numposts="5" width="100%"></div>
-       
+
                                 
 
     </div>
@@ -140,7 +140,7 @@
         var obj = {
           method: 'feed',
           link: '{{@weburl}}/quiz/{{@quiz.id}}',
-          description: "I took the {{ @quiz.name }} quiz and scored {{ @correctcount }}/10 for the {{@award}} award! Can you do better?",
+          description: "I took the '{{ @quiz.name }}' quiz and scored {{ @correctcount }}/10 for the {{@award}} award! Can you do better?",
           picture: '{{@weburl}}/app/views/images/answer{{@correctcount}}.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
