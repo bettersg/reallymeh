@@ -2,13 +2,7 @@
 <html lang="en" style="height:100%;">
     <head> 
         <meta charset="utf-8"> 
-        <meta property="og:url"  content="<?php echo $weburl; ?><?php echo $PATH; ?>" />       
-        <meta property="og:title"              content="Confirm? <?php echo $quiz['name']; ?> " />
-        <meta property="og:description"        content="Take the quiz '<?php echo $quiz['name']; ?>' and discover the truth Singapore, 10 hard questions at a time. Are you ready to Confirm?" />
-        <meta property="og:image"              content="<?php echo $weburl; ?>/<?php echo $quiz['image']; ?>" />
-        <meta property="og:type"              content="website" />
-        <meta property="fb:app_id"              content="214948752321276" />
-
+ 
         <title>Confirm?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="keywords" content="pinegrow, blocks, bootstrap" />
@@ -24,8 +18,7 @@
         <link href="<?php echo $BASE; ?>/app/views/css/plugins.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/blocks.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/custom.css" rel="stylesheet">
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>   
+ 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
       <script src="app/views/js/html5shiv.js"></script>
@@ -33,15 +26,7 @@
     <![endif]-->         
     </head>     
     <body data-spy="scroll" data-target="nav">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=214948752321276";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-        
+    
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="container-fluid"> 
             <div class="navbar-header"> 
@@ -49,3 +34,6 @@
             </div>                 
         </div>             
     </nav>
+
+
+    <h2 class="text-center">Jialat! You've come to a dead end. <em>Confirm</em> you want to be here? <br> Why not go back to the <a href="/">home page</a> la. <p><img class="img-responsive img-rounded" src="<?php echo $BASE; ?>/app/views/images/logo_300_square.png" style="margin:auto"></h2>

@@ -8,7 +8,10 @@ class QuizController extends Controller {
 		// render header
 	    $quizzes = new Quizzes($this->db);
 	    $quiz = $quizzes->getById($params['id'])[0];
-	    if (!$quiz) {$f3->error(404);}
+	    if (!$quiz) {
+	    	$f3->error(404);
+	    	
+	    	}
 	    $f3->set('quiz',$quiz->cast());
 		echo \Template::instance()->render('navheader.html');
 	}
