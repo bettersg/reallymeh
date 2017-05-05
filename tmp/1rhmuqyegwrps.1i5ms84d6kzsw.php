@@ -23,7 +23,7 @@
         <link href="<?php echo $BASE; ?>/app/views/css/plugins.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/blocks.css" rel="stylesheet">
         <link href="<?php echo $BASE; ?>/app/views/css/custom.css" rel="stylesheet">
-              
+              <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>   
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
       <script src="app/views/js/html5shiv.js"></script>

@@ -1,10 +1,30 @@
+ <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("Document loaded");
+            $('input').keyup(function() {
+                
+                var empty = false;
+                $('input').each(function() {
+                    console.log("Check input");
+                    if ($(this).val() == '') {
+                        empty = true;
+                    }
+                });
+                if (empty) {
+                    $('#submitform').attr('disabled', 'disabled');
+                } else {
+                    $('#submitform').removeAttr('disabled');
+                }
+            });
+        });
+    </script>
 
-    <div <?php if ($quiz['image']): ?>style="background: url('<?php echo $BASE; ?>/<?php echo $quiz['image']; ?>') center bottom no-repeat; background-size: cover; margin-bottom:20px; margin-top:-20px" <?php endif; ?>>
+    <div>
         <div class="container quiz-title-class">
            
             <div class="well">
                 <h3><?php echo $quiz['name']; ?></h3>
-                <div class="row">
+                <div class="row" style="margin-bottom: 10px">
                     <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
@@ -13,15 +33,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <p><?php echo $this->raw($quiz['description']); ?></p>
-                        <?php if ($visited): ?>You have visited this quiz already.<?php endif; ?> 
+                    <div class="col-md-6">                        
+                        <p><?php echo $this->raw($quiz['description']); ?></p>                                                
+                        <?php if ($visited): ?><h3 class="text-danger">You have visited this quiz already.</h3><?php endif; ?> 
+
+                    </div>
+                    <div class="col-md-6"><?php if ($quiz['image']): ?>
+                        <img class="img-responsive img-rounded" src="<?php echo $BASE; ?>/<?php echo $quiz['image']; ?>">
+                        <?php else: ?><img class="img-responsive img-rounded" src="<?php echo $BASE; ?>/app/views/images/logo_300_square.png">
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>             
         </div>
+
     </div>
-    <form method="POST" action="<?php echo $BASE; ?>/answer/<?php echo $quiz['id']; ?>">
+
+    <form method="POST" action="<?php echo $BASE; ?>/answer/<?php echo $quiz['id']; ?>" id="quizform" class="formclass">
         <input type="hidden" name="quiz_id_fk" value="<?php echo $quiz['id']; ?>">
         <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
         
@@ -36,7 +64,7 @@
                         <small><?php echo $question['byline']; ?></small>                            
                     <?php endif; ?> 
                 </div>            
-                <div class="col-md-4">
+                <div class="col-md-4 questionclass">
                   <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
                         <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                             <option value="0-10%">0-10%</option>
@@ -67,7 +95,7 @@
                         </select>
                     <?php break; ?><?php case 'trueorfalse': ?>
                         <div class="radio"> 
-                            <ul class="radio-button" name="question<?php echo $count+1; ?>">
+                            <ul class="radio-button" name="question<?php echo $count+1; ?>_ul">
                                 <li>
                                     <input type="radio" name="question<?php echo $count+1; ?>" value="true" id="question<?php echo $count+1; ?>_true">
                                     <label for="question<?php echo $count+1; ?>_true">True</label>                                 
@@ -80,7 +108,7 @@
                         </div>
                     <?php break; ?><?php case 'realorfake': ?>
                         <div class="radio"> 
-                            <ul class="radio-button" name="question<?php echo $count+1; ?>">
+                            <ul class="radio-button" name="question<?php echo $count+1; ?>_ul">
                                 <li>
                                     <input type="radio" name="question<?php echo $count+1; ?>" value="real" id="question<?php echo $count+1; ?>_real">
                                     <label for="question<?php echo $count+1; ?>_real">Real</label>                                 
@@ -93,7 +121,7 @@
                         </div>
                     <?php break; ?><?php case 'CUSTOM': ?>
                         <div class="radio"> 
-                            <ul class="radio-button">
+                            <ul class="radio-button" name="question<?php echo $count+1; ?>_ul">
                                 <?php $i=0; foreach (($question['options']?:[]) as $option): $i++; ?>
                                     <li>
                                         <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
@@ -256,10 +284,8 @@
                     <td class="pad20"><input type="hidden" name="location" value="singapore">Singapore</td> 
                 </tr>                 
             </table>
-            <button class="btn btn-primary btn-block">Compute results</button>
+            <button class="btn btn-primary btn-block disabled" id="submitform" disabled="disabled" >Compute results</button>
             <hr class="bg-silver" />
         </div> 
     </form>
 
-    </body>     
-</html>

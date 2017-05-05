@@ -73,3 +73,22 @@
         })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+$('form input').keyup(function() {
+
+                var empty = false;
+                $('form input').each(function() {
+                    if ($(this).is(':checked') == 'false') {
+                        empty = true;
+                    }
+                });
+                if (empty) {
+                    console.log('empty')
+                    $('#submitform').attr('disabled', 'disabled');
+                } 
+                else {
+                    console.log('full')
+                    $('#submitform').removeAttr('disabled');
+                }
+            });

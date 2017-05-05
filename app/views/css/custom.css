@@ -23,11 +23,15 @@
 }
 
 .quiz-title-class .well{
-	background: rgba(255,255,255,0.8) !important;
+	background: rgba(26,188,156,0.1) !important;
 	margin-top: 20px !important;
 	
 }
- 
+
+.quiz-title-class {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 
 .userguide {
  	background: rgba(26,188,156,0.2);
@@ -131,3 +135,4 @@ a:target
     text-transform: uppercase;
     
 }
+

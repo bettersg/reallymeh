@@ -1,10 +1,30 @@
+ <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("Document loaded");
+            $('input').keyup(function() {
+                
+                var empty = false;
+                $('input').each(function() {
+                    console.log("Check input");
+                    if ($(this).val() == '') {
+                        empty = true;
+                    }
+                });
+                if (empty) {
+                    $('#submitform').attr('disabled', 'disabled');
+                } else {
+                    $('#submitform').removeAttr('disabled');
+                }
+            });
+        });
+    </script>
 
-    <div <check if="@quiz.image">style="background: url('{{@BASE}}/{{@quiz.image}}') center bottom no-repeat; background-size: cover; margin-bottom:20px; margin-top:-20px" </check>>
+    <div>
         <div class="container quiz-title-class">
            
             <div class="well">
                 <h3>{{ @quiz.name }}</h3>
-                <div class="row">
+                <div class="row" style="margin-bottom: 10px">
                     <div class="col-xs-6">{{ date('d M',strtotime(@quiz.createdat)) }}</div>
                     <div class="col-xs-3 text-right">{{ @quiz.numparticipants }} <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
@@ -13,15 +33,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <p>{{ @quiz.description | raw }}</p>
-                        <check if="@visited">You have visited this quiz already.</check> 
+                    <div class="col-md-6">                        
+                        <p>{{ @quiz.description | raw }}</p>                                                
+                        <check if="@visited"><h3 class="text-danger">You have visited this quiz already.</h3></check> 
+
+                    </div>
+                    <div class="col-md-6"><check if="@quiz.image">
+                        <true><img class="img-responsive img-rounded" src="{{@BASE}}/{{@quiz.image}}"></true>
+                        <false><img class="img-responsive img-rounded" src="{{@BASE}}/app/views/images/logo_300_square.png"></false>
+                        </check>
                     </div>
                 </div>
             </div>             
         </div>
+
     </div>
-    <form method="POST" action="{{@BASE}}/answer/{{@quiz.id}}">
+
+    <form method="POST" action="{{@BASE}}/answer/{{@quiz.id}}" id="quizform" class="formclass">
         <input type="hidden" name="quiz_id_fk" value="{{@quiz.id}}">
         <input type="hidden" name="ipaddress" value="{{$_SERVER['REMOTE_ADDR']}}">
         
@@ -36,7 +64,7 @@
                         <true><small>{{ @question.byline }}</small></true>                            
                     </check> 
                 </div>            
-                <div class="col-md-4">
+                <div class="col-md-4 questionclass">
                   <switch expr="{{@question.options[0].optiontype}}">
 
                     <case value="100percent">
@@ -73,7 +101,7 @@
 
                     <case value="trueorfalse">
                         <div class="radio"> 
-                            <ul class="radio-button" name="question{{@count+1}}">
+                            <ul class="radio-button" name="question{{@count+1}}_ul">
                                 <li>
                                     <input type="radio" name="question{{@count+1}}" value="true" id="question{{@count+1}}_true">
                                     <label for="question{{@count+1}}_true">True</label>                                 
@@ -88,7 +116,7 @@
 
                     <case value="realorfake">
                         <div class="radio"> 
-                            <ul class="radio-button" name="question{{@count+1}}">
+                            <ul class="radio-button" name="question{{@count+1}}_ul">
                                 <li>
                                     <input type="radio" name="question{{@count+1}}" value="real" id="question{{@count+1}}_real">
                                     <label for="question{{@count+1}}_real">Real</label>                                 
@@ -103,7 +131,7 @@
 
                     <case value="CUSTOM">
                         <div class="radio"> 
-                            <ul class="radio-button">
+                            <ul class="radio-button" name="question{{@count+1}}_ul">
                                 <repeat group="@question.options" value="@option" counter="@i">
                                     <li>
                                         <input type="radio" name="question{{@count+1}}" value="{{@option.text}}" id="question{{@count+1}}_{{@i}}">
@@ -268,10 +296,8 @@
                     <td class="pad20"><input type="hidden" name="location" value="singapore">Singapore</td> 
                 </tr>                 
             </table>
-            <button class="btn btn-primary btn-block">Compute results</button>
+            <button class="btn btn-primary btn-block disabled" id="submitform" disabled="disabled" >Compute results</button>
             <hr class="bg-silver" />
         </div> 
     </form>
 
-    </body>     
-</html>
