@@ -92,3 +92,29 @@ $('form input').keyup(function() {
                     $('#submitform').removeAttr('disabled');
                 }
             });
+
+
+//
+
+                    $(document).ready(function() {
+             
+            $(window).scroll(function() {
+                $("input[type=radio]").each(function() {
+                    var empty = false;                
+                    if ($("input[type=radio]:checked").val()) {
+                        empty = false;
+                        console.log($("input[type=radio]:checked").val());
+                    }
+                    else {
+                        empty = true;
+                        console.log('empty');
+                    }
+
+                    if (empty) {
+                        $('#submitform').attr('disabled', 'disabled');
+                    } else {
+                        $('#submitform').removeAttr('disabled');
+                    }
+                });
+            });
+        });

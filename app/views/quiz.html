@@ -1,23 +1,4 @@
- <script type="text/javascript">
-        $(document).ready(function() {
-             
-            $('input').keyup(function() {
-                
-                var empty = false;
-                $('input').each(function() {
-                    console.log("Check input");
-                    if ($(this).val() == '') {
-                        empty = true;
-                    }
-                });
-                if (empty) {
-                    $('#submitform').attr('disabled', 'disabled');
-                } else {
-                    $('#submitform').removeAttr('disabled');
-                }
-            });
-        });
-    </script>
+
 
     <div>
         <div class="container quiz-title-class">
@@ -296,8 +277,34 @@
                     <td class="pad20"><input type="hidden" name="location" value="singapore">Singapore</td> 
                 </tr>                 
             </table>
-            <button class="btn btn-primary btn-block" id="submitform"  >Compute results</button>
+            <p id="completefirst" class="text-danger text-center">Eh you never complete all questions leh. Please complete everything before submitting! </p>
+            <button class="btn btn-primary btn-block " id="submitform" >Compute results</button>
             <hr class="bg-silver" />
         </div> 
     </form>
+<script type="text/javascript">
+    $(document).ready( function() {  
+        $('#submitform').prop('disabled', true);
+        inspectAllInputFields(); 
+        console.log('start');
+    });
 
+    $('input[type=radio]').change(function() {
+       inspectAllInputFields();
+       console.log('changing');
+    });
+
+    function inspectAllInputFields(){
+         var count = 0;
+         $('#submitform').prop('disabled', false);
+         $('#completefirst').addClass('hidden');
+         $('.radio-button').each(function(i){           
+          count = $(this).find('input[type=radio]:checked').length;
+            if(count == 0){
+              $('#submitform').prop('disabled', true);
+              $('#completefirst').removeClass('hidden');
+            }
+        });
+    }
+
+</script>

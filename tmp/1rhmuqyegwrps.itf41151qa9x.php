@@ -97,7 +97,7 @@
         <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
          <hr class="bg-silver" style="height:1px"/>
         <div class="fb-comments" data-href="<?php echo $weburl; ?><?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
-       
+
                                 
 
     </div>
@@ -128,7 +128,7 @@
         var obj = {
           method: 'feed',
           link: '<?php echo $weburl; ?>/quiz/<?php echo $quiz['id']; ?>',
-          description: "I took the <?php echo $quiz['name']; ?> quiz and scored <?php echo $correctcount; ?>/10 for the <?php echo $award; ?> award! Can you do better?",
+          description: "I took the '<?php echo $quiz['name']; ?>' quiz and scored <?php echo $correctcount; ?>/10 for the <?php echo $award; ?> award! Can you do better?",
           picture: '<?php echo $weburl; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg',
           name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
           };
