@@ -11,15 +11,15 @@ class Controller {
 
 	    $db=new DB\SQL(
 
-/*	        $f3->get('herokudb'),
+       		$f3->get('herokudb'),
 	        $f3->get('herokudbusername'),
 	        $f3->get('herokudbpassword'),
-*/
+/*	
 
 	        $f3->get('devdb'),
 	        $f3->get('devdbusername'),
 	        $f3->get('devdbpassword'),
-
+*/
 	        array( \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION )
 	    );
 
@@ -27,7 +27,7 @@ class Controller {
 	}
 
 	function error($f3){
-		echo Template::instance()->render('404.html');
+		echo Template::instance()->render('404.htm');
 		exit;
 		}
 }
