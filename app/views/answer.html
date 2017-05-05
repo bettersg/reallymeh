@@ -14,9 +14,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <p>{{ @quiz.description  | raw }}</p>
-                </div>
+                <div class="col-md-6">                        
+                        <p>{{ @quiz.description | raw }}</p>                                                                        
+                    </div>
+                    <div class="col-md-6"><check if="@quiz.image">
+                        <true><img class="img-responsive img-rounded" src="{{@BASE}}/{{@quiz.image}}"></true>
+                        <false><img class="img-responsive img-rounded" src="{{@BASE}}/app/views/images/logo_300_square.png"></false>
+                        </check>
+                    </div>
             </div>
         </div> 
     </div>
@@ -119,12 +124,12 @@
                 <i class="fa fa-arrow-left fa-pull-left fa-2x pad20"></i> 
             </div>
             <div class="col-md-4 col-xs-4">
-                <p>Previous topic: How rich are we really?</p> 
+                <p>Previous topic: <a href="http://www.confirm.sg/quiz/4">Fake News Headlines (Feb '17)</a></p> 
             </div>
             <div class="col-xs-2"> 
             </div>
             <div class="col-md-4 col-xs-4">
-                <p class="text-right">Next topic: Internet Mob Justice League</p> 
+                <p class="text-right">Next topic: <a href="http://www.confirm.sg/quiz/3">Kaypoh Auntie: Married already ah?</a></p> 
             </div>
             <div class="col-xs-1 col-md-1">
                 <i class="fa fa-2x pad20 fa-arrow-right"></i> 
