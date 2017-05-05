@@ -1,6 +1,6 @@
  <script type="text/javascript">
         $(document).ready(function() {
-            console.log("Document loaded");
+             
             $('input').keyup(function() {
                 
                 var empty = false;
@@ -284,7 +284,7 @@
                     <td class="pad20"><input type="hidden" name="location" value="singapore">Singapore</td> 
                 </tr>                 
             </table>
-            <button class="btn btn-primary btn-block disabled" id="submitform" disabled="disabled" >Compute results</button>
+            <button class="btn btn-primary btn-block disabled" id="submitform"  >Compute results</button>
             <hr class="bg-silver" />
         </div> 
     </form>
