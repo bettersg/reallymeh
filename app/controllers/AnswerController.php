@@ -31,7 +31,6 @@ class AnswerController extends Controller {
 		$quizresults = new Answers($this->db);		
 		$quizresults->add();
 
-
 		$id = $this->f3->get('POST.quiz_id_fk');
 
 		// set the user's answers to variable quizresults
@@ -45,8 +44,6 @@ class AnswerController extends Controller {
 	    $f3->set('quiz',$quiz->cast());		
 
 		// set the correct answers to variable thisquiz from the Questions database
-		// $questions = new Questions($this->db);
-	    // $thisquiz = $questions->getById($params['id']);
 	    $thisquiz = new Questions($this->db);	    
 	    $questions = [];
 	    	foreach ($thisquiz->getByQuizId($params['id']) as $question) {	      
@@ -54,16 +51,30 @@ class AnswerController extends Controller {
 	    	}
 	    $f3->set('questions',$questions);
 
-	    // get the other users' most popular answers
+
+	    // save the users score for this attempt
+	    $score = 0;
+		for ($i=0 ;$i<10;$i++) {
+			$currentquestion = 'question'.($i+1);
+			if (strtoupper($quizresults[$currentquestion])==strtoupper($questions[$i]['correctanswer'])) 
+				{ $score++; }
+		}
+		$quizresults->score = $score;
+		$quizresults->save();
+		$f3->set('score',$score);
+
+		// get the other users' most popular answers
 		$answers = new Answers($this->db);
 		 $question_results= [];
 			for ($i=1 ;$i<11;$i++) {
-				$question_results[] = $answers->answerVotes($id,$i);
-				// $question_results[] = $thisresult->cast();
+				$question_results[] = $answers->answerVotes($id,$i);				
 			}
 		$f3->set('question_results',$question_results);
-		
 
+		$distribution = new Answers($this->db);
+		$this_distribution = $distribution->answerDistribution($id);
+		$f3->set('distribution',$this_distribution);
+		
 		echo \Template::instance()->render('answer.html');
 		
 	}

@@ -21,6 +21,12 @@ class Answers extends DB\SQL\Mapper{
 	    
 	}
 
+	public function answerDistribution($quiz_id) {		
+		$this->distribution = 'COUNT(*)';
+		return $this->db->exec('select score, count(*) as distribution from f8m7o85ldalpqf2m.answers where quiz_id_fk='.$quiz_id.' group by score order by score asc');
+		// return $this->find(['quiz_id_fk = ?', $quiz_id], ['group' => 'score', 'order' => 'score asc']);
+	}
+
 	public function add() {
 	    $this->copyFrom('POST');
 	    $this->save();

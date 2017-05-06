@@ -2,6 +2,8 @@
         google.charts.load('current', {'packages':['corechart']});        
     </script>
 
+    <pre><?php echo var_dump($distribution); ?></pre>
+
     <div class="container quiz-title-class">
         <h3><?php echo $quiz['name']; ?> (<b>Quiz Results</b>)</h3>
         <div class="well">
@@ -100,6 +102,35 @@
 
         <h4>Reflections &amp; Discussion</h4>
         <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
+            
+        <div id="chart_distribution"></div>
+            <script type="text/javascript">
+                google.charts.setOnLoadCallback(drawDistribution); 
+                function drawDistribution() {
+                    // Create the data table.   
+                    var distribution = new google.visualization.DataTable();
+                    var distribution = google.visualization.arrayToDataTable([
+                        ['Score','Number', { role: 'style' }],
+                        
+                <?php foreach (($distribution?:[]) as $j=>$thisresult): ?>                    
+                      ['<?php echo $thisresult["score"]; ?> correct', <?php echo $thisresult['distribution']; ?>,'#1abc9c'],
+                <?php endforeach; ?>   
+                        ]);
+                        var options = {'title':'Distribution of scores for participants',
+                                        titleTextStyle : { fontSize: 14, bold: false },
+                                       'width':350,
+                                       'height':220,
+                                        legend: { position: "none" }, 
+                                        hAxis: {title: 'Their Score'},
+                                        vAxis: {title: 'Number of People'} ,                                      
+                                        backgroundColor: '#f5f5f5' 
+                                   };
+
+                        // Instantiate and draw our chart, passing in some options.
+                        var distributionChart = new google.visualization.ColumnChart(document.getElementById('chart_distribution'));
+                        distributionChart.draw(distribution, options);
+                      }
+            </script>     
          <hr class="bg-silver" style="height:1px"/>
         <div class="fb-comments" data-href="<?php echo $weburl; ?><?php echo $PATH; ?>" data-numposts="5" width="100%"></div>
 

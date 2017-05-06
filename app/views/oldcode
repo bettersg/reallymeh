@@ -118,3 +118,10 @@ $('form input').keyup(function() {
                 });
             });
         });
+
+
+
+        ['0',{{array_search('0',array_search('0',array_column(@distribution,'score')))}}],
+                        ['1',{{array_search('1',array_search('1',array_column(@distribution,'score')))}}],
+                        ['2',{{array_search('2',array_search('2',array_column(@distribution,'score')))}}],
+                        ['4',{{array_search('4',array_search('4',array_column(@distribution,'score')))}}]
