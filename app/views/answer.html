@@ -1,8 +1,7 @@
     <script type="text/javascript">                                  
         google.charts.load('current', {'packages':['corechart']});        
     </script>
-
-
+ 
     <div class="container quiz-title-class">
         <h3>{{ @quiz.name }} (<b>Quiz Results</b>)</h3>
         <div class="well">
@@ -54,7 +53,7 @@
                    </p>                      
                     <p>{{ @question.answerwriteup  | raw }}</p>
                     <div class="well <check if='{{strtoupper(@quizresults[@currentquestion]) != strtoupper(@question.correctanswer)}}'>wrong_class</check>">
-                        <div id="chart_{{@count}}"> </div>                                    
+                        <div id="chart_{{@count}}" style="width:100%"> </div>                                    
                           <script type="text/javascript">
                             google.charts.setOnLoadCallback(drawChart{{@count}}); 
                             function drawChart{{@count}}() {
@@ -67,9 +66,8 @@
                                   ['{{strtoupper(@thisresult[@currentquestion])}}', {{@thisresult['votes']}},<check if="{{ @correct }}"><true>'#1abc9c'</true><false>'red'</false></check>],
                             </repeat>   
                                     ]);
-                                    var options = {'title':'{{@quiz.numparticipants}} Participants Guessed:',
+                                    var options = {'title':'Participant Guesses:',
                                                     titleTextStyle : { fontSize: 16, bold: false },
-                                                   'width':320,
                                                    'height':200,
                                                     legend: { position: "none" },
                                                     hAxis: { format:'0'},
@@ -114,7 +112,7 @@
         <h4>Reflections &amp; Discussion</h4>
         <div class="conclusion">{{@quiz.conclusion | raw}}</div>
             
-        <div id="chart_distribution"></div> This results chart is still under construction. <br/>
+        <div id="chart_distribution" style="width:100%"></div>  
             <script type="text/javascript">
                 google.charts.setOnLoadCallback(drawDistribution); 
                 function drawDistribution() {
@@ -128,8 +126,7 @@
                 </repeat>   
                         ]);
                         var options = {'title':'Results distribution',
-                                        titleTextStyle : { fontSize: 14, bold: false },
-                                       'width':350,
+                                        titleTextStyle : { fontSize: 14, bold: false },                                       
                                        'height':220,
                                         legend: { position: "none" }, 
                                         hAxis: {title: 'Their Score'},

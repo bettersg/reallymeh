@@ -84,4 +84,30 @@ class AnswerController extends Controller {
 		echo \Template::instance()->render('notallowed.html');	
 	}
 
+/*	
+	function populatescores($f3, $params){
+
+		$thisquiz = new Questions($this->db);	    
+	    $questions = [];
+	    	foreach ($thisquiz->getByQuizId($params['id']) as $question) {	      
+	      		$questions[] = $question->cast();
+	    	}
+	    $f3->set('questions',$questions);
+
+	    $quizresults = new Answers($this->db);		
+		$results = $quizresults->getByQuizId($params['id']);
+
+	    foreach ($results as $result){
+	    	$score = 0;
+			for ($i=0 ;$i<10;$i++) {
+				$currentquestion = 'question'.($i+1);
+				if (strtoupper($result[$currentquestion])==strtoupper($questions[$i]['correctanswer'])) 
+					{ $score++; }
+			}
+			$result->score = $score;
+			$result->save();
+		}
+	}
+*/
+
 }

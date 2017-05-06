@@ -1,9 +1,8 @@
     <script type="text/javascript">                                  
         google.charts.load('current', {'packages':['corechart']});        
     </script>
-
-    <pre><?php echo var_dump($distribution); ?></pre>
-
+<pre><?php echo var_dump($distribution); ?></pre>
+ 
     <div class="container quiz-title-class">
         <h3><?php echo $quiz['name']; ?> (<b>Quiz Results</b>)</h3>
         <div class="well">
@@ -55,7 +54,7 @@
                    </p>                      
                     <p><?php echo $this->raw($question['answerwriteup']); ?></p>
                     <div class="well <?php if (strtoupper($quizresults[$currentquestion]) != strtoupper($question['correctanswer'])): ?>wrong_class<?php endif; ?>">
-                        <div id="chart_<?php echo $count; ?>"> </div>                                    
+                        <div id="chart_<?php echo $count; ?>" style="width:100%"> </div>                                    
                           <script type="text/javascript">
                             google.charts.setOnLoadCallback(drawChart<?php echo $count; ?>); 
                             function drawChart<?php echo $count; ?>() {
@@ -70,8 +69,7 @@
                                     ]);
                                     var options = {'title':'<?php echo $quiz['numparticipants']; ?> Participants Guessed:',
                                                     titleTextStyle : { fontSize: 16, bold: false },
-                                                   'width':320,
-                                                   'height':170,
+                                                   'height':200,
                                                     legend: { position: "none" },
                                                     hAxis: { format:'0'},
                                                     backgroundColor: '#f5f5f5' 
@@ -103,7 +101,7 @@
         <h4>Reflections &amp; Discussion</h4>
         <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
             
-        <div id="chart_distribution"></div>
+        <div id="chart_distribution" style="width:100%"></div> This results chart is still under construction. <br/>
             <script type="text/javascript">
                 google.charts.setOnLoadCallback(drawDistribution); 
                 function drawDistribution() {
@@ -116,9 +114,8 @@
                       ['<?php echo $thisresult["score"]; ?> correct', <?php echo $thisresult['distribution']; ?>,'#1abc9c'],
                 <?php endforeach; ?>   
                         ]);
-                        var options = {'title':'Distribution of scores for participants',
-                                        titleTextStyle : { fontSize: 14, bold: false },
-                                       'width':350,
+                        var options = {'title':'Results distribution',
+                                        titleTextStyle : { fontSize: 14, bold: false },                                       
                                        'height':220,
                                         legend: { position: "none" }, 
                                         hAxis: {title: 'Their Score'},
