@@ -14,9 +14,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <p><?php echo $this->raw($quiz['description']); ?></p>
-                </div>
+                <div class="col-md-6">                        
+                        <p><?php echo $this->raw($quiz['description']); ?></p>                                                                        
+                    </div>
+                    <div class="col-md-6"><?php if ($quiz['image']): ?>
+                        <img class="img-responsive img-rounded" src="<?php echo $BASE; ?>/<?php echo $quiz['image']; ?>">
+                        <?php else: ?><img class="img-responsive img-rounded" src="<?php echo $BASE; ?>/app/views/images/logo_300_square.png">
+                        <?php endif; ?>
+                    </div>
             </div>
         </div> 
     </div>
@@ -107,12 +112,12 @@
                 <i class="fa fa-arrow-left fa-pull-left fa-2x pad20"></i> 
             </div>
             <div class="col-md-4 col-xs-4">
-                <p>Previous topic: How rich are we really?</p> 
+                <p>Previous topic: <a href="http://www.confirm.sg/quiz/4">Fake News Headlines (Feb '17)</a></p> 
             </div>
             <div class="col-xs-2"> 
             </div>
             <div class="col-md-4 col-xs-4">
-                <p class="text-right">Next topic: Internet Mob Justice League</p> 
+                <p class="text-right">Next topic: <a href="http://www.confirm.sg/quiz/3">Kaypoh Auntie: Married already ah?</a></p> 
             </div>
             <div class="col-xs-1 col-md-1">
                 <i class="fa fa-2x pad20 fa-arrow-right"></i> 

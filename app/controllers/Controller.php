@@ -27,7 +27,7 @@ class Controller {
 	}
 
 	function error($f3){
-		echo Template::instance()->render('404.htm');
+		echo Template::instance()->render('404.html');
 		exit;
 		}
 }

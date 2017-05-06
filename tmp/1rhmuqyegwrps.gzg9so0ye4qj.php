@@ -265,7 +265,7 @@
                     <td class="pad20"><input type="hidden" name="location" value="singapore">Singapore</td> 
                 </tr>                 
             </table>
-            <p id="completefirst" class="text-danger text-center">Eh you never complete all questions leh. Please complete the quiz before submitting! </p>
+            <p id="completefirst" class="text-danger text-center">Eh you never complete all questions leh. Please complete everything before submitting! </p>
             <button class="btn btn-primary btn-block " id="submitform" >Compute results</button>
             <hr class="bg-silver" />
         </div> 
@@ -274,12 +274,10 @@
     $(document).ready( function() {  
         $('#submitform').prop('disabled', true);
         inspectAllInputFields(); 
-        console.log('start');
     });
 
     $('input[type=radio]').change(function() {
        inspectAllInputFields();
-       console.log('changing');
     });
 
     function inspectAllInputFields(){

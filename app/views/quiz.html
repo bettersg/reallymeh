@@ -286,12 +286,10 @@
     $(document).ready( function() {  
         $('#submitform').prop('disabled', true);
         inspectAllInputFields(); 
-        console.log('start');
     });
 
     $('input[type=radio]').change(function() {
        inspectAllInputFields();
-       console.log('changing');
     });
 
     function inspectAllInputFields(){
