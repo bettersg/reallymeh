@@ -24,10 +24,12 @@
         <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
         <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/bskit-scripts.js"></script>   
 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>   
 <!-- Include the Quill library -->
 <link href="https://cdn.quilljs.com/1.2.3/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.quilljs.com/1.2.3/quill.js"></script>
-
+<script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>   
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
       <script src="app/views/js/html5shiv.js"></script>

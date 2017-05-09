@@ -21,7 +21,7 @@
                             <td>  {{  date('d M',strtotime(@eachquiz.createdat))  }}</td> 
                             <td>
                                 <a href="{{ @BASE }}/admin/editquiz/{{@eachquiz.id}}">{{  @eachquiz.name  }}</a> <small>
-                                | <a href="{{ @BASE }}/admin/editquestions/{{@eachquiz.id}}">questions</a> | <a href="{{ @BASE }}/admin/editchoices/{{@eachquiz.id}}">choices</a></small>
+                                | <a href="{{ @BASE }}/admin/editquestions/{{@eachquiz.id}}">questions</a> | <a href="{{ @BASE }}/admin/editchoices/{{@eachquiz.id}}">choices</a> | <a href="{{ @BASE }}/admin/graph/{{@eachquiz.id}}">graphs</a></small> | 
                             </td>                         
                             <td> {{ @eachquiz.numparticipants }}</td> 
                             <td> <i class="fa fa-remove fa-lg text-danger"></i> </td> 

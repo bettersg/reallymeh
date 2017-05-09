@@ -224,7 +224,45 @@ class AdminController extends Controller {
 
 	}
 
+	function graph($f3, $params){	    
+    
+ 	if ($f3->get('SESSION.username')) 
+ 	{ 
+ 		$id = $f3->get('PARAMS.id');
+ 		
+		// set the quiz name and description from database
+		$quizzes = new Quizzes($this->db);
+	    $quiz = $quizzes->getById($params['id'])[0];
+	    $f3->set('quiz',$quiz->cast());		
 
+		// set the correct answers to variable thisquiz from the Questions database
+	    $thisquiz = new Questions($this->db);	    
+	    $questions = [];
+	    	foreach ($thisquiz->getByQuizId($params['id']) as $question) {	      
+	      		$questions[] = $question->cast();
+	    	}
+	    $f3->set('questions',$questions);
+
+		// get the other users' most popular answers
+		$answers = new Answers($this->db);
+		 $question_results= [];
+			for ($i=1 ;$i<11;$i++) {
+				$question_results[] = $answers->answerVotes($id,$i);				
+			}
+		$f3->set('question_results',$question_results);
+
+		$distribution = new Answers($this->db);
+		$this_distribution = $distribution->answerDistribution($id);
+		$f3->set('distribution',$this_distribution);
+		
+		echo \Template::instance()->render('graph.html');
+ 	}
+ 	else {
+ 		$f3->error(401);
+ 	}
+
+ 	
+}
 
 }
 
