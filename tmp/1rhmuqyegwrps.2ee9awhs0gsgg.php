@@ -4,15 +4,15 @@
         <meta charset="utf-8"> 
         <meta property="og:url"  content="<?php echo $weburl; ?><?php echo $PATH; ?>" />       
         <meta property="og:title"              content="Confirm? <?php echo $quiz['name']; ?> " />
-        <meta property="og:description"        content="Take the quiz '<?php echo $quiz['name']; ?>' and discover the truth Singapore, 10 hard questions at a time. Are you ready to Confirm?" />
+        <meta property="og:description"        content="Take the quiz '<?php echo $quiz['name']; ?>' and discover the truth about Singapore, 10 hard questions at a time. Are you ready to Confirm?" />
         <meta property="og:image"              content="<?php echo $weburl; ?>/<?php echo $quiz['image']; ?>" />
         <meta property="og:type"              content="website" />
         <meta property="fb:app_id"              content="214948752321276" />
 
-        <title>Confirm?</title>
+        <title>Confirm? <?php echo $quiz['name']; ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="keywords" content="pinegrow, blocks, bootstrap" />
-        <meta name="description" content="Confirm?" />
+        <meta name="keywords" content="Singapore, quiz, game, fake news, fakenews, #fakenews, #alternativefacts, alternative facts, perception, misperception, reality, questions, gaurav keerthi, dialectic.sg" />
+        <meta name="description" content="Take the quiz '<?php echo $quiz['name']; ?>' and discover the truth Singapore, 10 hard questions at a time. Are you ready to Confirm?" />
         <link rel="shortcut icon" href="<?php echo $BASE; ?>/ico/favicon.ico"> 
         <!-- Core CSS -->         
         <link href="<?php echo $BASE; ?>/app/views/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
@@ -26,6 +26,16 @@
         <link href="<?php echo $BASE; ?>/app/views/css/custom.css" rel="stylesheet">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="<?php echo $BASE; ?>/app/views/js/jquery-1.11.1.min.js"></script>   
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97654928-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
         <!--[if lt IE 9]>
       <script src="app/views/js/html5shiv.js"></script>

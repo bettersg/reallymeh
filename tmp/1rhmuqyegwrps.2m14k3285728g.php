@@ -13,12 +13,16 @@
                 <input name="description" type="hidden">
                 <div id="editor_description" style="height:200px; margin-bottom: 20px "></div>
             </div>
+    
+            <label  class=" col-sm-3 text-right">Quiz Conclusion</label>
+            <div class="col-sm-9">
+                <textarea name="conclusion"  id="quiz_conclusion" rows=5 class="form-control"></textarea>                
+            </div>    
 
-            <label  class=" col-sm-3 text-right" for="editor">Quiz Description</label>
+            <label  class=" col-sm-3 text-right" >Quiz Image</label>
             <div class="col-sm-9">
                 <input type="file" id="quiz_image" name="image" />
             </div>
-    
 
             <?php for ($i=0;$i < 10;$i++): ?>            
                 <img src="<?php echo $BASE; ?>/app/views/images/black.jpg" width="100%" height="1px">
