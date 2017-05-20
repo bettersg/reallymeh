@@ -34,6 +34,12 @@ class Answers extends DB\SQL\Mapper{
 	//	return $this->db->exec('select score, count(*) as distribution from answers where quiz_id_fk='.$quiz_id.' group by score order by score asc');
 	}
 
+	public function answerDemographic($question,$quiz_id,$race,$religion,$age,$housing,$location){
+		// SELECT question1, count(question1) as occurence FROM f8m7o85ldalpqf2m.answers where quiz_id_fk='30' and race='indian' and religion='hinduism' and age='30' and housing='private' group by question1 order by occurence desc
+		return $this->db->exec('SELECT question'.$question.', count(question'.$question.') as occurence FROM f8m7o85ldalpqf2m.answers where quiz_id_fk='.$quiz_id.' and race='.$race.' and religion='.$religion.' and age='.$age.' and housing='.$housing.' group by question'.$question.' order by occurence desc limit 1');
+
+	}
+
 	public function add() {
 	    $this->copyFrom('POST');
 	    $this->save();

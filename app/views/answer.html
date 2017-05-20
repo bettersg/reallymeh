@@ -1,7 +1,7 @@
     <script type="text/javascript">                                  
         google.charts.load('current', {'packages':['corechart']});        
     </script>
- 
+    
     <div class="container quiz-title-class">
         <h3>{{ @quiz.name }} (<b>Quiz Results</b>)</h3>
         <div class="well">
@@ -78,7 +78,8 @@
                                     var chart{{@count}} = new google.visualization.BarChart(document.getElementById('chart_{{@count}}'));
                                     chart{{@count}}.draw(data{{@count}}, options);
                                   }
-                                </script>                                                                             
+                                </script>
+                        <span class="<check if='{{strtoupper($demographic_results[$count][0][$currentquestion]) != strtoupper(@question.correctanswer)}}'>answer_wrong_lowercase</check>">Most users who match your demographic group got the answer <check if='{{strtoupper($demographic_results[$count][0][$currentquestion]) != strtoupper(@question.correctanswer)}}'><true>WRONG and chose the answer: {{strtoupper($demographic_results[$count][0][$currentquestion])}}.</true><false>correct!</false></check></span>
                     </div>                                                                     
                 </div>
                 <hr class="bg-silver" style="height:1px" />

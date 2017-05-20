@@ -1,8 +1,7 @@
     <script type="text/javascript">                                  
         google.charts.load('current', {'packages':['corechart']});        
     </script>
-<pre><?php echo var_dump($distribution); ?></pre>
- 
+    
     <div class="container quiz-title-class">
         <h3><?php echo $quiz['name']; ?> (<b>Quiz Results</b>)</h3>
         <div class="well">
@@ -67,7 +66,7 @@
                                   ['<?php echo strtoupper($thisresult[$currentquestion]); ?>', <?php echo $thisresult['votes']; ?>,<?php if ($correct): ?>'#1abc9c'<?php else: ?>'red'<?php endif; ?>],
                             <?php endforeach; ?>   
                                     ]);
-                                    var options = {'title':'<?php echo $quiz['numparticipants']; ?> Participants Guessed:',
+                                    var options = {'title':'Participant Guesses:',
                                                     titleTextStyle : { fontSize: 16, bold: false },
                                                    'height':200,
                                                     legend: { position: "none" },
@@ -79,7 +78,8 @@
                                     var chart<?php echo $count; ?> = new google.visualization.BarChart(document.getElementById('chart_<?php echo $count; ?>'));
                                     chart<?php echo $count; ?>.draw(data<?php echo $count; ?>, options);
                                   }
-                                </script>                                                                             
+                                </script>
+                        <span class="<?php if (strtoupper($demographic_results[$count][0][$currentquestion]) != strtoupper($question['correctanswer'])): ?>answer_wrong_lowercase<?php endif; ?>">Most users who match your demographic group got the answer <?php if (strtoupper($demographic_results[$count][0][$currentquestion]) != strtoupper($question['correctanswer'])): ?>WRONG and chose the answer: <?php echo strtoupper($demographic_results[$count][0][$currentquestion]); ?>.<?php else: ?>correct!<?php endif; ?></span>
                     </div>                                                                     
                 </div>
                 <hr class="bg-silver" style="height:1px" />
@@ -101,7 +101,7 @@
         <h4>Reflections &amp; Discussion</h4>
         <div class="conclusion"><?php echo $this->raw($quiz['conclusion']); ?></div>
             
-        <div id="chart_distribution" style="width:100%"></div> This results chart is still under construction. <br/>
+        <div id="chart_distribution" style="width:100%"></div>  
             <script type="text/javascript">
                 google.charts.setOnLoadCallback(drawDistribution); 
                 function drawDistribution() {
@@ -163,7 +163,7 @@
           link: '<?php echo $weburl; ?>/quiz/<?php echo $quiz['id']; ?>',
           description: "I took the '<?php echo $quiz['name']; ?>' quiz and scored <?php echo $correctcount; ?>/10 for the <?php echo $award; ?> award! Can you do better?",
           picture: '<?php echo $weburl; ?>/app/views/images/answer<?php echo $correctcount; ?>.jpg',
-          name: 'Confirm? Discover the truth about Singapore, 10 hard questions at a time.'       
+          name: 'Confirm? Try the <?php echo $quiz['name']; ?> quiz and discover the truth about Singapore, 10 hard questions at a time.'       
           };
           FB.ui(obj);
     }

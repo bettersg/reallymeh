@@ -66,10 +66,14 @@ class AnswerController extends Controller {
 		// get the other users' most popular answers
 		$answers = new Answers($this->db);
 		 $question_results= [];
+		 $demographic_results=[];
 			for ($i=1 ;$i<11;$i++) {
-				$question_results[] = $answers->answerVotes($id,$i);				
+				$question_results[] = $answers->answerVotes($id,$i);	
+				// get demographic results
+				$demographic_results[] = $answers->answerDemographic($i,$id,$POST.race,$POST.religion,$POST.age,$POST.housing,$POST.location);
 			}
 		$f3->set('question_results',$question_results);
+		$f3->set('demographic_results',$demographic_results);
 
 		$distribution = new Answers($this->db);
 		$this_distribution = $distribution->answerDistribution($id);
