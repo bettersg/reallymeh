@@ -6,7 +6,7 @@
             <div class="well">
                 <h3><?php echo $quiz['name']; ?></h3>
                 <div class="row" style="margin-bottom: 10px">
-                    <div class="col-xs-6"><?php echo date('d M',strtotime($quiz['createdat'])); ?></div>
+                    <div class="col-xs-6"><?php echo date('d M Y',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
                         <span class="fb-comments-count" data-href="<?php echo $weburl; ?>/quiz/<?php echo $eachquiz['id']; ?>"></span> 
