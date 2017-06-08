@@ -9,7 +9,7 @@
                     <div class="col-xs-6"><?php echo date('d M Y',strtotime($quiz['createdat'])); ?></div>
                     <div class="col-xs-3 text-right"><?php echo $quiz['numparticipants']; ?> <i class="fa fa-users fa-lg"></i></div>
                     <div class="col-xs-3 text-right">
-                        <span class="fb-comments-count" data-href="<?php echo $weburl; ?>/quiz/<?php echo $eachquiz['id']; ?>"></span> 
+                        <span class="fb-comments-count" data-href="<?php echo $weburl; ?>/answer/<?php echo $quiz['id']; ?>"></span> 
                         <i class="fa fa-comments fa-lg"></i> 
                     </div>
                 </div>
@@ -39,13 +39,13 @@
         <?php foreach (($questions?:[]) as $count=>$question): ?>
             
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <h5><?php echo $count + 1; ?>. <?php echo $this->raw($question['text']); ?></h5>
                     <?php if ($question['byline']): ?>
                         <small><?php echo $question['byline']; ?></small>                            
                     <?php endif; ?> 
                 </div>            
-                <div class="col-md-4 questionclass">
+                <div class="col-md-6 questionclass">
                   <?php switch ($question['options']['0']['optiontype']): ?><?php case '100percent': ?>
                         <select class="form-control bg-silver" name="question<?php echo $count+1; ?>"> 
                             <option value="0-10%">0-10%</option>
@@ -104,7 +104,7 @@
                         <div class="radio"> 
                             <ul class="radio-button" name="question<?php echo $count+1; ?>_ul">
                                 <?php $i=0; foreach (($question['options']?:[]) as $option): $i++; ?>
-                                    <li>
+                                    <li class="custom_li_button">
                                         <input type="radio" name="question<?php echo $count+1; ?>" value="<?php echo $option['text']; ?>" id="question<?php echo $count+1; ?>_<?php echo $i; ?>">
                                         <label for="question<?php echo $count+1; ?>_<?php echo $i; ?>"><?php echo $option['text']; ?></label>
                                     </li>

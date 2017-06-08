@@ -24,7 +24,7 @@
             <table class="table"> 
                 <thead> 
                     <tr> 
-                        <th><i class="fa fa-caret-down"></i> Date</th> 
+                        <th>Date</th> 
                         <th>Topic</th> 
                         <th><i class="fa fa-users fa-lg"></i></th> 
                         <th><i class="fa fa-comments-o fa-lg"></i></th> 

@@ -118,6 +118,10 @@ a:target
     background: #DDD;
 }
 
+.custom_li_button {
+    height: 100px !important;
+}
+
 .answer_correct
 {
     color: #1abc9c;
