@@ -140,12 +140,12 @@
                 <i class="fa fa-arrow-left fa-pull-left fa-2x pad20"></i> 
             </div>
             <div class="col-md-4 col-xs-4">
-                <p>Previous topic: <a href="http://www.confirm.sg/quiz/4">Fake News Headlines (Feb '17)</a></p> 
+                <p>Previous topic: <a href="http://www.confirm.sg/quiz/30">Kopi Kaki: 50 Shades of Law</a></p> 
             </div>
             <div class="col-xs-2"> 
             </div>
             <div class="col-md-4 col-xs-4">
-                <p class="text-right">Next topic: <a href="http://www.confirm.sg/quiz/3">Kaypoh Auntie: Married already ah?</a></p> 
+                <p class="text-right">Next topic: <a href="http://www.confirm.sg/quiz/29">Taxi Uncle say: Money No Enough?</a></p> 
             </div>
             <div class="col-xs-1 col-md-1">
                 <i class="fa fa-2x pad20 fa-arrow-right"></i> 
@@ -153,6 +153,32 @@
         </div>
     </div>
 
+    <div class="container">
+        <table class="table"> 
+            <thead> 
+                <tr> 
+                    <th>Date</th> 
+                    <th>Topic</th> 
+                    <th><i class="fa fa-users fa-lg"></i></th> 
+                </tr>                     
+            </thead>                 
+            <tbody> 
+                <?php foreach (($footerquiz?:[]) as $eachquiz): ?>
+
+                    <tr> 
+                        <td>  <?php echo date('d M',strtotime($eachquiz['createdat'])); ?></td> 
+                        <td>
+                            <a href="<?php echo $BASE; ?>/quiz/<?php echo $eachquiz['id']; ?>"><?php echo $eachquiz['name']; ?></a>
+                        </td>                         
+                        <td> <?php echo $eachquiz['numparticipants']; ?></td>                         
+                    </tr>
+
+                <?php endforeach; ?>
+                                                
+            </tbody>
+        </table>
+        
+    </div>
  
 
     <script>

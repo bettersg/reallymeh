@@ -14,9 +14,7 @@ class AnswerController extends Controller {
 		
 	}
 	
-	function afterroute() {
-		// session management if required
-		// render header
+	function afterroute() {		
 		echo \Template::instance()->render('footer.html');
 	}	
 	
@@ -79,6 +77,9 @@ class AnswerController extends Controller {
 		$this_distribution = $distribution->answerDistribution($id);
 		$f3->set('distribution',$this_distribution);
 		
+		$footerquiz = $quizzes->all();
+		$f3->set('footerquiz',$footerquiz);
+
 		echo \Template::instance()->render('answer.html');
 		
 	}
