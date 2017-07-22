@@ -20,8 +20,8 @@
                         <tr> 
                             <td>  <?php echo date('d M',strtotime($eachquiz['createdat'])); ?></td> 
                             <td>
-                                <a href="<?php echo $BASE; ?>/admin/editquiz/<?php echo $eachquiz['id']; ?>"><?php echo $eachquiz['name']; ?></a> <small>
-                                | <a href="<?php echo $BASE; ?>/admin/editquestions/<?php echo $eachquiz['id']; ?>">questions</a> | <a href="<?php echo $BASE; ?>/admin/editchoices/<?php echo $eachquiz['id']; ?>">choices</a> | <a href="<?php echo $BASE; ?>/admin/graph/<?php echo $eachquiz['id']; ?>">graphs</a></small> | 
+                                <a href="<?php echo $BASE; ?>/admin/editquiz/<?php echo $eachquiz['id']; ?>"><?php echo $eachquiz['name']; ?></a> <small> 
+                                <!-- <a href="<?php echo $BASE; ?>/admin/editquestions/<?php echo $eachquiz['id']; ?>">questions</a> | <a href="<?php echo $BASE; ?>/admin/editchoices/<?php echo $eachquiz['id']; ?>">choices</a> | --> <a class="btn btn-sm btn-info" href="<?php echo $BASE; ?>/admin/graph/<?php echo $eachquiz['id']; ?>">graphs</a> </small>  
                             </td>                         
                             <td> <?php echo $eachquiz['numparticipants']; ?></td> 
                             <td> <i class="fa fa-remove fa-lg text-danger"></i> </td> 
